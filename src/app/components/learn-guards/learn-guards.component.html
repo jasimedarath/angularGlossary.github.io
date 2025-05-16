@@ -1,0 +1,77 @@
+<h2 class="header">Guards</h2>
+<label
+  ><b>Definition</b>: A service is a class with a narrow, well-defined purpose.
+  It provides functionality that can be used across multiple components and
+  modules.</label
+><br />
+<label
+  ><b>Usage</b>: Services are typically used for tasks such as fetching data
+  from a server, logging, validating user input, and any other non-UI related
+  tasks.</label
+>
+
+<mat-tab-group>
+  <mat-tab label="Syntax Reference">
+    <ng-template matTabContent>
+      <pre><code #codeElement class="language-typescript">{{ code }}</code></pre>
+    </ng-template>
+  </mat-tab>
+
+  <mat-tab label="Types">
+    <ng-template matTabContent>
+      <div>
+        <h3><b>CanActivate</b></h3>
+        <ul>
+          <li>Purpose: Determines if a route can be activated.</li>
+          <li>Usage: Often used for authentication checks.</li>
+        </ul>
+        <pre><code #codeElement class="language-typescript">{{ activate }}</code></pre>
+      </div>
+
+      <div>
+        <h3><b>CanActivateChild</b></h3>
+        <ul>
+            <li>Purpose: Determines if the children of a route can be activated.</li>
+            <li>Usage: Often used to apply guard logic to child routes.</li>
+        </ul>
+        <pre><code #codeElement class="language-typescript">{{ activateChild }}</code></pre>
+      </div>
+
+      <div>
+        <h3><b>CanDeactivate</b></h3>
+        <ul>
+            <li>Purpose: Determines if a route can be deactivated.</li>
+            <li>Usage: Used to prevent navigation away from the current route, such as when there are unsaved changes.</li>
+        </ul>
+        <pre><code #codeElement class="language-typescript">{{ deactivate }}</code></pre>
+      </div>
+
+      <div>
+        <h3><b>Resolve</b></h3>
+        <ul>
+            <li>Purpose: Pre-fetches data before activating a route.</li>
+            <li>Usage: Used to ensure that necessary data is loaded before the route is activated.</li>
+        </ul>
+        <pre><code #codeElement class="language-typescript">{{ resolve }}</code></pre>
+      </div>
+
+      <div>
+        <h3><b>CanLoad</b></h3>
+        <ul>
+            <li>Purpose: Determines if a module can be loaded asynchronously.</li>
+            <li>Usage: Used to control access to lazy-loaded modules.</li>
+        </ul>
+        <pre><code #codeElement class="language-typescript">{{ load }}</code></pre>
+      </div>
+
+      <div>
+        <h3><b>Registering Guards with Routes</b></h3>
+        <ul>
+            <li>Guards are specified in the route configuration object using their respective properties (canActivate, canActivateChild, canDeactivate, resolve, canLoad).</li>
+        </ul>
+        <pre><code #codeElement class="language-typescript">{{ registerGuard }}</code></pre>
+      </div>
+
+    </ng-template>
+  </mat-tab>
+</mat-tab-group>
