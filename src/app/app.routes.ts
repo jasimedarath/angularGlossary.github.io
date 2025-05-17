@@ -15,6 +15,7 @@ import { LearnUnittestingComponent } from './components/learn-unittesting/learn-
 import { LearnSignalsComponent } from './components/learn-signals/learn-signals.component';
 import { LearnNgrxComponent } from './components/learn-ngrx/learn-ngrx.component';
 import { LearnAngularmaterialComponent } from './components/learn-angularmaterial/learn-angularmaterial.component';
+import { LearnRoutingComponent } from './components/learn-routing/learn-routing.component';
 
 export const routes: Routes = [
     { path: 'modules', component: LearnModuleComponent},
@@ -22,6 +23,7 @@ export const routes: Routes = [
     { path: 'directives', component: LearnDirectiveComponent},
     { path: 'pipes', component: LearnPipeComponent},
     { path: 'services', component: LearnServicesComponent},
+    { path: 'routing', component: LearnRoutingComponent},
     { path: 'interceptors', component: LearnInterceptorsComponent},
     { path: 'guards', component: LearnGuardsComponent},
     { path: 'forms', component: LearnFormsComponent},

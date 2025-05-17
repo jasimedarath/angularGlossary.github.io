@@ -18,6 +18,7 @@ export class AppComponent {
     { title: 'Directives', link: 'directives' },
     { title: 'Pipes', link: 'pipes' },
     { title: 'Services', link: 'services' },
+    { title: 'Routing', link: 'routing' },
     { title: 'Interceptors', link: 'interceptors' },
     { title: 'Guards', link: 'guards' },
     { title: 'Forms', link: 'forms' },
