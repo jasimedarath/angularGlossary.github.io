@@ -60,7 +60,7 @@ export class LearnComponentComponent implements AfterViewChecked {
   }
   `;
 
-  viewContentChild: string = `// Child component
+  viewChild: string = `// Child component
   @Component({
     selector: 'child-component',
     template: '<p>Child Component</p>'
@@ -81,6 +81,33 @@ export class LearnComponentComponent implements AfterViewChecked {
       console.log(this.childComponent.childData);
     }
   }
+  `;
+
+   viewContentChild: string = `// Parent component
+    <my-card>
+      <p #projectedParagraph>This is content projected into the card.</p>
+    </my-card>
+
+
+  // Child component
+  import { Component, ContentChild, ElementRef, AfterContentInit } from '@angular/core';
+
+  @Component({
+    selector: 'my-card',
+    template: \`
+      <div class="card">
+        <ng-content></ng-content>
+      </div>
+    \`
+  })
+  export class MyCardComponent implements AfterContentInit {
+    @ContentChild('projectedParagraph') paragraph!: ElementRef;
+
+    ngAfterContentInit() {
+      console.log('Projected Content:', this.paragraph.nativeElement.textContent);
+    }
+  }
+
   `;
 
   serviceBased: string = `@Injectable({

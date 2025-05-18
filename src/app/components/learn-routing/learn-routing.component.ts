@@ -82,7 +82,6 @@ export class LearnRoutingComponent implements AfterViewChecked {
             this.productId = this.route.snapshot.paramMap.get('id')!;
           }
         }
-
   `;
 
   param2: string = `
