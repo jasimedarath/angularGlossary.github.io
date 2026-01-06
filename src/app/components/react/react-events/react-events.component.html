@@ -1,0 +1,128 @@
+<div class="container">
+  <h1>React Events</h1>
+  <p>React events are named using camelCase and you pass a function as the event handler. React uses synthetic events that wrap native browser events for better cross-browser compatibility.</p>
+
+  <mat-tab-group>
+    <mat-tab label="Event Basics">
+      <div class="tab-content">
+        <h2>Basic Event Handling</h2>
+        <div class="info-box">
+          <p>React event handlers are written in <strong>camelCase</strong> and passed as functions, not strings.</p>
+          <ul>
+            <li>onClick, onChange, onSubmit (camelCase)</li>
+            <li>Pass function reference, not function call</li>
+            <li>Can define handlers inline or separately</li>
+            <li>Use arrow functions to pass parameters</li>
+            <li>Event handlers receive synthetic event object</li>
+          </ul>
+        </div>
+        <pre><code class="language-jsx">{{eventBasics}}</code></pre>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Synthetic Events">
+      <div class="tab-content">
+        <h2>Synthetic Events</h2>
+        <div class="info-box">
+          <p><strong>Synthetic events</strong> are React's cross-browser wrapper around native browser events.</p>
+          <ul>
+            <li>Same interface as native events</li>
+            <li>Works consistently across all browsers</li>
+            <li>Access native event via e.nativeEvent</li>
+            <li>No longer pooled in React 17+</li>
+            <li>Can be used asynchronously</li>
+          </ul>
+        </div>
+        <pre><code class="language-jsx">{{syntheticEvents}}</code></pre>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Form Events">
+      <div class="tab-content">
+        <h2>Form Events</h2>
+        <div class="info-box">
+          <p>Common form events: onChange, onSubmit, onFocus, onBlur.</p>
+          <ul>
+            <li><strong>onChange:</strong> Fires on every input change</li>
+            <li><strong>onSubmit:</strong> Fires on form submission</li>
+            <li><strong>onFocus:</strong> Element gains focus</li>
+            <li><strong>onBlur:</strong> Element loses focus</li>
+            <li>Use e.preventDefault() to prevent default behavior</li>
+          </ul>
+        </div>
+        <pre><code class="language-jsx">{{formEvents}}</code></pre>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Mouse & Keyboard">
+      <div class="tab-content">
+        <h2>Mouse and Keyboard Events</h2>
+        <div class="info-box">
+          <p>Handle mouse movements, clicks, and keyboard input.</p>
+          <ul>
+            <li><strong>Mouse:</strong> onClick, onDoubleClick, onMouseMove, onMouseEnter, onMouseLeave</li>
+            <li><strong>Keyboard:</strong> onKeyDown, onKeyUp, onKeyPress (deprecated)</li>
+            <li>Access key info: e.key, e.code, e.keyCode</li>
+            <li>Check modifiers: e.ctrlKey, e.shiftKey, e.altKey</li>
+            <li>Get mouse position: e.clientX, e.clientY</li>
+          </ul>
+        </div>
+        <pre><code class="language-jsx">{{mouseKeyboardEvents}}</code></pre>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Event Propagation">
+      <div class="tab-content">
+        <h2>Event Bubbling and Propagation</h2>
+        <div class="info-box warning">
+          <p>Events bubble up from child to parent elements by default.</p>
+          <ul>
+            <li>Events bubble up the DOM tree</li>
+            <li>Use e.stopPropagation() to stop bubbling</li>
+            <li>e.preventDefault() prevents default browser behavior</li>
+            <li>Can handle at parent level (event delegation)</li>
+            <li>Capture phase available with onClickCapture</li>
+          </ul>
+        </div>
+        <pre><code class="language-jsx">{{eventPropagation}}</code></pre>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Custom Events">
+      <div class="tab-content">
+        <h2>Custom Event Handlers</h2>
+        <div class="info-box">
+          <p>Create custom event handlers and pass custom data to parent components.</p>
+          <ul>
+            <li>Define custom callback props</li>
+            <li>Process events and pass custom data</li>
+            <li>Use for component communication</li>
+            <li>Debounce frequent events for performance</li>
+            <li>Throttle events like scroll or resize</li>
+          </ul>
+        </div>
+        <pre><code class="language-jsx">{{customEvents}}</code></pre>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Best Practices">
+      <div class="tab-content">
+        <h2>Event Handling Best Practices</h2>
+        <div class="info-box success">
+          <h3>✓ Best Practices</h3>
+          <ul>
+            <li>Use arrow functions or bind 'this' in class components</li>
+            <li>Avoid creating functions in render (use useCallback)</li>
+            <li>Use e.preventDefault() to prevent default actions</li>
+            <li>Use e.stopPropagation() carefully</li>
+            <li>Debounce/throttle expensive event handlers</li>
+            <li>Clean up event listeners in useEffect cleanup</li>
+            <li>Name event handler props with "on" prefix</li>
+            <li>Keep event handlers simple and focused</li>
+          </ul>
+        </div>
+        <pre><code class="language-jsx">{{eventBestPractices}}</code></pre>
+      </div>
+    </mat-tab>
+  </mat-tab-group>
+</div>

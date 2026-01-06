@@ -1,0 +1,117 @@
+<div class="container">
+  <h1>JSX - JavaScript XML</h1>
+  <p>JSX is a syntax extension for JavaScript that looks similar to HTML. It allows you to write UI components in a more intuitive way by mixing HTML-like syntax with JavaScript logic.</p>
+
+  <mat-tab-group>
+    <mat-tab label="JSX Basics">
+      <div class="tab-content">
+        <h2>What is JSX?</h2>
+        <div class="info-box">
+          <p><strong>JSX</strong> stands for JavaScript XML. It's a syntax extension that allows you to write HTML-like code in JavaScript files. JSX gets compiled to regular JavaScript function calls.</p>
+          <ul>
+            <li>JSX produces React "elements"</li>
+            <li>It's not required but makes code more readable</li>
+            <li>You can embed JavaScript expressions using curly braces</li>
+            <li>JSX is closer to JavaScript than HTML</li>
+          </ul>
+        </div>
+        <pre><code class="language-jsx">{{jsxBasics}}</code></pre>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Fragments">
+      <div class="tab-content">
+        <h2>React Fragments</h2>
+        <div class="info-box">
+          <p><strong>Fragments</strong> let you group multiple children without adding extra nodes to the DOM.</p>
+          <ul>
+            <li>Use &lt;Fragment&gt; or short syntax &lt;&gt;</li>
+            <li>Helps maintain clean DOM structure</li>
+            <li>Can have keys when rendering lists</li>
+            <li>No extra wrapper div in the DOM</li>
+          </ul>
+        </div>
+        <pre><code class="language-jsx">{{jsxFragments}}</code></pre>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Expressions">
+      <div class="tab-content">
+        <h2>JavaScript Expressions in JSX</h2>
+        <div class="info-box">
+          <p>You can embed any JavaScript expression in JSX by wrapping it in curly braces.</p>
+          <ul>
+            <li>Arithmetic operations</li>
+            <li>Function calls</li>
+            <li>Ternary operators for conditional rendering</li>
+            <li>Logical && for conditional display</li>
+            <li>Array methods like map, filter</li>
+          </ul>
+        </div>
+        <pre><code class="language-jsx">{{jsxExpressions}}</code></pre>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Attributes">
+      <div class="tab-content">
+        <h2>JSX Attributes</h2>
+        <div class="info-box">
+          <p>JSX uses <strong>camelCase</strong> for attributes and some have different names than HTML.</p>
+          <ul>
+            <li><code>class</code> → <code>className</code></li>
+            <li><code>for</code> → <code>htmlFor</code></li>
+            <li>Event handlers use camelCase: <code>onClick</code>, <code>onChange</code></li>
+            <li>Style attribute accepts a JavaScript object</li>
+            <li>Custom data attributes: <code>data-*</code></li>
+          </ul>
+        </div>
+        <pre><code class="language-jsx">{{jsxAttributes}}</code></pre>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Children">
+      <div class="tab-content">
+        <h2>JSX Children</h2>
+        <div class="info-box">
+          <p>JSX elements can contain children - other elements, text, or expressions.</p>
+          <ul>
+            <li>Children can be nested JSX elements</li>
+            <li>String literals as children</li>
+            <li>JavaScript expressions as children</li>
+            <li>Arrays of elements (with keys)</li>
+            <li>Children as props for composition</li>
+          </ul>
+        </div>
+        <pre><code class="language-jsx">{{jsxChildren}}</code></pre>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Best Practices">
+      <div class="tab-content">
+        <h2>JSX Best Practices</h2>
+        <div class="info-box success">
+          <h3>✓ Do's</h3>
+          <ul>
+            <li>Always provide keys when rendering lists</li>
+            <li>Keep JSX readable with proper indentation</li>
+            <li>Extract complex JSX into separate components</li>
+            <li>Use meaningful component and variable names</li>
+            <li>Wrap multi-line JSX in parentheses</li>
+            <li>Use fragments to avoid extra wrapper divs</li>
+          </ul>
+        </div>
+        <div class="info-box warning">
+          <h3>✗ Don'ts</h3>
+          <ul>
+            <li>Don't use index as key unless absolutely necessary</li>
+            <li>Don't create components inside render methods</li>
+            <li>Don't forget to close self-closing tags</li>
+            <li>Don't use quotes for JavaScript expressions in attributes</li>
+            <li>Avoid deeply nested JSX (extract to components)</li>
+          </ul>
+        </div>
+        <pre><code class="language-jsx">{{jsxBestPractices}}</code></pre>
+      </div>
+    </mat-tab>
+  </mat-tab-group>
+</div>

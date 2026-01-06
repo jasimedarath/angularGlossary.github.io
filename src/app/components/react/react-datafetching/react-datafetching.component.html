@@ -1,0 +1,118 @@
+<div class="container">
+  <h1>React Data Fetching</h1>
+  <p>Learn different approaches to fetching and managing data in React applications.</p>
+
+  <mat-tab-group>
+    <mat-tab label="Fetch API">
+      <div class="tab-content">
+        <h2>Native Fetch API</h2>
+        <div class="info-box">
+          <p><strong>Fetch API</strong> is the built-in browser API for making HTTP requests.</p>
+          <ul>
+            <li>Built into modern browsers</li>
+            <li>Promise-based API</li>
+            <li>No external dependencies</li>
+            <li>Manual error handling</li>
+          </ul>
+        </div>
+        <pre><code class="language-jsx">{{fetchAPI}}</code></pre>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Axios">
+      <div class="tab-content">
+        <h2>Axios - HTTP Client</h2>
+        <div class="info-box">
+          <p><strong>Axios</strong> is a popular promise-based HTTP client with additional features.</p>
+          <ul>
+            <li>Automatic JSON transformation</li>
+            <li>Request/response interceptors</li>
+            <li>Better error handling</li>
+            <li>Cancel requests</li>
+          </ul>
+        </div>
+        <pre><code class="language-jsx">{{axios}}</code></pre>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="React Query">
+      <div class="tab-content">
+        <h2>React Query - Powerful Data Fetching</h2>
+        <div class="info-box">
+          <p><strong>React Query</strong> provides hooks for fetching, caching, and updating server state.</p>
+          <ul>
+            <li>Automatic caching</li>
+            <li>Background refetching</li>
+            <li>Optimistic updates</li>
+            <li>Powerful dev tools</li>
+          </ul>
+        </div>
+        <pre><code class="language-jsx">{{reactQuery}}</code></pre>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="SWR">
+      <div class="tab-content">
+        <h2>SWR - Stale-While-Revalidate</h2>
+        <div class="info-box">
+          <p><strong>SWR</strong> is a lightweight library for data fetching with automatic revalidation.</p>
+          <ul>
+            <li>Lightweight (~4KB)</li>
+            <li>Revalidate on focus</li>
+            <li>Interval polling</li>
+            <li>Optimistic UI</li>
+          </ul>
+        </div>
+        <pre><code class="language-jsx">{{swr}}</code></pre>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Custom Hook">
+      <div class="tab-content">
+        <h2>Custom Data Fetching Hook</h2>
+        <div class="info-box">
+          <p><strong>Custom hooks</strong> provide full control over data fetching logic.</p>
+          <ul>
+            <li>No external dependencies</li>
+            <li>Tailored to specific needs</li>
+            <li>Learning opportunity</li>
+            <li>AbortController support</li>
+          </ul>
+        </div>
+        <pre><code class="language-jsx">{{customHook}}</code></pre>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Error Handling">
+      <div class="tab-content">
+        <h2>Error Handling Patterns</h2>
+        <div class="info-box">
+          <p><strong>Proper error handling</strong> improves user experience and app reliability.</p>
+          <ul>
+            <li>Error boundaries</li>
+            <li>Retry logic</li>
+            <li>Exponential backoff</li>
+            <li>User-friendly messages</li>
+          </ul>
+        </div>
+        <pre><code class="language-jsx">{{errorHandling}}</code></pre>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Comparison">
+      <div class="tab-content">
+        <h2>Data Fetching Solutions Comparison</h2>
+        <div class="info-box">
+          <p><strong>Choose the right solution</strong> based on your application's data requirements.</p>
+          <ul>
+            <li>Consider caching needs</li>
+            <li>Bundle size impact</li>
+            <li>Feature requirements</li>
+            <li>Team expertise</li>
+          </ul>
+        </div>
+        <pre><code class="language-jsx">{{comparison}}</code></pre>
+      </div>
+    </mat-tab>
+  </mat-tab-group>
+</div>

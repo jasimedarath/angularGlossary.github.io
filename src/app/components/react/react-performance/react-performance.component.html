@@ -1,0 +1,105 @@
+<div class="container">
+  <h1>React Performance Optimization</h1>
+  <p>Learn techniques to optimize React application performance, reduce unnecessary re-renders, and improve user experience.</p>
+
+  <mat-tab-group>
+    <mat-tab label="React.memo">
+      <div class="tab-content">
+        <h2>React.memo - Memoized Components</h2>
+        <div class="info-box">
+          <p><strong>React.memo</strong> is a higher order component that memoizes a component, preventing unnecessary re-renders when props haven't changed.</p>
+          <ul>
+            <li>Wraps functional components</li>
+            <li>Performs shallow prop comparison</li>
+            <li>Custom comparison function available</li>
+            <li>Best for expensive render operations</li>
+          </ul>
+        </div>
+        <pre><code class="language-jsx">{{reactMemo}}</code></pre>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="useMemo">
+      <div class="tab-content">
+        <h2>useMemo Hook</h2>
+        <div class="info-box">
+          <p><strong>useMemo</strong> memoizes expensive computations and only recalculates when dependencies change.</p>
+          <ul>
+            <li>Caches computed values</li>
+            <li>Runs only when dependencies change</li>
+            <li>Useful for expensive calculations</li>
+            <li>Reduces unnecessary work</li>
+          </ul>
+        </div>
+        <pre><code class="language-jsx">{{useMemoHook}}</code></pre>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="useCallback">
+      <div class="tab-content">
+        <h2>useCallback Hook</h2>
+        <div class="info-box">
+          <p><strong>useCallback</strong> memoizes callback functions to prevent unnecessary re-creations on each render.</p>
+          <ul>
+            <li>Memoizes function references</li>
+            <li>Prevents child re-renders</li>
+            <li>Useful with React.memo</li>
+            <li>Stable function references</li>
+          </ul>
+        </div>
+        <pre><code class="language-jsx">{{useCallbackHook}}</code></pre>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Code Splitting">
+      <div class="tab-content">
+        <h2>Code Splitting & Lazy Loading</h2>
+        <div class="info-box">
+          <p>Split your code into smaller bundles and load them on demand to reduce initial load time.</p>
+          <ul>
+            <li>React.lazy() for component lazy loading</li>
+            <li>Suspense for loading states</li>
+            <li>Dynamic imports</li>
+            <li>Route-based code splitting</li>
+          </ul>
+        </div>
+        <pre><code class="language-jsx">{{codeSplitting}}</code></pre>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Virtualization">
+      <div class="tab-content">
+        <h2>List Virtualization</h2>
+        <div class="info-box">
+          <p>Render only visible items in large lists to improve performance.</p>
+          <ul>
+            <li>react-window library</li>
+            <li>react-virtualized for complex scenarios</li>
+            <li>Renders only visible items</li>
+            <li>Handles thousands of items efficiently</li>
+          </ul>
+        </div>
+        <pre><code class="language-jsx">{{virtualization}}</code></pre>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Best Practices">
+      <div class="tab-content">
+        <h2>Performance Best Practices</h2>
+        <div class="info-box success">
+          <h3>✓ Optimization Techniques</h3>
+          <ul>
+            <li>Use production build for deployment</li>
+            <li>Avoid inline function definitions in JSX</li>
+            <li>Use key prop correctly in lists</li>
+            <li>Debounce/throttle expensive operations</li>
+            <li>Use Web Workers for heavy computations</li>
+            <li>Optimize images and assets</li>
+            <li>Implement proper error boundaries</li>
+          </ul>
+        </div>
+        <pre><code class="language-jsx">{{bestPractices}}</code></pre>
+      </div>
+    </mat-tab>
+  </mat-tab-group>
+</div>

@@ -1,0 +1,137 @@
+<div class="container">
+  <h1>React Router</h1>
+  <p>React Router is the standard routing library for React. It enables navigation between views, URL parameters, and helps build single-page applications with multiple views.</p>
+
+  <mat-tab-group>
+    <mat-tab label="Setup & Basics">
+      <div class="tab-content">
+        <h2>Router Setup</h2>
+        <div class="info-box">
+          <p>Install and configure <strong>React Router v6</strong> for client-side routing.</p>
+          <ul>
+            <li>BrowserRouter wraps your app</li>
+            <li>Routes define route configuration</li>
+            <li>Route defines individual routes</li>
+            <li>Link for navigation without page reload</li>
+          </ul>
+        </div>
+        <pre><code class="language-jsx">{{routerSetup}}</code></pre>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Navigation">
+      <div class="tab-content">
+        <h2>Navigation Methods</h2>
+        <div class="info-box">
+          <p>Multiple ways to navigate in React Router.</p>
+          <ul>
+            <li>Link component for declarative navigation</li>
+            <li>NavLink for active link styling</li>
+            <li>useNavigate hook for programmatic navigation</li>
+            <li>Navigate component for redirects</li>
+          </ul>
+        </div>
+        <pre><code class="language-jsx">{{navigation}}</code></pre>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Dynamic Routes">
+      <div class="tab-content">
+        <h2>Dynamic Routes & Parameters</h2>
+        <div class="info-box">
+          <p>Create routes with dynamic segments and query parameters.</p>
+          <ul>
+            <li>:param syntax for URL parameters</li>
+            <li>useParams hook to access parameters</li>
+            <li>useSearchParams for query strings</li>
+            <li>Dynamic routing for data-driven apps</li>
+          </ul>
+        </div>
+        <pre><code class="language-jsx">{{dynamicRoutes}}</code></pre>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Nested Routes">
+      <div class="tab-content">
+        <h2>Nested Routes & Layouts</h2>
+        <div class="info-box">
+          <p>Create nested route hierarchies with shared layouts.</p>
+          <ul>
+            <li>Outlet component renders nested routes</li>
+            <li>Share layout components across routes</li>
+            <li>Nested route definitions</li>
+            <li>Index routes for default child</li>
+          </ul>
+        </div>
+        <pre><code class="language-jsx">{{nestedRoutes}}</code></pre>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Protected Routes">
+      <div class="tab-content">
+        <h2>Protected Routes</h2>
+        <div class="info-box warning">
+          <p>Implement authentication and authorization for routes.</p>
+          <ul>
+            <li>Wrapper components for route protection</li>
+            <li>Redirect unauthorized users</li>
+            <li>Check authentication status</li>
+            <li>Role-based access control</li>
+          </ul>
+        </div>
+        <pre><code class="language-jsx">{{protectedRoutes}}</code></pre>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Lazy Loading">
+      <div class="tab-content">
+        <h2>Code Splitting & Lazy Loading</h2>
+        <div class="info-box success">
+          <p>Improve performance with lazy-loaded route components.</p>
+          <ul>
+            <li>React.lazy() for dynamic imports</li>
+            <li>Suspense for loading fallback</li>
+            <li>Reduces initial bundle size</li>
+            <li>Loads routes on demand</li>
+          </ul>
+        </div>
+        <pre><code class="language-jsx">{{lazyLoading}}</code></pre>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Router Hooks">
+      <div class="tab-content">
+        <h2>Router Hooks</h2>
+        <div class="info-box">
+          <p>React Router provides hooks for accessing routing state.</p>
+          <ul>
+            <li>useLocation - current location object</li>
+            <li>useNavigate - programmatic navigation</li>
+            <li>useParams - URL parameters</li>
+            <li>useSearchParams - query parameters</li>
+          </ul>
+        </div>
+        <pre><code class="language-jsx">{{hooks}}</code></pre>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Best Practices">
+      <div class="tab-content">
+        <h2>Router Best Practices</h2>
+        <div class="info-box success">
+          <h3>✓ Best Practices</h3>
+          <ul>
+            <li>Use lazy loading for code splitting</li>
+            <li>Create route configuration objects</li>
+            <li>Protect sensitive routes</li>
+            <li>Use NavLink for active styling</li>
+            <li>Handle 404 pages with catch-all route</li>
+            <li>Use relative paths in nested routes</li>
+            <li>Pass state through navigate for context</li>
+          </ul>
+        </div>
+        <pre><code class="language-jsx">{{bestPractices}}</code></pre>
+      </div>
+    </mat-tab>
+  </mat-tab-group>
+</div>

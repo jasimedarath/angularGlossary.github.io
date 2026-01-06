@@ -1,0 +1,146 @@
+<div class="container">
+  <h1>React Forms</h1>
+  <p>Forms in React can be controlled (React controls the form state) or uncontrolled (DOM controls the state). Learn both approaches and form validation techniques.</p>
+
+  <mat-tab-group>
+    <mat-tab label="Controlled Forms">
+      <div class="tab-content">
+        <h2>Controlled Form Components</h2>
+        <div class="info-box">
+          <p><strong>Controlled components</strong> have their value controlled by React state.</p>
+          <ul>
+            <li>React state is the single source of truth</li>
+            <li>Value prop controlled by state</li>
+            <li>onChange handler updates state</li>
+            <li>Full control over input value</li>
+            <li>Easy to implement validation</li>
+          </ul>
+        </div>
+        <pre><code class="language-jsx">{{controlledForms}}</code></pre>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Uncontrolled Forms">
+      <div class="tab-content">
+        <h2>Uncontrolled Form Components</h2>
+        <div class="info-box warning">
+          <p><strong>Uncontrolled components</strong> store their own state internally in the DOM.</p>
+          <ul>
+            <li>DOM is the source of truth</li>
+            <li>Use refs to access form values</li>
+            <li>Simpler for basic forms</li>
+            <li>Less React code</li>
+            <li>Controlled forms are generally preferred</li>
+          </ul>
+        </div>
+        <pre><code class="language-jsx">{{uncontrolledForms}}</code></pre>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Validation">
+      <div class="tab-content">
+        <h2>Form Validation</h2>
+        <div class="info-box">
+          <p>Implement validation to ensure data quality and provide user feedback.</p>
+          <ul>
+            <li>Real-time validation on change/blur</li>
+            <li>Display error messages clearly</li>
+            <li>Prevent submission with errors</li>
+            <li>Use regex for pattern matching</li>
+            <li>Consider validation libraries</li>
+          </ul>
+        </div>
+        <pre><code class="language-jsx">{{formValidation}}</code></pre>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Input Types">
+      <div class="tab-content">
+        <h2>Different Input Types</h2>
+        <div class="info-box">
+          <p>Handle various HTML input types in React forms.</p>
+          <ul>
+            <li>Text, number, email, password inputs</li>
+            <li>Checkboxes (use checked prop)</li>
+            <li>Radio buttons</li>
+            <li>Select dropdowns</li>
+            <li>Textareas</li>
+            <li>Date and file inputs</li>
+          </ul>
+        </div>
+        <pre><code class="language-jsx">{{formInputs}}</code></pre>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Form Libraries">
+      <div class="tab-content">
+        <h2>Form Libraries</h2>
+        <div class="info-box success">
+          <p>Use form libraries for complex forms with validation.</p>
+          <ul>
+            <li><strong>Formik:</strong> Popular, feature-rich</li>
+            <li><strong>React Hook Form:</strong> Performance-focused</li>
+            <li>Built-in validation support</li>
+            <li>Reduces boilerplate code</li>
+            <li>Better error handling</li>
+          </ul>
+        </div>
+        <pre><code class="language-jsx">{{formLibraries}}</code></pre>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="File Upload">
+      <div class="tab-content">
+        <h2>File Upload</h2>
+        <div class="info-box">
+          <p>Handle file uploads with previews and FormData API.</p>
+          <ul>
+            <li>Use input type="file"</li>
+            <li>Access files via e.target.files</li>
+            <li>FileReader for previews</li>
+            <li>FormData for uploads</li>
+            <li>Validate file type and size</li>
+          </ul>
+        </div>
+        <pre><code class="language-jsx">{{fileUpload}}</code></pre>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Multi-Step Forms">
+      <div class="tab-content">
+        <h2>Multi-Step Forms</h2>
+        <div class="info-box">
+          <p>Break complex forms into multiple steps for better UX.</p>
+          <ul>
+            <li>Track current step with state</li>
+            <li>Store data from all steps</li>
+            <li>Navigation between steps</li>
+            <li>Progress indicator</li>
+            <li>Validate each step</li>
+          </ul>
+        </div>
+        <pre><code class="language-jsx">{{multiStepForm}}</code></pre>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Best Practices">
+      <div class="tab-content">
+        <h2>Form Best Practices</h2>
+        <div class="info-box success">
+          <h3> Best Practices</h3>
+          <ul>
+            <li>Use controlled components for complex forms</li>
+            <li>Prevent default form submission</li>
+            <li>Validate on blur and submit</li>
+            <li>Show clear error messages</li>
+            <li>Disable submit while processing</li>
+            <li>Consider form libraries for complex needs</li>
+            <li>Make forms accessible</li>
+            <li>Handle loading and error states</li>
+          </ul>
+        </div>
+        <pre><code class="language-jsx">{{bestPractices}}</code></pre>
+      </div>
+    </mat-tab>
+  </mat-tab-group>
+</div>

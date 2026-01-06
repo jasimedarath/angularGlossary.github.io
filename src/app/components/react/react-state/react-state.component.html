@@ -1,0 +1,130 @@
+<div class="container">
+  <h1>React State</h1>
+  <p>State is a built-in React object used to store data that determines how a component renders and behaves. When state changes, the component re-renders to reflect the new state.</p>
+
+  <mat-tab-group>
+    <mat-tab label="State Basics">
+      <div class="tab-content">
+        <h2>Understanding State</h2>
+        <div class="info-box">
+          <p><strong>State</strong> is mutable data that belongs to a component and can change over time.</p>
+          <ul>
+            <li>useState hook for functional components</li>
+            <li>Returns a state variable and setter function</li>
+            <li>Initial value passed as argument to useState</li>
+            <li>Setting state triggers a re-render</li>
+            <li>State updates are asynchronous</li>
+            <li>Each component has its own state</li>
+          </ul>
+        </div>
+        <pre><code class="language-jsx">{{stateBasics}}</code></pre>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Objects">
+      <div class="tab-content">
+        <h2>State with Objects</h2>
+        <div class="info-box">
+          <p>When state is an object, always create a new object with spread operator to update it.</p>
+          <ul>
+            <li>Always spread existing state when updating</li>
+            <li>React uses shallow comparison for state</li>
+            <li>Don't mutate state directly</li>
+            <li>Use functional updates for safer updates</li>
+            <li>Handle nested objects carefully</li>
+          </ul>
+        </div>
+        <pre><code class="language-jsx">{{stateObjects}}</code></pre>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Arrays">
+      <div class="tab-content">
+        <h2>State with Arrays</h2>
+        <div class="info-box">
+          <p>Managing arrays in state requires creating new arrays instead of mutating existing ones.</p>
+          <ul>
+            <li>Use spread operator or array methods that return new arrays</li>
+            <li>Add items: [...array, newItem]</li>
+            <li>Remove items: array.filter()</li>
+            <li>Update items: array.map()</li>
+            <li>Avoid push(), pop(), splice() - they mutate</li>
+          </ul>
+        </div>
+        <pre><code class="language-jsx">{{stateArrays}}</code></pre>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Functional Updates">
+      <div class="tab-content">
+        <h2>Functional State Updates</h2>
+        <div class="info-box success">
+          <p><strong>Functional updates</strong> use the previous state value to calculate the next state, ensuring accuracy.</p>
+          <ul>
+            <li>Pass a function to state setter instead of a value</li>
+            <li>Function receives previous state as argument</li>
+            <li>Necessary for multiple state updates</li>
+            <li>Prevents stale closure issues</li>
+            <li>More reliable for computed state changes</li>
+          </ul>
+        </div>
+        <pre><code class="language-jsx">{{functionalUpdates}}</code></pre>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Lazy Initialization">
+      <div class="tab-content">
+        <h2>Lazy Initial State</h2>
+        <div class="info-box">
+          <p><strong>Lazy initialization</strong> runs the initialization function only once, not on every render.</p>
+          <ul>
+            <li>Pass a function to useState instead of a value</li>
+            <li>Function runs only on initial render</li>
+            <li>Useful for expensive computations</li>
+            <li>Common with localStorage reads</li>
+            <li>Improves performance for heavy initializations</li>
+          </ul>
+        </div>
+        <pre><code class="language-jsx">{{lazyInitialization}}</code></pre>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Class Components">
+      <div class="tab-content">
+        <h2>State in Class Components</h2>
+        <div class="info-box warning">
+          <p><strong>Class components</strong> use this.state and this.setState() (legacy approach).</p>
+          <ul>
+            <li>Initialize state in constructor</li>
+            <li>this.setState() to update state</li>
+            <li>setState merges object updates automatically</li>
+            <li>Can pass callback to setState</li>
+            <li>Can use functional form of setState</li>
+            <li>Prefer functional components with hooks</li>
+          </ul>
+        </div>
+        <pre><code class="language-jsx">{{classComponentState}}</code></pre>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Best Practices">
+      <div class="tab-content">
+        <h2>State Management Best Practices</h2>
+        <div class="info-box success">
+          <h3>✓ Best Practices</h3>
+          <ul>
+            <li>Never mutate state directly</li>
+            <li>Use functional updates when new state depends on previous state</li>
+            <li>Split unrelated state into multiple useState calls</li>
+            <li>Keep state minimal - derive values when possible</li>
+            <li>Use lazy initialization for expensive initial values</li>
+            <li>Prefer simple state structures over complex nested objects</li>
+            <li>Consider useReducer for complex state logic</li>
+            <li>Lift state up when multiple components need it</li>
+          </ul>
+        </div>
+        <pre><code class="language-jsx">{{stateBestPractices}}</code></pre>
+      </div>
+    </mat-tab>
+  </mat-tab-group>
+</div>

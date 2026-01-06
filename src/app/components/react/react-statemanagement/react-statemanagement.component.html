@@ -1,0 +1,134 @@
+<div class="container">
+  <h1>React State Management</h1>
+  <p>Learn popular state management solutions for React applications.</p>
+
+  <mat-tab-group>
+    <mat-tab label="Redux">
+      <div class="tab-content">
+        <h2>Redux - Predictable State Container</h2>
+        <div class="info-box">
+          <p><strong>Redux</strong> is a predictable state container with a single source of truth.</p>
+          <ul>
+            <li>Single store for entire app</li>
+            <li>Actions describe state changes</li>
+            <li>Reducers specify state updates</li>
+            <li>Time-travel debugging</li>
+          </ul>
+        </div>
+        <pre><code class="language-jsx">{{redux}}</code></pre>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Redux Toolkit">
+      <div class="tab-content">
+        <h2>Redux Toolkit - Modern Redux</h2>
+        <div class="info-box">
+          <p><strong>Redux Toolkit</strong> simplifies Redux with less boilerplate and built-in best practices.</p>
+          <ul>
+            <li>createSlice for reducers & actions</li>
+            <li>Immer for immutable updates</li>
+            <li>configureStore with defaults</li>
+            <li>TypeScript support built-in</li>
+          </ul>
+        </div>
+        <pre><code class="language-jsx">{{reduxToolkit}}</code></pre>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Zustand">
+      <div class="tab-content">
+        <h2>Zustand - Lightweight State</h2>
+        <div class="info-box">
+          <p><strong>Zustand</strong> is a small, fast state management solution with minimal API.</p>
+          <ul>
+            <li>Very small bundle (~1KB)</li>
+            <li>No providers needed</li>
+            <li>Simple hook-based API</li>
+            <li>Built-in middleware support</li>
+          </ul>
+        </div>
+        <pre><code class="language-jsx">{{zustand}}</code></pre>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Jotai">
+      <div class="tab-content">
+        <h2>Jotai - Primitive State</h2>
+        <div class="info-box">
+          <p><strong>Jotai</strong> takes an atomic approach to state management with bottom-up composition.</p>
+          <ul>
+            <li>Atomic state pieces</li>
+            <li>Derived atoms</li>
+            <li>React Suspense integration</li>
+            <li>No string keys needed</li>
+          </ul>
+        </div>
+        <pre><code class="language-jsx">{{jotai}}</code></pre>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Recoil">
+      <div class="tab-content">
+        <h2>Recoil - Facebook's Solution</h2>
+        <div class="info-box">
+          <p><strong>Recoil</strong> provides graph-based state management from the React team at Facebook.</p>
+          <ul>
+            <li>Atoms for state pieces</li>
+            <li>Selectors for derived state</li>
+            <li>Async state handling</li>
+            <li>Built for React's future</li>
+          </ul>
+        </div>
+        <pre><code class="language-jsx">{{recoil}}</code></pre>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="MobX">
+      <div class="tab-content">
+        <h2>MobX - Observable State</h2>
+        <div class="info-box">
+          <p><strong>MobX</strong> makes state management simple with automatic reactivity and observables.</p>
+          <ul>
+            <li>OOP-style state management</li>
+            <li>Automatic re-rendering</li>
+            <li>Computed values</li>
+            <li>Decorators or makeObservable</li>
+          </ul>
+        </div>
+        <pre><code class="language-jsx">{{mobx}}</code></pre>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Context + Reducer">
+      <div class="tab-content">
+        <h2>Context + useReducer Pattern</h2>
+        <div class="info-box">
+          <p><strong>Built-in solution</strong> using React's Context API with useReducer hook.</p>
+          <ul>
+            <li>No external dependencies</li>
+            <li>Similar to Redux pattern</li>
+            <li>Good for medium apps</li>
+            <li>Performance considerations</li>
+          </ul>
+        </div>
+        <pre><code class="language-tsx">{{contextReducer}}</code></pre>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Comparison">
+      <div class="tab-content">
+        <h2>State Management Comparison</h2>
+        <div class="info-box">
+          <p><strong>Choose the right tool</strong> based on your application's needs and complexity.</p>
+          <ul>
+            <li>Consider bundle size impact</li>
+            <li>Team familiarity</li>
+            <li>App complexity</li>
+            <li>Performance requirements</li>
+          </ul>
+        </div>
+        <pre><code class="language-jsx">{{comparison}}</code></pre>
+      </div>
+    </mat-tab>
+  </mat-tab-group>
+</div>

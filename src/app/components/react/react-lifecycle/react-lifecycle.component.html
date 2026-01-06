@@ -1,0 +1,103 @@
+<div class="container">
+  <h1>React Lifecycle & Effects</h1>
+  <p>Understanding React component lifecycle methods in class components and their functional equivalents using hooks.</p>
+
+  <mat-tab-group>
+    <mat-tab label="Class Lifecycle">
+      <div class="tab-content">
+        <h2>Class Component Lifecycle</h2>
+        <div class="info-box">
+          <p>Class components have lifecycle methods that run at specific points in a component's life.</p>
+          <ul>
+            <li><strong>Mounting:</strong> constructor → getDerivedStateFromProps → render → componentDidMount</li>
+            <li><strong>Updating:</strong> getDerivedStateFromProps → shouldComponentUpdate → render → getSnapshotBeforeUpdate → componentDidUpdate</li>
+            <li><strong>Unmounting:</strong> componentWillUnmount</li>
+          </ul>
+        </div>
+        <pre><code class="language-jsx">{{classLifecycle}}</code></pre>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="useEffect Basics">
+      <div class="tab-content">
+        <h2>useEffect Hook</h2>
+        <div class="info-box">
+          <p><strong>useEffect</strong> combines componentDidMount, componentDidUpdate, and componentWillUnmount into one API.</p>
+          <ul>
+            <li>Runs after render (side effects)</li>
+            <li>Dependency array controls when it runs</li>
+            <li>Return function for cleanup</li>
+            <li>Can have multiple useEffect hooks</li>
+          </ul>
+        </div>
+        <pre><code class="language-jsx">{{useEffectBasics}}</code></pre>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="useEffect Patterns">
+      <div class="tab-content">
+        <h2>Common useEffect Patterns</h2>
+        <div class="info-box">
+          <p>Learn common patterns for data fetching, event listeners, timers, and subscriptions.</p>
+          <ul>
+            <li>Data fetching with cleanup</li>
+            <li>Event listener management</li>
+            <li>Timer and interval cleanup</li>
+            <li>Subscription handling</li>
+          </ul>
+        </div>
+        <pre><code class="language-jsx">{{useEffectPatterns}}</code></pre>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="useLayoutEffect">
+      <div class="tab-content">
+        <h2>useLayoutEffect Hook</h2>
+        <div class="info-box">
+          <p><strong>useLayoutEffect</strong> runs synchronously after DOM mutations but before browser paint.</p>
+          <ul>
+            <li>Use for DOM measurements</li>
+            <li>Synchronous DOM updates</li>
+            <li>Prevents visual flickering</li>
+            <li>Same API as useEffect</li>
+          </ul>
+        </div>
+        <pre><code class="language-jsx">{{useLayoutEffect}}</code></pre>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Lifecycle Comparison">
+      <div class="tab-content">
+        <h2>Class vs Hooks Comparison</h2>
+        <div class="info-box">
+          <p>See how class lifecycle methods translate to hooks.</p>
+        </div>
+        <pre><code class="language-jsx">{{lifecycleComparison}}</code></pre>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Best Practices">
+      <div class="tab-content">
+        <h2>Lifecycle Best Practices</h2>
+        <div class="info-box success">
+          <h3>✓ Do's</h3>
+          <ul>
+            <li>Always clean up effects (remove listeners, cancel requests)</li>
+            <li>Include all dependencies in dependency array</li>
+            <li>Use multiple effects for different concerns</li>
+            <li>Use functional updates to avoid dependencies</li>
+          </ul>
+        </div>
+        <div class="info-box warning">
+          <h3>✗ Don'ts</h3>
+          <ul>
+            <li>Don't omit dependencies (use ESLint plugin)</li>
+            <li>Don't create infinite loops with missing dependencies</li>
+            <li>Don't perform side effects during render</li>
+          </ul>
+        </div>
+        <pre><code class="language-jsx">{{bestPractices}}</code></pre>
+      </div>
+    </mat-tab>
+  </mat-tab-group>
+</div>

@@ -1,0 +1,101 @@
+<div class="container">
+  <h1>React 18 Features</h1>
+  <p>Explore the latest features introduced in React 18, including concurrent rendering, transitions, and server components.</p>
+
+  <mat-tab-group>
+    <mat-tab label="Concurrent Rendering">
+      <div class="tab-content">
+        <h2>Concurrent Rendering</h2>
+        <div class="info-box">
+          <p><strong>Concurrent Rendering</strong> allows React to work on multiple tasks simultaneously and prioritize urgent updates.</p>
+          <ul>
+            <li>Interruptible rendering process</li>
+            <li>Prioritize user interactions</li>
+            <li>Better perceived performance</li>
+            <li>New root API with createRoot</li>
+          </ul>
+        </div>
+        <pre><code class="language-jsx">{{concurrentRendering}}</code></pre>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Transitions">
+      <div class="tab-content">
+        <h2>Transitions & Deferred Values</h2>
+        <div class="info-box">
+          <p><strong>useTransition</strong> and <strong>useDeferredValue</strong> help distinguish urgent from non-urgent updates.</p>
+          <ul>
+            <li>useTransition marks updates as transitions</li>
+            <li>useDeferredValue defers value updates</li>
+            <li>Keep UI responsive during heavy updates</li>
+            <li>Show pending states</li>
+          </ul>
+        </div>
+        <pre><code class="language-jsx">{{transitions}}</code></pre>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Suspense">
+      <div class="tab-content">
+        <h2>Suspense for Data Fetching</h2>
+        <div class="info-box">
+          <p><strong>Suspense</strong> allows components to "wait" for something before rendering.</p>
+          <ul>
+            <li>Code splitting with React.lazy</li>
+            <li>Data fetching (experimental)</li>
+            <li>Nested loading states</li>
+            <li>Better loading UX</li>
+          </ul>
+        </div>
+        <pre><code class="language-jsx">{{suspense}}</code></pre>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Automatic Batching">
+      <div class="tab-content">
+        <h2>Automatic Batching</h2>
+        <div class="info-box">
+          <p>React 18 automatically batches all state updates, even in promises, timeouts, and event handlers.</p>
+          <ul>
+            <li>Fewer renders, better performance</li>
+            <li>Works in all contexts</li>
+            <li>flushSync to opt-out</li>
+            <li>Backwards compatible</li>
+          </ul>
+        </div>
+        <pre><code class="language-jsx">{{automaticBatching}}</code></pre>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Server Components">
+      <div class="tab-content">
+        <h2>React Server Components</h2>
+        <div class="info-box">
+          <p><strong>Server Components</strong> run only on the server, reducing bundle size and enabling direct backend access.</p>
+          <ul>
+            <li>Zero bundle size for server components</li>
+            <li>Direct database/file system access</li>
+            <li>Automatic code splitting</li>
+            <li>Better performance</li>
+          </ul>
+        </div>
+        <pre><code class="language-jsx">{{serverComponents}}</code></pre>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="New Hooks">
+      <div class="tab-content">
+        <h2>New Hooks in React 18</h2>
+        <div class="info-box">
+          <p>React 18 introduces new hooks for specific use cases.</p>
+          <ul>
+            <li><strong>useId:</strong> Generate unique IDs for accessibility</li>
+            <li><strong>useSyncExternalStore:</strong> Subscribe to external stores</li>
+            <li><strong>useInsertionEffect:</strong> CSS-in-JS libraries</li>
+          </ul>
+        </div>
+        <pre><code class="language-jsx">{{newHooks}}</code></pre>
+      </div>
+    </mat-tab>
+  </mat-tab-group>
+</div>

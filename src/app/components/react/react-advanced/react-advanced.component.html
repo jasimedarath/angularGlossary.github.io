@@ -1,0 +1,102 @@
+<div class="container">
+  <h1>Advanced React Patterns</h1>
+  <p>Learn advanced React patterns and techniques for building scalable, maintainable applications.</p>
+
+  <mat-tab-group>
+    <mat-tab label="Higher-Order Components">
+      <div class="tab-content">
+        <h2>Higher-Order Components (HOC)</h2>
+        <div class="info-box">
+          <p><strong>HOCs</strong> are functions that take a component and return a new enhanced component.</p>
+          <ul>
+            <li>Reuse component logic</li>
+            <li>Add props or behavior</li>
+            <li>Abstract common patterns</li>
+            <li>Legacy pattern (hooks are preferred now)</li>
+          </ul>
+        </div>
+        <pre><code class="language-jsx">{{higherOrderComponents}}</code></pre>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Render Props">
+      <div class="tab-content">
+        <h2>Render Props Pattern</h2>
+        <div class="info-box">
+          <p><strong>Render Props</strong> use a function prop to share code between components.</p>
+          <ul>
+            <li>Component receives function as prop</li>
+            <li>Function returns React elements</li>
+            <li>Share stateful logic</li>
+            <li>Custom hooks are modern alternative</li>
+          </ul>
+        </div>
+        <pre><code class="language-jsx">{{renderProps}}</code></pre>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Portals">
+      <div class="tab-content">
+        <h2>React Portals</h2>
+        <div class="info-box">
+          <p><strong>Portals</strong> render children into a DOM node outside the parent component hierarchy.</p>
+          <ul>
+            <li>Render modals, tooltips, dropdowns</li>
+            <li>Break out of parent container</li>
+            <li>Maintain React tree behavior</li>
+            <li>Events bubble up React tree</li>
+          </ul>
+        </div>
+        <pre><code class="language-jsx">{{portals}}</code></pre>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Error Boundaries">
+      <div class="tab-content">
+        <h2>Error Boundaries</h2>
+        <div class="info-box">
+          <p><strong>Error Boundaries</strong> catch JavaScript errors in component tree and display fallback UI.</p>
+          <ul>
+            <li>Only available as class components</li>
+            <li>Catch errors during render</li>
+            <li>Display fallback UI</li>
+            <li>Log errors for debugging</li>
+          </ul>
+        </div>
+        <pre><code class="language-jsx">{{errorBoundaries}}</code></pre>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Refs">
+      <div class="tab-content">
+        <h2>Refs & Forward Refs</h2>
+        <div class="info-box">
+          <p><strong>Refs</strong> provide access to DOM elements and store mutable values without causing re-renders.</p>
+          <ul>
+            <li>Access DOM elements directly</li>
+            <li>Store mutable values</li>
+            <li>Forward refs to child components</li>
+            <li>Doesn't trigger re-renders</li>
+          </ul>
+        </div>
+        <pre><code class="language-jsx">{{refs}}</code></pre>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Compound Components">
+      <div class="tab-content">
+        <h2>Compound Components Pattern</h2>
+        <div class="info-box">
+          <p><strong>Compound Components</strong> are components that work together to form a complete UI.</p>
+          <ul>
+            <li>Share implicit state</li>
+            <li>Flexible API</li>
+            <li>Encapsulate complex behavior</li>
+            <li>Used in UI libraries (Tabs, Select, Accordion)</li>
+          </ul>
+        </div>
+        <pre><code class="language-jsx">{{compoundComponents}}</code></pre>
+      </div>
+    </mat-tab>
+  </mat-tab-group>
+</div>

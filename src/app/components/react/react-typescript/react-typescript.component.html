@@ -1,0 +1,150 @@
+<div class="container">
+  <h1>TypeScript with React</h1>
+  <p>Learn how to use TypeScript with React for type-safe component development.</p>
+
+  <mat-tab-group>
+    <mat-tab label="Basic Types">
+      <div class="tab-content">
+        <h2>Basic TypeScript Types</h2>
+        <div class="info-box">
+          <p><strong>TypeScript</strong> adds static typing to React components for better development experience.</p>
+          <ul>
+            <li>Type safety and autocomplete</li>
+            <li>Catch errors at compile time</li>
+            <li>Better IDE support</li>
+            <li>Self-documenting code</li>
+          </ul>
+        </div>
+        <pre><code class="language-tsx">{{basicTypes}}</code></pre>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Component Props">
+      <div class="tab-content">
+        <h2>Typing Component Props</h2>
+        <div class="info-box">
+          <p><strong>Props interfaces</strong> define the shape of component props with TypeScript.</p>
+          <ul>
+            <li>Required and optional props</li>
+            <li>Function props with parameters</li>
+            <li>React.FC includes children by default</li>
+            <li>Type checking on usage</li>
+          </ul>
+        </div>
+        <pre><code class="language-tsx">{{functionComponentTypes}}</code></pre>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="State & Hooks">
+      <div class="tab-content">
+        <h2>Typing State and Hooks</h2>
+        <div class="info-box">
+          <p><strong>Generic useState</strong> allows explicit type annotations for state values.</p>
+          <ul>
+            <li>Type inference from initial value</li>
+            <li>Explicit generic types</li>
+            <li>Union types for multiple states</li>
+            <li>Complex object states</li>
+          </ul>
+        </div>
+        <pre><code class="language-tsx">{{stateTypes}}</code></pre>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Event Handlers">
+      <div class="tab-content">
+        <h2>Typing Event Handlers</h2>
+        <div class="info-box">
+          <p><strong>Event types</strong> from React ensure type-safe event handling.</p>
+          <ul>
+            <li>ChangeEvent for inputs</li>
+            <li>FormEvent for form submission</li>
+            <li>MouseEvent for clicks</li>
+            <li>Generic element types</li>
+          </ul>
+        </div>
+        <pre><code class="language-tsx">{{eventTypes}}</code></pre>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Children Props">
+      <div class="tab-content">
+        <h2>Typing Children Props</h2>
+        <div class="info-box">
+          <p><strong>ReactNode</strong> is the most common type for children props.</p>
+          <ul>
+            <li>ReactNode: any renderable content</li>
+            <li>ReactElement: specific React elements</li>
+            <li>Render props with types</li>
+            <li>Component composition</li>
+          </ul>
+        </div>
+        <pre><code class="language-tsx">{{propsChildren}}</code></pre>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Custom Hooks">
+      <div class="tab-content">
+        <h2>Typing Custom Hooks</h2>
+        <div class="info-box">
+          <p><strong>Generic hooks</strong> enable reusable, type-safe custom hooks.</p>
+          <ul>
+            <li>Return type tuples</li>
+            <li>Generic type parameters</li>
+            <li>RefObject for useRef</li>
+            <li>Proper return types</li>
+          </ul>
+        </div>
+        <pre><code class="language-tsx">{{hooksTypes}}</code></pre>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Generic Components">
+      <div class="tab-content">
+        <h2>Generic Components</h2>
+        <div class="info-box">
+          <p><strong>Generic components</strong> work with multiple data types while maintaining type safety.</p>
+          <ul>
+            <li>Type parameters in props</li>
+            <li>Reusable list components</li>
+            <li>Form field components</li>
+            <li>Type inference on usage</li>
+          </ul>
+        </div>
+        <pre><code class="language-tsx">{{genericComponents}}</code></pre>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Context API">
+      <div class="tab-content">
+        <h2>Typing Context API</h2>
+        <div class="info-box">
+          <p><strong>Context types</strong> ensure type safety across the component tree.</p>
+          <ul>
+            <li>Context interface definition</li>
+            <li>Provider component types</li>
+            <li>Custom hook with type checking</li>
+            <li>Undefined context handling</li>
+          </ul>
+        </div>
+        <pre><code class="language-tsx">{{contextTypes}}</code></pre>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Utility Types">
+      <div class="tab-content">
+        <h2>TypeScript Utility Types</h2>
+        <div class="info-box">
+          <p><strong>Utility types</strong> transform existing types for various use cases.</p>
+          <ul>
+            <li>Partial: make all optional</li>
+            <li>Pick/Omit: select properties</li>
+            <li>Record: create object types</li>
+            <li>Extends HTML attributes</li>
+          </ul>
+        </div>
+        <pre><code class="language-tsx">{{utilityTypes}}</code></pre>
+      </div>
+    </mat-tab>
+  </mat-tab-group>
+</div>

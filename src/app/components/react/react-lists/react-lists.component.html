@@ -1,0 +1,140 @@
+<div class="container">
+  <h1>React Lists & Keys</h1>
+  <p>Learn how to render multiple components using JavaScript's map() function and understand the importance of keys for React's reconciliation algorithm.</p>
+
+  <mat-tab-group>
+    <mat-tab label="Basic Lists">
+      <div class="tab-content">
+        <h2>Rendering Lists</h2>
+        <div class="info-box">
+          <p>Use JavaScript's <strong>map()</strong> function to transform arrays into lists of elements.</p>
+          <ul>
+            <li>map() creates a new array of JSX elements</li>
+            <li>Each element needs a unique key prop</li>
+            <li>Keys help React identify changes</li>
+            <li>Common pattern for rendering arrays</li>
+          </ul>
+        </div>
+        <pre><code class="language-jsx">{{basicLists}}</code></pre>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Keys">
+      <div class="tab-content">
+        <h2>Importance of Keys</h2>
+        <div class="info-box warning">
+          <p><strong>Keys</strong> help React identify which items have changed, been added, or removed.</p>
+          <ul>
+            <li>Keys must be unique among siblings</li>
+            <li>Use stable IDs, not array indices</li>
+            <li>Index as key causes issues with dynamic lists</li>
+            <li>Keys improve reconciliation performance</li>
+            <li>Don't use random values as keys</li>
+          </ul>
+        </div>
+        <pre><code class="language-jsx">{{keysImportance}}</code></pre>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Nested Lists">
+      <div class="tab-content">
+        <h2>Nested Lists</h2>
+        <div class="info-box">
+          <p>Render nested data structures with multiple map() calls.</p>
+          <ul>
+            <li>Each level needs unique keys</li>
+            <li>Use map() for each nesting level</li>
+            <li>Keys only need to be unique among siblings</li>
+            <li>Extract nested lists to components for clarity</li>
+          </ul>
+        </div>
+        <pre><code class="language-jsx">{{nestedLists}}</code></pre>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Filter & Sort">
+      <div class="tab-content">
+        <h2>Filtering and Sorting</h2>
+        <div class="info-box">
+          <p>Use JavaScript array methods to filter and sort data before rendering.</p>
+          <ul>
+            <li>filter() to show subset of items</li>
+            <li>sort() to order items</li>
+            <li>Chain multiple operations</li>
+            <li>Derive filtered/sorted lists from state</li>
+            <li>Don't mutate original array</li>
+          </ul>
+        </div>
+        <pre><code class="language-jsx">{{filterSort}}</code></pre>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Conditional Items">
+      <div class="tab-content">
+        <h2>Conditional List Items</h2>
+        <div class="info-box">
+          <p>Render list items conditionally and handle empty states.</p>
+          <ul>
+            <li>Use conditional rendering within map()</li>
+            <li>Handle empty lists gracefully</li>
+            <li>Show loading states</li>
+            <li>Apply conditional styles</li>
+          </ul>
+        </div>
+        <pre><code class="language-jsx">{{conditionalItems}}</code></pre>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="List Components">
+      <div class="tab-content">
+        <h2>Extracting List Item Components</h2>
+        <div class="info-box success">
+          <p>Extract list items into separate components for better organization and reusability.</p>
+          <ul>
+            <li>Create dedicated component for list items</li>
+            <li>Pass callbacks for interactions</li>
+            <li>Easier to maintain and test</li>
+            <li>Can optimize with React.memo</li>
+          </ul>
+        </div>
+        <pre><code class="language-jsx">{{listComponents}}</code></pre>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Performance">
+      <div class="tab-content">
+        <h2>Large Lists & Virtualization</h2>
+        <div class="info-box">
+          <p>For large lists, use virtualization libraries like react-window to render only visible items.</p>
+          <ul>
+            <li>Virtualization for thousands of items</li>
+            <li>Only render visible elements</li>
+            <li>Infinite scroll patterns</li>
+            <li>Pagination for better UX</li>
+            <li>Use react-window or react-virtualized</li>
+          </ul>
+        </div>
+        <pre><code class="language-jsx">{{virtualizedLists}}</code></pre>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Best Practices">
+      <div class="tab-content">
+        <h2>List Rendering Best Practices</h2>
+        <div class="info-box success">
+          <h3>✓ Best Practices</h3>
+          <ul>
+            <li>Always provide unique keys</li>
+            <li>Avoid using index as key for dynamic lists</li>
+            <li>Extract list items to components</li>
+            <li>Use React.memo for expensive items</li>
+            <li>Handle empty states</li>
+            <li>Consider virtualization for large lists</li>
+            <li>Filter/sort data before rendering</li>
+          </ul>
+        </div>
+        <pre><code class="language-jsx">{{bestPractices}}</code></pre>
+      </div>
+    </mat-tab>
+  </mat-tab-group>
+</div>

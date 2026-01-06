@@ -1,0 +1,138 @@
+<div class="container">
+  <h1>React Conditional Rendering</h1>
+  <p>Conditional rendering in React allows you to render different components or elements based on certain conditions, similar to how conditions work in JavaScript.</p>
+
+  <mat-tab-group>
+    <mat-tab label="Ternary Operator">
+      <div class="tab-content">
+        <h2>Ternary Operator (? :)</h2>
+        <div class="info-box">
+          <p>The <strong>ternary operator</strong> is the most common way to conditionally render elements inline.</p>
+          <ul>
+            <li>Syntax: condition ? trueValue : falseValue</li>
+            <li>Inline conditional rendering</li>
+            <li>Can render components or values</li>
+            <li>Keep it simple for readability</li>
+          </ul>
+        </div>
+        <pre><code class="language-jsx">{{ternaryOperator}}</code></pre>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Logical &&">
+      <div class="tab-content">
+        <h2>Logical AND (&&) Operator</h2>
+        <div class="info-box">
+          <p>Use <strong>&&</strong> operator when you want to render something only if a condition is true.</p>
+          <ul>
+            <li>Renders right side if left side is truthy</li>
+            <li>Returns nothing if condition is false</li>
+            <li>Simpler than ternary for one-sided conditions</li>
+            <li>Beware of falsy values like 0</li>
+          </ul>
+        </div>
+        <pre><code class="language-jsx">{{logicalAnd}}</code></pre>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="If-Else">
+      <div class="tab-content">
+        <h2>If-Else Statements</h2>
+        <div class="info-box">
+          <p>Use <strong>if-else</strong> statements outside JSX for complex conditions.</p>
+          <ul>
+            <li>Multiple return statements</li>
+            <li>Guard clauses for early returns</li>
+            <li>Better for complex logic</li>
+            <li>More readable than nested ternaries</li>
+          </ul>
+        </div>
+        <pre><code class="language-jsx">{{ifElseStatements}}</code></pre>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Switch Case">
+      <div class="tab-content">
+        <h2>Switch Statement</h2>
+        <div class="info-box">
+          <p><strong>Switch statements</strong> handle multiple conditions, but object mapping is often better.</p>
+          <ul>
+            <li>Handle multiple distinct values</li>
+            <li>Use object mapping for cleaner code</li>
+            <li>Requires break statements</li>
+            <li>Consider lookup objects instead</li>
+          </ul>
+        </div>
+        <pre><code class="language-jsx">{{switchCase}}</code></pre>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Nullish Coalescing">
+      <div class="tab-content">
+        <h2>Nullish Coalescing (??)</h2>
+        <div class="info-box">
+          <p><strong>Nullish coalescing</strong> (??) provides default values for null/undefined, and optional chaining (?.) safely accesses nested properties.</p>
+          <ul>
+            <li>?? returns right side if left is null/undefined</li>
+            <li>Different from || which checks truthiness</li>
+            <li>?. optional chaining for safe property access</li>
+            <li>Prevents "cannot read property" errors</li>
+          </ul>
+        </div>
+        <pre><code class="language-jsx">{{nullishCoalescing}}</code></pre>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Conditional Classes">
+      <div class="tab-content">
+        <h2>Conditional Classes & Styles</h2>
+        <div class="info-box">
+          <p>Apply CSS classes and styles conditionally based on component state or props.</p>
+          <ul>
+            <li>Template literals for dynamic classes</li>
+            <li>classnames library for complex conditions</li>
+            <li>Inline style objects with conditions</li>
+            <li>Keep styling logic separate when complex</li>
+          </ul>
+        </div>
+        <pre><code class="language-jsx">{{conditionalClasses}}</code></pre>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Render Props">
+      <div class="tab-content">
+        <h2>Render Props Pattern</h2>
+        <div class="info-box">
+          <p><strong>Render props</strong> allow passing rendering logic as a function prop.</p>
+          <ul>
+            <li>Share logic between components</li>
+            <li>Function receives data, returns JSX</li>
+            <li>More flexible than HOCs</li>
+            <li>Hooks are often better alternative</li>
+          </ul>
+        </div>
+        <pre><code class="language-jsx">{{renderProps}}</code></pre>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Best Practices">
+      <div class="tab-content">
+        <h2>Best Practices</h2>
+        <div class="info-box success">
+          <h3>✓ Best Practices</h3>
+          <ul>
+            <li>Use ternary for simple inline conditions</li>
+            <li>Use && for one-sided conditions</li>
+            <li>Use if-else for complex logic</li>
+            <li>Avoid nested ternaries</li>
+            <li>Extract complex conditions to variables</li>
+            <li>Use early returns for guard clauses</li>
+            <li>Return null to render nothing</li>
+            <li>Keep conditions readable</li>
+          </ul>
+        </div>
+        <pre><code class="language-jsx">{{bestPractices}}</code></pre>
+      </div>
+    </mat-tab>
+  </mat-tab-group>
+</div>

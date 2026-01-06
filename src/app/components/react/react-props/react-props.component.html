@@ -1,0 +1,146 @@
+<div class="container">
+  <h1>React Props</h1>
+  <p>Props (short for properties) are how you pass data from parent components to child components in React. They are read-only and help make components reusable and configurable.</p>
+
+  <mat-tab-group>
+    <mat-tab label="Props Basics">
+      <div class="tab-content">
+        <h2>Understanding Props</h2>
+        <div class="info-box">
+          <p><strong>Props</strong> are arguments passed to React components, similar to function parameters.</p>
+          <ul>
+            <li>Props are passed from parent to child components</li>
+            <li>Props are read-only (immutable)</li>
+            <li>Props can be any JavaScript value: strings, numbers, objects, arrays, functions</li>
+            <li>Use curly braces for non-string values</li>
+            <li>Props enable component reusability</li>
+          </ul>
+        </div>
+        <pre><code class="language-jsx">{{propsBasics}}</code></pre>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Destructuring">
+      <div class="tab-content">
+        <h2>Props Destructuring</h2>
+        <div class="info-box">
+          <p><strong>Destructuring</strong> makes it easier to access props by extracting them directly in the function parameters.</p>
+          <ul>
+            <li>Extract props in function parameters</li>
+            <li>Cleaner and more readable code</li>
+            <li>Can use nested destructuring for nested objects</li>
+            <li>Use rest operator (...) to collect remaining props</li>
+            <li>Combine with default values</li>
+          </ul>
+        </div>
+        <pre><code class="language-jsx">{{propsDestructuring}}</code></pre>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Default Props">
+      <div class="tab-content">
+        <h2>Default Props</h2>
+        <div class="info-box">
+          <p><strong>Default props</strong> provide fallback values when props are not provided by the parent.</p>
+          <ul>
+            <li>Use ES6 default parameters in function signatures</li>
+            <li>Provides fallback values for undefined props</li>
+            <li>Makes components more robust</li>
+            <li>Can use complex default values (objects, arrays)</li>
+            <li>Combined with destructuring for clean syntax</li>
+          </ul>
+        </div>
+        <pre><code class="language-jsx">{{defaultProps}}</code></pre>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="PropTypes">
+      <div class="tab-content">
+        <h2>Props Validation with PropTypes</h2>
+        <div class="info-box warning">
+          <p><strong>PropTypes</strong> provide runtime type checking for React props (use TypeScript for better type safety).</p>
+          <ul>
+            <li>Runtime validation of prop types</li>
+            <li>Helps catch bugs during development</li>
+            <li>Documents component API</li>
+            <li>Use .isRequired for mandatory props</li>
+            <li>Supports complex types (arrays, objects, shapes)</li>
+            <li>Consider TypeScript for compile-time type checking</li>
+          </ul>
+        </div>
+        <pre><code class="language-jsx">{{propTypes}}</code></pre>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Children Prop">
+      <div class="tab-content">
+        <h2>The Children Prop</h2>
+        <div class="info-box">
+          <p><strong>Children</strong> is a special prop that contains the content between opening and closing component tags.</p>
+          <ul>
+            <li>Special prop automatically passed by React</li>
+            <li>Contains nested content/components</li>
+            <li>Can be any valid JSX: text, elements, components</li>
+            <li>Use React.Children API to manipulate children</li>
+            <li>Enables composition patterns</li>
+          </ul>
+        </div>
+        <pre><code class="language-jsx">{{childrenProp}}</code></pre>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Spread Props">
+      <div class="tab-content">
+        <h2>Spreading Props</h2>
+        <div class="info-box">
+          <p><strong>Spread operator</strong> allows passing all props or selected props to child components efficiently.</p>
+          <ul>
+            <li>Pass all props at once with &#123;...props&#125;</li>
+            <li>Useful for wrapper components</li>
+            <li>Combine with destructuring for selective passing</li>
+            <li>Can override spread props by placing them after</li>
+            <li>Be careful not to pass unnecessary props</li>
+          </ul>
+        </div>
+        <pre><code class="language-jsx">{{propsSpread}}</code></pre>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Function Props">
+      <div class="tab-content">
+        <h2>Passing Functions as Props</h2>
+        <div class="info-box">
+          <p><strong>Function props</strong> enable child components to communicate with parent components (callbacks).</p>
+          <ul>
+            <li>Pass functions to handle events in child components</li>
+            <li>Enable child-to-parent communication</li>
+            <li>Common pattern for form inputs and buttons</li>
+            <li>Use arrow functions to pass arguments</li>
+            <li>Name function props with "on" prefix (onClick, onSubmit)</li>
+          </ul>
+        </div>
+        <pre><code class="language-jsx">{{functionProps}}</code></pre>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Best Practices">
+      <div class="tab-content">
+        <h2>Props Best Practices</h2>
+        <div class="info-box success">
+          <h3>✓ Best Practices</h3>
+          <ul>
+            <li>Keep props simple and focused</li>
+            <li>Use descriptive and consistent prop names</li>
+            <li>Never mutate props inside components</li>
+            <li>Validate props with PropTypes or TypeScript</li>
+            <li>Group related props into objects</li>
+            <li>Use default props for optional values</li>
+            <li>Destructure props for cleaner code</li>
+            <li>Document complex props with comments</li>
+          </ul>
+        </div>
+        <pre><code class="language-jsx">{{propsBestPractices}}</code></pre>
+      </div>
+    </mat-tab>
+  </mat-tab-group>
+</div>

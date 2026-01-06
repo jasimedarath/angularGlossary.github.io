@@ -1,0 +1,128 @@
+<div class="container">
+  <h1>React Testing</h1>
+  <p>Learn how to test React applications using Jest and React Testing Library for reliable, maintainable tests.</p>
+
+  <mat-tab-group>
+    <mat-tab label="Jest Basics">
+      <div class="tab-content">
+        <h2>Jest Testing Framework</h2>
+        <div class="info-box">
+          <p><strong>Jest</strong> is a JavaScript testing framework with built-in assertions, mocking, and code coverage.</p>
+          <ul>
+            <li>Zero configuration for most projects</li>
+            <li>Snapshot testing</li>
+            <li>Mock functions and modules</li>
+            <li>Code coverage reports</li>
+          </ul>
+        </div>
+        <pre><code class="language-jsx">{{jestBasics}}</code></pre>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="React Testing Library">
+      <div class="tab-content">
+        <h2>React Testing Library</h2>
+        <div class="info-box">
+          <p><strong>React Testing Library</strong> helps test React components the way users interact with them.</p>
+          <ul>
+            <li>Focus on behavior, not implementation</li>
+            <li>Query elements like users do</li>
+            <li>Encourage accessible markup</li>
+            <li>Works with DOM Testing Library</li>
+          </ul>
+        </div>
+        <pre><code class="language-jsx">{{reactTestingLibrary}}</code></pre>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Query Methods">
+      <div class="tab-content">
+        <h2>Query Methods</h2>
+        <div class="info-box">
+          <p>Different query methods for finding elements in your tests.</p>
+          <ul>
+            <li><strong>getBy:</strong> Throws error if not found</li>
+            <li><strong>queryBy:</strong> Returns null if not found</li>
+            <li><strong>findBy:</strong> Async, waits for element</li>
+            <li><strong>getAllBy/queryAllBy/findAllBy:</strong> Multiple elements</li>
+          </ul>
+        </div>
+        <pre><code class="language-jsx">{{queryMethods}}</code></pre>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Async Testing">
+      <div class="tab-content">
+        <h2>Testing Async Code</h2>
+        <div class="info-box">
+          <p>Test asynchronous operations like API calls, loading states, and timers.</p>
+          <ul>
+            <li>findBy queries for async elements</li>
+            <li>waitFor for complex conditions</li>
+            <li>Mock fetch/API calls</li>
+            <li>Test loading and error states</li>
+          </ul>
+        </div>
+        <pre><code class="language-jsx">{{asyncTesting}}</code></pre>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Testing Hooks">
+      <div class="tab-content">
+        <h2>Testing Custom Hooks</h2>
+        <div class="info-box">
+          <p>Use <strong>renderHook</strong> to test custom hooks in isolation.</p>
+          <ul>
+            <li>Test hook logic independently</li>
+            <li>Test with different props</li>
+            <li>Test hook state updates</li>
+            <li>Use act() for state changes</li>
+          </ul>
+        </div>
+        <pre><code class="language-jsx">{{hooksTest}}</code></pre>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Mocking & Context">
+      <div class="tab-content">
+        <h2>Mocking and Context</h2>
+        <div class="info-box">
+          <p>Mock modules, provide context, and use fake timers in tests.</p>
+          <ul>
+            <li>Mock API modules</li>
+            <li>Provide context in tests</li>
+            <li>Mock timers for debounce/throttle</li>
+            <li>Custom render with providers</li>
+          </ul>
+        </div>
+        <pre><code class="language-jsx">{{mockingContext}}</code></pre>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Best Practices">
+      <div class="tab-content">
+        <h2>Testing Best Practices</h2>
+        <div class="info-box success">
+          <h3>✓ Do's</h3>
+          <ul>
+            <li>Test user behavior, not implementation</li>
+            <li>Use accessible queries (getByRole)</li>
+            <li>Test error states and edge cases</li>
+            <li>Keep tests isolated and independent</li>
+            <li>Use meaningful test descriptions</li>
+          </ul>
+        </div>
+        <div class="info-box warning">
+          <h3>✗ Don'ts</h3>
+          <ul>
+            <li>Don't test implementation details</li>
+            <li>Don't access component state directly</li>
+            <li>Don't rely on internal structure</li>
+            <li>Avoid testing third-party libraries</li>
+          </ul>
+        </div>
+        <pre><code class="language-jsx">{{bestPractices}}</code></pre>
+      </div>
+    </mat-tab>
+  </mat-tab-group>
+</div>

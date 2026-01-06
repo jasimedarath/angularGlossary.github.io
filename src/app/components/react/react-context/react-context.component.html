@@ -1,0 +1,145 @@
+<div class="container">
+  <h1>React Context API</h1>
+  <p>Context provides a way to pass data through the component tree without having to pass props down manually at every level. It's designed to share data that can be considered "global" for a tree of React components.</p>
+
+  <mat-tab-group>
+    <mat-tab label="Context Basics">
+      <div class="tab-content">
+        <h2>Creating and Using Context</h2>
+        <div class="info-box">
+          <p><strong>Context</strong> lets you pass data deep into the component tree without prop drilling.</p>
+          <ul>
+            <li>Create context with createContext()</li>
+            <li>Provide value with Provider component</li>
+            <li>Consume value with useContext hook</li>
+            <li>Avoids prop drilling through intermediate components</li>
+            <li>Value accessible to all nested consumers</li>
+          </ul>
+        </div>
+        <pre><code class="language-jsx">{{contextBasics}}</code></pre>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Provider Pattern">
+      <div class="tab-content">
+        <h2>Custom Provider Component</h2>
+        <div class="info-box">
+          <p>Create a custom Provider component to encapsulate context logic.</p>
+          <ul>
+            <li>Wrap context logic in dedicated component</li>
+            <li>Manage state within provider</li>
+            <li>Expose multiple values and functions</li>
+            <li>Cleaner, more maintainable code</li>
+            <li>Reusable across applications</li>
+          </ul>
+        </div>
+        <pre><code class="language-jsx">{{providerPattern}}</code></pre>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Custom Hooks">
+      <div class="tab-content">
+        <h2>Custom Hook for Context</h2>
+        <div class="info-box success">
+          <p>Create custom hooks to access context with error handling.</p>
+          <ul>
+            <li>Cleaner consumer API</li>
+            <li>Built-in error handling</li>
+            <li>Enforce provider usage</li>
+            <li>Better developer experience</li>
+            <li>Standard pattern in React apps</li>
+          </ul>
+        </div>
+        <pre><code class="language-jsx">{{customHook}}</code></pre>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Multiple Contexts">
+      <div class="tab-content">
+        <h2>Using Multiple Contexts</h2>
+        <div class="info-box">
+          <p>An application can use multiple contexts for different concerns.</p>
+          <ul>
+            <li>Separate contexts for different data domains</li>
+            <li>Nest multiple providers</li>
+            <li>Each component can consume multiple contexts</li>
+            <li>Better separation of concerns</li>
+            <li>More maintainable code structure</li>
+          </ul>
+        </div>
+        <pre><code class="language-jsx">{{multipleContexts}}</code></pre>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="With Reducer">
+      <div class="tab-content">
+        <h2>Context with useReducer</h2>
+        <div class="info-box">
+          <p>Combine Context API with useReducer for complex state management.</p>
+          <ul>
+            <li>useReducer for complex state logic</li>
+            <li>Context to share state globally</li>
+            <li>Similar pattern to Redux</li>
+            <li>Actions for state updates</li>
+            <li>Predictable state changes</li>
+          </ul>
+        </div>
+        <pre><code class="language-jsx">{{contextWithReducer}}</code></pre>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Performance">
+      <div class="tab-content">
+        <h2>Performance Optimization</h2>
+        <div class="info-box warning">
+          <p>Context can cause performance issues if not used carefully.</p>
+          <ul>
+            <li>Memoize context value to prevent re-renders</li>
+            <li>Split contexts by update frequency</li>
+            <li>Separate state and dispatch contexts</li>
+            <li>Use React.memo on expensive consumers</li>
+            <li>Consider state management libraries for complex apps</li>
+          </ul>
+        </div>
+        <pre><code class="language-jsx">{{performance}}</code></pre>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Real Example">
+      <div class="tab-content">
+        <h2>Real-World Example: Auth Context</h2>
+        <div class="info-box">
+          <p>A practical example of authentication context.</p>
+          <ul>
+            <li>Manage user authentication state</li>
+            <li>Login and logout functions</li>
+            <li>Loading states</li>
+            <li>Token management</li>
+            <li>Accessible throughout app</li>
+          </ul>
+        </div>
+        <pre><code class="language-jsx">{{realWorldExample}}</code></pre>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Best Practices">
+      <div class="tab-content">
+        <h2>Context Best Practices</h2>
+        <div class="info-box success">
+          <h3>✓ Best Practices</h3>
+          <ul>
+            <li>Create custom hooks for each context</li>
+            <li>Throw errors if context used outside provider</li>
+            <li>Memoize context values</li>
+            <li>Split large contexts into smaller ones</li>
+            <li>Don't overuse Context - use props when appropriate</li>
+            <li>Separate state and dispatch contexts</li>
+            <li>Use Context for truly global state</li>
+            <li>Consider Redux/Zustand for complex state</li>
+          </ul>
+        </div>
+        <pre><code class="language-jsx">{{bestPractices}}</code></pre>
+      </div>
+    </mat-tab>
+  </mat-tab-group>
+</div>

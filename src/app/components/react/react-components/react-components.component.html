@@ -1,0 +1,144 @@
+<div class="container">
+  <h1>React Components</h1>
+  <p>Components are the building blocks of React applications. They let you split the UI into independent, reusable pieces and think about each piece in isolation.</p>
+
+  <mat-tab-group>
+    <mat-tab label="Functional Components">
+      <div class="tab-content">
+        <h2>Functional Components</h2>
+        <div class="info-box">
+          <p><strong>Functional components</strong> are JavaScript functions that return JSX. They are the modern and preferred way to write React components.</p>
+          <ul>
+            <li>Simple JavaScript functions that return JSX</li>
+            <li>Can use React Hooks for state and lifecycle</li>
+            <li>More concise and easier to test</li>
+            <li>Better performance with less boilerplate</li>
+            <li>Recommended for all new components</li>
+          </ul>
+        </div>
+        <pre><code class="language-jsx">{{functionalComponents}}</code></pre>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Class Components">
+      <div class="tab-content">
+        <h2>Class Components</h2>
+        <div class="info-box warning">
+          <p><strong>Class components</strong> are ES6 classes that extend React.Component. They are the legacy way of creating components.</p>
+          <ul>
+            <li>Use ES6 class syntax</li>
+            <li>Have access to lifecycle methods</li>
+            <li>Manage state with this.state and this.setState</li>
+            <li>More verbose than functional components</li>
+            <li>Still supported but not recommended for new code</li>
+          </ul>
+        </div>
+        <pre><code class="language-jsx">{{classComponents}}</code></pre>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Comparison">
+      <div class="tab-content">
+        <h2>Functional vs Class Components</h2>
+        <div class="info-box">
+          <p>Comparison between modern functional components and legacy class components.</p>
+          <ul>
+            <li><strong>Syntax:</strong> Functions vs Classes</li>
+            <li><strong>State:</strong> useState hook vs this.state</li>
+            <li><strong>Lifecycle:</strong> useEffect hook vs lifecycle methods</li>
+            <li><strong>This binding:</strong> Not needed in functional components</li>
+            <li><strong>Performance:</strong> Functional components are generally faster</li>
+            <li><strong>Code size:</strong> Functional components are more concise</li>
+          </ul>
+        </div>
+        <pre><code class="language-jsx">{{componentComparison}}</code></pre>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Composition">
+      <div class="tab-content">
+        <h2>Component Composition</h2>
+        <div class="info-box">
+          <p><strong>Composition</strong> is the practice of building complex UIs by combining smaller, reusable components.</p>
+          <ul>
+            <li>Break down complex UIs into smaller pieces</li>
+            <li>Create reusable component building blocks</li>
+            <li>Pass components as props (children)</li>
+            <li>Compose components together to build features</li>
+            <li>Prefer composition over inheritance</li>
+          </ul>
+        </div>
+        <pre><code class="language-jsx">{{componentComposition}}</code></pre>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Import/Export">
+      <div class="tab-content">
+        <h2>Component Export and Import</h2>
+        <div class="info-box">
+          <p>Learn how to properly export and import React components across files.</p>
+          <ul>
+            <li><strong>Default export:</strong> One default export per file</li>
+            <li><strong>Named export:</strong> Multiple named exports per file</li>
+            <li>Import default: import App from './App'</li>
+            <li>Import named: import &#123; Button &#125; from './Button'</li>
+            <li>Mix both: import App, &#123; Button &#125; from './App'</li>
+          </ul>
+        </div>
+        <pre><code class="language-jsx">{{componentExport}}</code></pre>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Props">
+      <div class="tab-content">
+        <h2>Component Props</h2>
+        <div class="info-box">
+          <p><strong>Props</strong> (properties) are how you pass data from parent to child components.</p>
+          <ul>
+            <li>Props are read-only (immutable)</li>
+            <li>Passed from parent to child components</li>
+            <li>Can destructure props in function parameters</li>
+            <li>Use default values with ES6 default parameters</li>
+            <li>Spread operator to pass multiple props</li>
+          </ul>
+        </div>
+        <pre><code class="language-jsx">{{componentProps}}</code></pre>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Pure Components">
+      <div class="tab-content">
+        <h2>Pure Components & Memoization</h2>
+        <div class="info-box success">
+          <p><strong>Pure components</strong> only re-render when their props change, optimizing performance.</p>
+          <ul>
+            <li>React.memo() for functional components</li>
+            <li>PureComponent for class components</li>
+            <li>Shallow comparison of props</li>
+            <li>Custom comparison function option</li>
+            <li>Prevents unnecessary re-renders</li>
+            <li>Use for expensive render operations</li>
+          </ul>
+        </div>
+        <pre><code class="language-jsx">{{pureComponents}}</code></pre>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Patterns">
+      <div class="tab-content">
+        <h2>Component Patterns</h2>
+        <div class="info-box">
+          <p>Common patterns for structuring React components effectively.</p>
+          <ul>
+            <li><strong>Container/Presentational:</strong> Separate logic from UI</li>
+            <li><strong>Multiple returns:</strong> Early returns for conditions</li>
+            <li><strong>Compound components:</strong> Components that work together</li>
+            <li><strong>Props getters:</strong> Functions that return props</li>
+            <li><strong>State reducers:</strong> Custom state logic</li>
+          </ul>
+        </div>
+        <pre><code class="language-jsx">{{componentPatterns}}</code></pre>
+      </div>
+    </mat-tab>
+  </mat-tab-group>
+</div>

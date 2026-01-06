@@ -1,0 +1,146 @@
+<div class="container">
+  <h1>React Hooks</h1>
+  <p>Hooks are functions that let you "hook into" React state and lifecycle features from function components. They allow you to use state and other React features without writing a class.</p>
+
+  <mat-tab-group>
+    <mat-tab label="useState">
+      <div class="tab-content">
+        <h2>useState Hook</h2>
+        <div class="info-box">
+          <p><strong>useState</strong> is the most basic hook that lets you add state to functional components.</p>
+          <ul>
+            <li>Returns array: [stateValue, setterFunction]</li>
+            <li>Takes initial value as argument</li>
+            <li>Setter function triggers re-render</li>
+            <li>Can have multiple useState calls per component</li>
+            <li>State is preserved between re-renders</li>
+          </ul>
+        </div>
+        <pre><code class="language-jsx">{{useStateHook}}</code></pre>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="useEffect">
+      <div class="tab-content">
+        <h2>useEffect Hook</h2>
+        <div class="info-box">
+          <p><strong>useEffect</strong> lets you perform side effects in functional components (data fetching, subscriptions, DOM updates).</p>
+          <ul>
+            <li>Runs after every render by default</li>
+            <li>Dependency array controls when it runs</li>
+            <li>Empty array [] = run once on mount</li>
+            <li>Return cleanup function for unmount</li>
+            <li>Replaces componentDidMount, componentDidUpdate, componentWillUnmount</li>
+          </ul>
+        </div>
+        <pre><code class="language-jsx">{{useEffectHook}}</code></pre>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="useContext">
+      <div class="tab-content">
+        <h2>useContext Hook</h2>
+        <div class="info-box">
+          <p><strong>useContext</strong> lets you subscribe to React context without nesting Consumer components.</p>
+          <ul>
+            <li>Cleaner than Context.Consumer</li>
+            <li>Takes context object as argument</li>
+            <li>Returns current context value</li>
+            <li>Re-renders when context value changes</li>
+            <li>Can use multiple contexts in one component</li>
+          </ul>
+        </div>
+        <pre><code class="language-jsx">{{useContextHook}}</code></pre>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="useReducer">
+      <div class="tab-content">
+        <h2>useReducer Hook</h2>
+        <div class="info-box">
+          <p><strong>useReducer</strong> is an alternative to useState for complex state logic, similar to Redux.</p>
+          <ul>
+            <li>Better for complex state logic</li>
+            <li>Takes reducer function and initial state</li>
+            <li>Returns [state, dispatch]</li>
+            <li>Dispatch actions to update state</li>
+            <li>Easier to test than useState</li>
+            <li>Good for multiple related state updates</li>
+          </ul>
+        </div>
+        <pre><code class="language-jsx">{{useReducerHook}}</code></pre>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="useMemo">
+      <div class="tab-content">
+        <h2>useMemo Hook</h2>
+        <div class="info-box success">
+          <p><strong>useMemo</strong> memoizes expensive computations to optimize performance.</p>
+          <ul>
+            <li>Caches computed values</li>
+            <li>Only recomputes when dependencies change</li>
+            <li>Returns memoized value</li>
+            <li>Use for expensive calculations</li>
+            <li>Avoids unnecessary re-computations</li>
+            <li>Don't overuse - has overhead</li>
+          </ul>
+        </div>
+        <pre><code class="language-jsx">{{useMemoHook}}</code></pre>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="useCallback">
+      <div class="tab-content">
+        <h2>useCallback Hook</h2>
+        <div class="info-box success">
+          <p><strong>useCallback</strong> memoizes functions to prevent unnecessary re-renders of child components.</p>
+          <ul>
+            <li>Returns memoized callback function</li>
+            <li>Only creates new function when dependencies change</li>
+            <li>Useful when passing callbacks to optimized child components</li>
+            <li>Works with React.memo to prevent re-renders</li>
+            <li>Similar to useMemo but for functions</li>
+          </ul>
+        </div>
+        <pre><code class="language-jsx">{{useCallbackHook}}</code></pre>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="useRef">
+      <div class="tab-content">
+        <h2>useRef Hook</h2>
+        <div class="info-box">
+          <p><strong>useRef</strong> creates a mutable reference that persists across renders without causing re-renders.</p>
+          <ul>
+            <li>Access DOM elements directly</li>
+            <li>Store mutable values that don't cause re-renders</li>
+            <li>Persist values across renders</li>
+            <li>Access previous values</li>
+            <li>Store interval/timeout IDs</li>
+            <li>.current property holds the value</li>
+          </ul>
+        </div>
+        <pre><code class="language-jsx">{{useRefHook}}</code></pre>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Custom Hooks">
+      <div class="tab-content">
+        <h2>Custom Hooks</h2>
+        <div class="info-box success">
+          <p><strong>Custom hooks</strong> let you extract component logic into reusable functions.</p>
+          <ul>
+            <li>Name must start with "use"</li>
+            <li>Can call other hooks inside</li>
+            <li>Share stateful logic between components</li>
+            <li>More flexible than HOCs or render props</li>
+            <li>Can return anything: values, functions, objects</li>
+            <li>Examples: useFetch, useLocalStorage, useAuth</li>
+          </ul>
+        </div>
+        <pre><code class="language-jsx">{{customHooks}}</code></pre>
+      </div>
+    </mat-tab>
+  </mat-tab-group>
+</div>
