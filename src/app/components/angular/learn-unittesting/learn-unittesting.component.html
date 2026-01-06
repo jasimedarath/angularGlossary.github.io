@@ -1,0 +1,452 @@
+<h2 class="header">Unit Testing</h2>
+<label>Unit Testing in Angular ensures code quality and reliability through comprehensive test coverage using Jasmine and Karma frameworks.</label>
+
+<mat-tab-group>
+  <mat-tab label="TestBed Basics">
+    <ng-template matTabContent>
+      <div class="tab-content">
+        <h3>Angular Testing Fundamentals</h3>
+        <p>
+          Angular uses TestBed to create and configure testing modules. TestBed is the primary API for writing unit tests
+          in Angular applications, providing utilities to configure and initialize the environment for unit testing.
+        </p>
+        
+        <h4>Core Testing Concepts</h4>
+        <ul>
+          <li><strong>TestBed:</strong> Main Angular testing utility for configuring and creating test modules</li>
+          <li><strong>ComponentFixture:</strong> Wrapper for component instance and its template</li>
+          <li><strong>DebugElement:</strong> Abstraction for testing across different platforms</li>
+          <li><strong>detectChanges():</strong> Trigger Angular's change detection manually</li>
+        </ul>
+
+        <h4>Testing Framework Stack</h4>
+        <ul>
+          <li>🧪 <strong>Jasmine:</strong> BDD testing framework with describe/it syntax</li>
+          <li>🚀 <strong>Karma:</strong> Test runner that executes tests in browsers</li>
+          <li>📊 <strong>Coverage:</strong> Istanbul for code coverage reports</li>
+          <li>🎯 <strong>Assertions:</strong> expect() with matchers like toBe(), toEqual()</li>
+        </ul>
+
+        <pre><code class="language-typescript">{{ testBedBasics }}</code></pre>
+
+        <div class="info-box">
+          <h4>💡 TestBed Configuration</h4>
+          <p>
+            Always call <code>TestBed.configureTestingModule()</code> in <code>beforeEach()</code> to ensure
+            each test runs in a clean environment. Use <code>async</code> for component compilation with external templates.
+          </p>
+        </div>
+
+        <div class="tip-box">
+          <h4>🎯 Quick Tips</h4>
+          <ul>
+            <li>Use <code>fixture.detectChanges()</code> to trigger change detection and update the view</li>
+            <li>Import standalone components directly in the imports array</li>
+            <li>Access the component instance via <code>fixture.componentInstance</code></li>
+            <li>Use <code>fixture.nativeElement</code> for DOM queries</li>
+          </ul>
+        </div>
+      </div>
+    </ng-template>
+  </mat-tab>
+
+  <mat-tab label="Component Testing">
+    <ng-template matTabContent>
+      <div class="tab-content">
+        <h3>Testing Angular Components</h3>
+        <p>
+          Component testing verifies that components behave correctly in isolation, including their templates,
+          bindings, event handlers, and interactions with child components.
+        </p>
+        
+        <h4>What to Test in Components</h4>
+        <ul>
+          <li><strong>Property Bindings:</strong> Verify data is correctly displayed in templates</li>
+          <li><strong>Event Handlers:</strong> Test user interactions and event emissions</li>
+            <li><strong>&#64;Input/&#64;Output:</strong> Validate &#64;Input properties and &#64;Output events</li>
+          <li><strong>Lifecycle Hooks:</strong> Ensure ngOnInit, ngOnChanges work correctly</li>
+          <li><strong>Conditional Rendering:</strong> Test *ngIf, *ngFor directives</li>
+          <li><strong>CSS Classes:</strong> Verify dynamic class bindings</li>
+        </ul>
+
+        <h4>ComponentFixture API</h4>
+        <ul>
+          <li><code>componentInstance:</code> Access the component class instance</li>
+          <li><code>nativeElement:</code> Get the native DOM element</li>
+          <li><code>debugElement:</code> Platform-independent element abstraction</li>
+          <li><code>detectChanges():</code> Manually trigger change detection</li>
+          <li><code>whenStable():</code> Wait for async operations to complete</li>
+        </ul>
+
+        <pre><code class="language-typescript">{{ componentTesting }}</code></pre>
+
+        <div class="info-box">
+          <h4>💡 Change Detection</h4>
+          <p>
+            Always call <code>fixture.detectChanges()</code> after modifying component properties to update the view.
+            Angular doesn't automatically run change detection in tests unless configured with automatic detection.
+          </p>
+        </div>
+
+        <div class="tip-box">
+          <h4>🎯 Testing Best Practices</h4>
+          <ul>
+            <li>Test user-facing behavior, not implementation details</li>
+            <li>Use <code>By.css()</code> for more reliable DOM queries</li>
+            <li>Test error states and edge cases</li>
+            <li>Verify accessibility attributes and ARIA labels</li>
+          </ul>
+        </div>
+      </div>
+    </ng-template>
+  </mat-tab>
+
+  <mat-tab label="Service Testing">
+    <ng-template matTabContent>
+      <div class="tab-content">
+        <h3>Testing Angular Services</h3>
+        <p>
+          Service testing focuses on business logic, data manipulation, and API communication.
+          Services are typically easier to test than components since they don't involve the DOM.
+        </p>
+        
+        <h4>Testing Services with HTTP</h4>
+        <ul>
+          <li><strong>HttpClientTestingModule:</strong> Mock HTTP requests without real API calls</li>
+          <li><strong>HttpTestingController:</strong> Control and verify HTTP requests</li>
+          <li><strong>expectOne():</strong> Assert a single matching request was made</li>
+          <li><strong>flush():</strong> Simulate server response with mock data</li>
+          <li><strong>verify():</strong> Ensure no outstanding HTTP requests remain</li>
+        </ul>
+
+        <h4>Common Service Testing Patterns</h4>
+        <ul>
+          <li>✅ Test successful API calls with expected data</li>
+          <li>❌ Test error handling and HTTP error responses</li>
+          <li>🔄 Test retry logic and timeout behavior</li>
+          <li>💾 Test caching mechanisms and data persistence</li>
+          <li>🔐 Test authentication token handling</li>
+        </ul>
+
+        <pre><code class="language-typescript">{{ serviceTesting }}</code></pre>
+
+        <div class="info-box">
+          <h4>💡 HTTP Testing</h4>
+          <p>
+            Always call <code>httpMock.verify()</code> in <code>afterEach()</code> to ensure all expected
+            HTTP requests were made and no unexpected requests occurred during the test.
+          </p>
+        </div>
+
+        <div class="warning-box">
+          <h4>⚠️ Common Pitfalls</h4>
+          <ul>
+            <li>Forgetting to call <code>req.flush()</code> - tests will hang</li>
+            <li>Not verifying HTTP method (GET, POST, etc.)</li>
+            <li>Forgetting to test error scenarios</li>
+            <li>Not cleaning up with <code>httpMock.verify()</code></li>
+          </ul>
+        </div>
+      </div>
+    </ng-template>
+  </mat-tab>
+
+  <mat-tab label="Async Testing">
+    <ng-template matTabContent>
+      <div class="tab-content">
+        <h3>Testing Asynchronous Code</h3>
+        <p>
+          Angular provides utilities for testing asynchronous operations like Promises, Observables,
+          setTimeout, and setInterval in a controlled, synchronous manner.
+        </p>
+        
+        <h4>Async Testing Utilities</h4>
+        <ul>
+          <li><strong>fakeAsync:</strong> Run test in fake async zone, control time with tick()</li>
+          <li><strong>tick(ms):</strong> Simulate passage of time in milliseconds</li>
+          <li><strong>flush():</strong> Flush all pending timers</li>
+          <li><strong>waitForAsync:</strong> Wait for all async operations to complete</li>
+          <li><strong>whenStable():</strong> Promise that resolves when async tasks finish</li>
+        </ul>
+
+        <h4>When to Use Each Utility</h4>
+        <ul>
+          <li><strong>fakeAsync/tick:</strong> Testing setTimeout, setInterval, debounce</li>
+          <li><strong>waitForAsync:</strong> Testing Promises and async/await</li>
+          <li><strong>done callback:</strong> Testing observables and complex async flows</li>
+          <li><strong>jasmine.clock():</strong> Alternative for timer control</li>
+        </ul>
+
+        <pre><code class="language-typescript">{{ asyncTesting }}</code></pre>
+
+        <div class="info-box">
+          <h4>💡 FakeAsync Zone</h4>
+          <p>
+            <code>fakeAsync</code> creates a special zone where time is under your control.
+            Use <code>tick()</code> to advance time precisely, making tests deterministic and fast.
+          </p>
+        </div>
+
+        <div class="warning-box">
+          <h4>⚠️ FakeAsync Limitations</h4>
+          <ul>
+            <li>Cannot use real HTTP requests (XHR/fetch)</li>
+            <li>Cannot test actual browser APIs like WebSocket</li>
+            <li>Must flush all timers before test ends</li>
+            <li>Nested fakeAsync zones are not supported</li>
+          </ul>
+        </div>
+      </div>
+    </ng-template>
+  </mat-tab>
+
+  <mat-tab label="Testing Signals">
+    <ng-template matTabContent>
+      <div class="tab-content">
+        <h3>Testing Angular Signals</h3>
+        <p>
+          Angular Signals introduced in v16 provide fine-grained reactivity. Testing signals is straightforward
+          since they are synchronous and their values can be read directly using the call syntax.
+        </p>
+        
+        <h4>Signal Testing Fundamentals</h4>
+        <ul>
+          <li><strong>Reading Signals:</strong> Call the signal as a function: <code>count()</code></li>
+          <li><strong>Writing Signals:</strong> Use <code>set()</code> or <code>update()</code></li>
+          <li><strong>Computed Signals:</strong> Automatically update when dependencies change</li>
+          <li><strong>Effects:</strong> Run side effects when signals change (async)</li>
+        </ul>
+
+        <h4>Testing Patterns</h4>
+        <ul>
+          <li>✅ Test signal value updates with set() and update()</li>
+          <li>🔄 Test computed signal recalculation</li>
+          <li>👁️ Test signal changes reflected in template</li>
+          <li>⚡ Test effects execution and cleanup</li>
+          <li>🔗 Test signal dependency chains</li>
+        </ul>
+
+        <pre><code class="language-typescript">{{ signalTesting }}</code></pre>
+
+        <div class="info-box">
+          <h4>💡 Signals are Synchronous</h4>
+          <p>
+            Unlike RxJS observables, signal updates are synchronous. Changes are immediately reflected
+            when you read the signal. Only effects run asynchronously in microtasks.
+          </p>
+        </div>
+
+        <div class="tip-box">
+          <h4>🎯 Testing Tips</h4>
+          <ul>
+            <li>No need for async utilities when testing basic signal updates</li>
+            <li>Use <code>TestBed.runInInjectionContext()</code> for testing effects</li>
+            <li>Computed signals update immediately when dependencies change</li>
+            <li>Test signal updates trigger change detection in components</li>
+          </ul>
+        </div>
+      </div>
+    </ng-template>
+  </mat-tab>
+
+  <mat-tab label="Mocking Dependencies">
+    <ng-template matTabContent>
+      <div class="tab-content">
+        <h3>Mocking and Spying</h3>
+        <p>
+          Mocking dependencies isolates the unit under test by replacing real dependencies with controlled
+          test doubles. This ensures tests are fast, reliable, and independent of external systems.
+        </p>
+        
+        <h4>Mocking Strategies</h4>
+        <ul>
+          <li><strong>Spy Objects:</strong> Use <code>jasmine.createSpyObj()</code> for full mock objects</li>
+          <li><strong>Spy On Methods:</strong> Use <code>spyOn()</code> to mock specific methods</li>
+          <li><strong>Mock Classes:</strong> Create custom mock classes with test data</li>
+          <li><strong>Stub Values:</strong> Provide simple objects with useValue</li>
+        </ul>
+
+        <h4>Jasmine Spy Methods</h4>
+        <ul>
+          <li><code>and.returnValue(value):</code> Return a specific value</li>
+          <li><code>and.callThrough():</code> Call the actual implementation</li>
+          <li><code>and.callFake(fn):</code> Call a fake implementation</li>
+          <li><code>and.throwError(error):</code> Throw an error</li>
+          <li><code>and.stub():</code> Do nothing (default)</li>
+        </ul>
+
+        <h4>Spy Assertions</h4>
+        <ul>
+          <li><code>toHaveBeenCalled():</code> Verify method was called</li>
+          <li><code>toHaveBeenCalledWith(args):</code> Verify with specific arguments</li>
+          <li><code>toHaveBeenCalledTimes(n):</code> Verify call count</li>
+          <li><code>calls.count():</code> Get number of calls</li>
+          <li><code>calls.argsFor(index):</code> Get arguments for specific call</li>
+        </ul>
+
+        <pre><code class="language-typescript">{{ mockingDependencies }}</code></pre>
+
+        <div class="info-box">
+          <h4>💡 Spy Objects vs Mock Classes</h4>
+          <p>
+            Use <code>jasmine.createSpyObj()</code> for simple mocks. Create custom mock classes
+            when you need more complex behavior, shared test data, or reusable mocks across tests.
+          </p>
+        </div>
+
+        <div class="tip-box">
+          <h4>🎯 Best Practices</h4>
+          <ul>
+            <li>Mock all external dependencies (services, HTTP, storage)</li>
+            <li>Use descriptive spy names matching the real service</li>
+            <li>Configure default return values in beforeEach</li>
+            <li>Test both success and error scenarios</li>
+          </ul>
+        </div>
+      </div>
+    </ng-template>
+  </mat-tab>
+
+  <mat-tab label="Test Coverage">
+    <ng-template matTabContent>
+      <div class="tab-content">
+        <h3>Code Coverage</h3>
+        <p>
+          Code coverage measures which parts of your code are executed during tests. Angular CLI integrates
+          Istanbul coverage tool to generate detailed coverage reports and enforce coverage thresholds.
+        </p>
+        
+        <h4>Coverage Metrics</h4>
+        <ul>
+          <li><strong>Statements:</strong> Percentage of executable statements covered</li>
+          <li><strong>Branches:</strong> Percentage of if/else branches covered</li>
+          <li><strong>Functions:</strong> Percentage of functions called</li>
+          <li><strong>Lines:</strong> Percentage of code lines executed</li>
+        </ul>
+
+        <h4>Running Coverage</h4>
+        <ul>
+          <li><code>ng test --code-coverage</code> - Run tests with coverage</li>
+          <li><code>ng test --no-watch --code-coverage</code> - Single run with coverage</li>
+          <li>Coverage reports generated in <code>coverage/</code> directory</li>
+          <li>Open <code>coverage/index.html</code> for detailed HTML report</li>
+        </ul>
+
+        <h4>Coverage Best Practices</h4>
+        <ul>
+          <li>🎯 Aim for 80%+ coverage for critical business logic</li>
+          <li>🚫 Exclude generated code and test files from coverage</li>
+          <li>⚠️ 100% coverage doesn't guarantee bug-free code</li>
+          <li>🔍 Focus on meaningful tests, not just coverage numbers</li>
+          <li>📊 Use coverage to identify untested code paths</li>
+        </ul>
+
+        <pre><code class="language-typescript">{{ testCoverage }}</code></pre>
+
+        <div class="info-box">
+          <h4>💡 Coverage Thresholds</h4>
+          <p>
+            Set minimum coverage thresholds in karma.conf.js to fail builds if coverage drops below acceptable levels.
+            This ensures code quality standards are maintained as the codebase grows.
+          </p>
+        </div>
+
+        <div class="warning-box">
+          <h4>⚠️ Coverage Limitations</h4>
+          <ul>
+            <li>High coverage doesn't mean good test quality</li>
+            <li>Can't measure if tests check the right things</li>
+            <li>Doesn't test integration between components</li>
+            <li>May encourage testing implementation over behavior</li>
+          </ul>
+        </div>
+
+        <div class="tip-box">
+          <h4>🎯 Improving Coverage</h4>
+          <ul>
+            <li>Identify red/uncovered lines in HTML report</li>
+            <li>Add tests for error handling and edge cases</li>
+            <li>Test all conditional branches (if/else)</li>
+            <li>Don't ignore coverage, but don't obsess over 100%</li>
+          </ul>
+        </div>
+      </div>
+    </ng-template>
+  </mat-tab>
+
+  <mat-tab label="Best Practices">
+    <ng-template matTabContent>
+      <div class="tab-content">
+        <h3>Testing Best Practices</h3>
+        <p>
+          Following established testing best practices ensures your test suite is maintainable, reliable,
+          and provides value to the development process. Good tests are fast, independent, and focused.
+        </p>
+        
+        <h4>Golden Rules</h4>
+        <ul>
+          <li><strong>AAA Pattern:</strong> Arrange (setup) → Act (execute) → Assert (verify)</li>
+          <li><strong>Test One Thing:</strong> Each test should verify a single behavior</li>
+          <li><strong>Descriptive Names:</strong> Test names should explain what is being tested</li>
+          <li><strong>Independent Tests:</strong> Tests should not depend on each other</li>
+          <li><strong>Fast Execution:</strong> Keep tests fast by avoiding real HTTP/DB calls</li>
+        </ul>
+
+        <h4>What Makes Good Tests</h4>
+        <ul>
+          <li>🎯 <strong>Focused:</strong> Test one behavior per test</li>
+          <li>🔄 <strong>Repeatable:</strong> Same results every time</li>
+          <li>⚡ <strong>Fast:</strong> Run quickly to enable frequent testing</li>
+          <li>🔒 <strong>Independent:</strong> Can run in any order</li>
+          <li>📖 <strong>Readable:</strong> Clear and easy to understand</li>
+          <li>🛡️ <strong>Reliable:</strong> No flaky or random failures</li>
+        </ul>
+
+        <h4>Common Anti-Patterns to Avoid</h4>
+        <ul>
+          <li>❌ Testing implementation details instead of behavior</li>
+          <li>❌ Tests that depend on other tests' state</li>
+          <li>❌ Overly complex test logic</li>
+          <li>❌ Insufficient test coverage of edge cases</li>
+          <li>❌ Using real external dependencies</li>
+          <li>❌ Vague or generic test names</li>
+        </ul>
+
+        <pre><code class="language-typescript">{{ bestPractices }}</code></pre>
+
+        <div class="best-practices">
+          <h4>✅ Testing Checklist</h4>
+          <ul>
+            <li><strong>Happy Path:</strong> Test expected, successful scenarios</li>
+            <li><strong>Error Cases:</strong> Test error handling and validation</li>
+            <li><strong>Edge Cases:</strong> Test boundary conditions (empty, null, max)</li>
+            <li><strong>User Interactions:</strong> Test clicks, inputs, navigation</li>
+            <li><strong>State Changes:</strong> Test component state transitions</li>
+            <li><strong>Side Effects:</strong> Test API calls, events, storage</li>
+          </ul>
+        </div>
+
+        <div class="tip-box">
+          <h4>🎯 Test Organization</h4>
+          <ul>
+            <li>Group related tests with nested <code>describe()</code> blocks</li>
+            <li>Use <code>beforeEach()</code> for common setup</li>
+            <li>Keep test files next to source files (*.spec.ts)</li>
+            <li>Use helper functions for repeated test setup</li>
+            <li>Write tests as you write code (TDD)</li>
+          </ul>
+        </div>
+
+        <div class="warning-box">
+          <h4>⚠️ When Not to Test</h4>
+          <ul>
+            <li>Third-party libraries (assume they're tested)</li>
+            <li>Generated code or boilerplate</li>
+            <li>Trivial getters/setters without logic</li>
+            <li>Framework internals (trust Angular)</li>
+          </ul>
+        </div>
+      </div>
+    </ng-template>
+  </mat-tab>
+</mat-tab-group>

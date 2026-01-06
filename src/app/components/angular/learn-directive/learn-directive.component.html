@@ -1,0 +1,56 @@
+<h2 class="header">Directives</h2>
+<label>Directives are special classes that allow you to add behavior to elements in your Angular applications.</label>
+
+<mat-tab-group>
+    
+  <mat-tab label="Syntax Reference">
+    <ng-template matTabContent>
+      <pre><code #codeElement class="language-typescript">{{ code }}</code></pre>
+    </ng-template>
+  </mat-tab>
+
+  <mat-tab label="Types">
+    <ng-template matTabContent>
+      <div>
+        <h3><b>Component Directives</b></h3>
+        <ul>
+          <li>Purpose: These are the most common type of directives. A component is essentially a directive with a template.</li>
+        </ul>
+        <pre><code #codeElement class="language-typescript">{{ componentDir }}</code></pre>
+      </div>
+      <div>
+        <h3><b>Structural Directives</b></h3>
+        <ul>
+          <li>Purpose: These directives change the DOM layout by adding or removing DOM elements. They modify the structure of the DOM.</li>
+        </ul>
+        <pre><code #codeElement class="language-typescript">{{ structuralDir }}</code></pre>
+      </div>
+      <div>
+        <h3><b>Attribute Directives</b></h3>
+        <ul>
+          <li>Purpose: These directives change the appearance or behavior of an element, component, or another directive.</li>
+        </ul>
+      </div>
+      <pre><code #codeElement class="language-typescript">{{ attributeDir }}</code></pre>
+      <div>
+        <h3><b>Custom Directives</b></h3>
+        <ul>
+            <pre><code #codeElement class="language-typescript">{{ code }}</code></pre>
+        </ul>
+      </div>
+    </ng-template>
+  </mat-tab>
+
+  <mat-tab label="Miscelleneous">
+    <ng-template matTabContent>
+      <div>
+        <h3><b>Component Directives</b></h3>
+        <ul>
+          <li>&#64;HostBinding: Binds a property of the host element to a directive property.</li>
+          <li>&#64;HostListener: Listens to events on the host element and calls a directive method.</li>
+          <pre><code #codeElement class="language-typescript">{{ miscCode }}</code></pre>
+        </ul>
+      </div>
+    </ng-template>
+  </mat-tab>
+</mat-tab-group>

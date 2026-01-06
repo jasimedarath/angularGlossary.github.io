@@ -1,0 +1,68 @@
+<h2 class="header">Pipes</h2>
+<label
+  ><b>Definition</b>: A pipe is a function that takes in a value, transforms it,
+  and outputs the transformed value. They are used in Angular templates to
+  format data displayed to the user.</label
+><br />
+<label
+  ><b>Usage</b>: Pipes are used by applying the pipe symbol (|) followed by the
+  pipe name in Angular templates.</label
+>
+
+<mat-tab-group>
+  <mat-tab label="Syntax Reference">
+    <ng-template matTabContent>
+      <pre><code #codeElement class="language-typescript">{{ code }}</code></pre>
+    </ng-template>
+  </mat-tab>
+
+  <mat-tab label="Types">
+    <ng-template matTabContent>
+      <div>
+        <h3><b>Built-In</b></h3>
+        <ul>
+          <li>
+            Angular provides several built-in pipes for common data
+            transformations.
+          </li>
+        </ul>
+        <pre><code #codeElement class="language-typescript">{{ builtinPipes }}</code></pre>
+      </div>
+      <div>
+        <h3><b>Custom</b></h3>
+        <ul>
+          <li>
+            Purpose: These directives change the DOM layout by adding or
+            removing DOM elements. They modify the structure of the DOM.
+          </li>
+        </ul>
+        <pre><code #codeElement class="language-typescript">{{ customPipes }}</code></pre>
+      </div>
+    </ng-template>
+  </mat-tab>
+
+  <mat-tab label="Pipe Lifecycles">
+    <ng-template matTabContent>
+      <div>
+        <h3><b>Pure Pipes (default)</b></h3>
+        <ul>
+          <li>
+            Only execute when the inputs change. Angular checks these pipes for
+            changes only when it detects changes in their input values.
+          </li>
+        </ul>
+      </div>
+      <div>
+        <h3><b>Impure Pipes</b></h3>
+        <ul>
+          <li>
+            Execute on every change detection cycle, regardless of whether the
+            inputs have changed. This can lead to performance issues if not used
+            carefully.
+          </li>
+        </ul>
+        <pre><code #codeElement class="language-typescript">{{ impurePipe }}</code></pre>
+      </div>
+    </ng-template>
+  </mat-tab>
+</mat-tab-group>

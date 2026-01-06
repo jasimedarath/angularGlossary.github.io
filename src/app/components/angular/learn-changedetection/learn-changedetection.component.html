@@ -1,0 +1,373 @@
+<h2 class="header">Change Detection</h2>
+<label>Change detection is Angular's mechanism for keeping the UI in sync with application state. Understanding it is crucial for building performant applications.</label>
+
+<mat-tab-group>
+  <mat-tab label="Zone.js">
+    <ng-template matTabContent>
+      <div class="tab-content">
+        <h3>How Zone.js Works</h3>
+        <p>
+          Zone.js is a library that patches asynchronous APIs (setTimeout, addEventListener, Promise, etc.)
+          to intercept async operations and notify Angular when they complete.
+        </p>
+        
+        <h4>What is Zone.js?</h4>
+        <ul>
+          <li>Execution context that persists across async operations</li>
+          <li>Monkey-patches browser APIs at startup</li>
+          <li>Tracks when async operations start and finish</li>
+          <li>Triggers Angular's change detection automatically</li>
+        </ul>
+
+        <h4>Async Operations that Trigger Detection</h4>
+        <ul>
+          <li>🖱️ <strong>DOM Events:</strong> click, input, keydown, etc.</li>
+          <li>⏱️ <strong>Timers:</strong> setTimeout, setInterval</li>
+          <li>🌐 <strong>HTTP Requests:</strong> HttpClient calls</li>
+          <li>🔄 <strong>Promises:</strong> Promise.then(), async/await</li>
+          <li>📡 <strong>Observables:</strong> When used with async pipe</li>
+        </ul>
+
+        <pre><code class="language-typescript">{{ zoneJS }}</code></pre>
+
+        <div class="info-box">
+          <h4>💡 How It Works</h4>
+          <p>
+            When you click a button, Zone.js wraps your click handler. After your code runs,
+            Zone.js tells Angular "something might have changed", and Angular checks the component tree.
+          </p>
+        </div>
+
+        <div class="warning-box">
+          <h4>⚠️ Performance Impact</h4>
+          <p>
+            Zone.js checks the ENTIRE component tree on every async operation, which can be
+            inefficient for large applications. This is why OnPush strategy exists.
+          </p>
+        </div>
+      </div>
+    </ng-template>
+  </mat-tab>
+
+  <mat-tab label="Default Strategy">
+    <ng-template matTabContent>
+      <div class="tab-content">
+        <h3>Default Change Detection</h3>
+        <p>
+          The default strategy checks every component in the tree whenever any async event occurs.
+          While simple, it can become slow as applications grow.
+        </p>
+        
+        <h4>How Default Works</h4>
+        <ol>
+          <li>Async operation completes (click, HTTP, timer)</li>
+          <li>Zone.js notifies Angular</li>
+          <li>Angular checks EVERY component from root to leaves</li>
+          <li>Each component's template is evaluated</li>
+          <li>DOM is updated if changes detected</li>
+        </ol>
+
+        <h4>Characteristics</h4>
+        <ul>
+          <li>✅ <strong>Simple:</strong> No special handling needed</li>
+          <li>✅ <strong>Always works:</strong> Catches all changes</li>
+          <li>❌ <strong>Inefficient:</strong> Checks unchanged components</li>
+          <li>❌ <strong>Slow for large apps:</strong> Scales poorly</li>
+        </ul>
+
+        <pre><code class="language-typescript">{{ defaultStrategy }}</code></pre>
+
+        <div class="performance-box">
+          <h4>📊 Performance Implications</h4>
+          <p>
+            In a component tree with 100 components, clicking a button triggers
+            100 change detection checks - even if only 1 component changed!
+          </p>
+        </div>
+
+        <div class="tip-box">
+          <h4>💡 When to Use</h4>
+          <ul>
+            <li>Small applications (< 50 components)</li>
+            <li>Prototypes and demos</li>
+            <li>When you mutate objects directly</li>
+            <li>When simplicity is more important than performance</li>
+          </ul>
+        </div>
+      </div>
+    </ng-template>
+  </mat-tab>
+
+  <mat-tab label="OnPush Strategy">
+    <ng-template matTabContent>
+      <div class="tab-content">
+        <h3>OnPush Change Detection</h3>
+        <p>
+          OnPush strategy makes change detection opt-in rather than automatic.
+          Components are only checked when specific conditions are met.
+        </p>
+        
+        <h4>When OnPush Components Are Checked</h4>
+        <ol>
+          <li>🔗 <strong>Input reference changes:</strong> New object/array passed to &#64;Input()</li>
+          <li>🖱️ <strong>Event from component:</strong> (click), (input), etc. fired from this component</li>
+          <li>📡 <strong>Async pipe:</strong> Observable/Promise emits new value</li>
+          <li>🔨 <strong>Manual trigger:</strong> markForCheck() or detectChanges()</li>
+        </ol>
+
+        <pre><code class="language-typescript">{{ onPushStrategy }}</code></pre>
+
+        <div class="comparison">
+          <h4>Default vs OnPush</h4>
+          <table>
+            <tr>
+              <th>Aspect</th>
+              <th>Default</th>
+              <th>OnPush</th>
+            </tr>
+            <tr>
+              <td>Trigger</td>
+              <td>Any async operation</td>
+              <td>Input/Event/Async pipe/Manual</td>
+            </tr>
+            <tr>
+              <td>Checks</td>
+              <td>Always</td>
+              <td>Conditional</td>
+            </tr>
+            <tr>
+              <td>Performance</td>
+              <td>Lower</td>
+              <td>Higher</td>
+            </tr>
+            <tr>
+              <td>Complexity</td>
+              <td>Simple</td>
+              <td>Requires immutability</td>
+            </tr>
+          </table>
+        </div>
+
+        <div class="warning-box">
+          <h4>⚠️ Important: Immutability Required</h4>
+          <p>
+            OnPush checks references, not values. You MUST create new objects/arrays
+            when updating state, or changes won't be detected.
+          </p>
+          <pre><code>// ❌ Won't work with OnPush
+this.user.name = 'New Name';
+
+// ✅ Works with OnPush
+this.user = {{ '{' }}...this.user, name: 'New Name'{{ '}' }};</code></pre>
+        </div>
+
+        <div class="tip-box">
+          <h4>💡 Best Practices</h4>
+          <ul>
+            <li>Use OnPush for all presentational components</li>
+            <li>Keep smart components with default strategy</li>
+            <li>Always create new references when updating</li>
+            <li>Use immutability libraries (Immer, Immutable.js)</li>
+          </ul>
+        </div>
+      </div>
+    </ng-template>
+  </mat-tab>
+
+  <mat-tab label="ChangeDetectorRef">
+    <ng-template matTabContent>
+      <div class="tab-content">
+        <h3>Manual Change Detection Control</h3>
+        <p>
+          ChangeDetectorRef gives you fine-grained control over when and how
+          change detection runs for a component.
+        </p>
+        
+        <h4>ChangeDetectorRef Methods</h4>
+        <ul>
+          <li><strong>detectChanges():</strong> Run change detection immediately for this component and children</li>
+          <li><strong>markForCheck():</strong> Mark component and ancestors to be checked in next cycle</li>
+          <li><strong>detach():</strong> Remove component from change detection tree</li>
+          <li><strong>reattach():</strong> Add component back to change detection tree</li>
+          <li><strong>checkNoChanges():</strong> Verify no changes occurred (dev mode only)</li>
+        </ul>
+
+        <pre><code class="language-typescript">{{ changeDetectorRef }}</code></pre>
+
+        <div class="method-comparison">
+          <h4>detectChanges() vs markForCheck()</h4>
+          <table>
+            <tr>
+              <th>Method</th>
+              <th>When It Runs</th>
+              <th>What It Checks</th>
+            </tr>
+            <tr>
+              <td><code>detectChanges()</code></td>
+              <td>Immediately</td>
+              <td>Component + children</td>
+            </tr>
+            <tr>
+              <td><code>markForCheck()</code></td>
+              <td>Next cycle</td>
+              <td>Component + ancestors</td>
+            </tr>
+          </table>
+        </div>
+
+        <div class="use-cases-box">
+          <h4>🎯 Common Use Cases</h4>
+          <ul>
+            <li><strong>Third-party libraries:</strong> Trigger detection after library updates</li>
+            <li><strong>Performance optimization:</strong> Detach heavy components</li>
+            <li><strong>Outside Zone:</strong> Manually trigger after runOutsideAngular</li>
+            <li><strong>OnPush + observables:</strong> markForCheck in manual subscriptions</li>
+          </ul>
+        </div>
+      </div>
+    </ng-template>
+  </mat-tab>
+
+  <mat-tab label="Zoneless Angular">
+    <ng-template matTabContent>
+      <div class="tab-content">
+        <h3>Zoneless Change Detection</h3>
+        <p>
+          Angular 18+ introduces experimental zoneless mode, removing Zone.js dependency
+          for better performance and smaller bundles.
+        </p>
+        
+        <h4>Why Zoneless?</h4>
+        <ul>
+          <li>🚀 <strong>Better performance:</strong> No Zone.js overhead</li>
+          <li>📦 <strong>Smaller bundles:</strong> ~40KB less</li>
+          <li>🎯 <strong>More predictable:</strong> Explicit change triggers</li>
+          <li>🔮 <strong>Future-ready:</strong> Aligns with modern reactive patterns</li>
+          <li>🧩 <strong>Better composition:</strong> Works well with micro-frontends</li>
+        </ul>
+
+        <h4>How It Works</h4>
+        <p>
+          Instead of automatically detecting changes, zoneless Angular relies on:
+        </p>
+        <ul>
+          <li>✨ <strong>Signals:</strong> Reactive primitives that track dependencies</li>
+          <li>📡 <strong>RxJS interop:</strong> toSignal() converts observables</li>
+          <li>🖱️ <strong>Event handlers:</strong> Still trigger detection automatically</li>
+          <li>🔨 <strong>Manual triggers:</strong> When needed for edge cases</li>
+        </ul>
+
+        <pre><code class="language-typescript">{{ zonelessAngular }}</code></pre>
+
+        <div class="migration-guide">
+          <h4>📋 Migration Path</h4>
+          <ol>
+            <li>Adopt signals for local state</li>
+            <li>Use toSignal() for observables</li>
+            <li>Test with provideExperimentalZonelessChangeDetection()</li>
+            <li>Identify and fix Zone-dependent code</li>
+            <li>Remove Zone.js from polyfills.ts</li>
+          </ol>
+        </div>
+
+        <div class="status-box">
+          <h4>📊 Current Status</h4>
+          <p>
+            <strong>Experimental in Angular 18</strong> - Not recommended for production yet.
+            Expected to stabilize in Angular 19/20.
+          </p>
+        </div>
+      </div>
+    </ng-template>
+  </mat-tab>
+
+  <mat-tab label="Performance">
+    <ng-template matTabContent>
+      <div class="tab-content">
+        <h3>Performance Optimization Techniques</h3>
+        <p>
+          Optimize change detection to keep your application fast and responsive.
+        </p>
+
+        <pre><code class="language-typescript">{{ performanceOptimization }}</code></pre>
+
+        <div class="optimization-checklist">
+          <h4>✅ Performance Checklist</h4>
+          <ul>
+            <li>✓ Use OnPush for presentational components</li>
+            <li>✓ Add trackBy to all *ngFor directives</li>
+            <li>✓ Use async pipe instead of manual subscriptions</li>
+            <li>✓ Avoid function calls in templates</li>
+            <li>✓ Use pure pipes when possible</li>
+            <li>✓ Detach components that update infrequently</li>
+            <li>✓ Run expensive operations outside Angular zone</li>
+            <li>✓ Make data structures immutable</li>
+            <li>✓ Use signals for reactive state (Angular 16+)</li>
+            <li>✓ Profile with Chrome DevTools</li>
+          </ul>
+        </div>
+
+        <div class="profiling-box">
+          <h4>📊 Profiling Change Detection</h4>
+          <pre><code>// Enable profiling in dev mode
+ng.profiler.timeChangeDetection()
+
+// Results show:
+// - Total time for change detection cycle
+// - Time per component
+// - Number of checks performed</code></pre>
+        </div>
+      </div>
+    </ng-template>
+  </mat-tab>
+
+  <mat-tab label="Best Practices">
+    <ng-template matTabContent>
+      <div class="tab-content">
+        <h3>Change Detection Best Practices</h3>
+        
+        <pre><code class="language-typescript">{{ bestPractices }}</code></pre>
+
+        <div class="dos-donts">
+          <div class="dos">
+            <h4>✅ DO</h4>
+            <ul>
+              <li>Use OnPush for presentational components</li>
+              <li>Create new object references with OnPush</li>
+              <li>Use async pipe for observables</li>
+              <li>Use signals for reactive state</li>
+              <li>Add trackBy to *ngFor</li>
+              <li>Profile your application</li>
+              <li>Understand when detection runs</li>
+            </ul>
+          </div>
+          <div class="donts">
+            <h4>❌ DON'T</h4>
+            <ul>
+              <li>Mutate objects with OnPush</li>
+              <li>Call functions in templates</li>
+              <li>Manually subscribe if async pipe works</li>
+              <li>Use timers unnecessarily</li>
+              <li>Forget to unsubscribe</li>
+              <li>Ignore performance warnings</li>
+              <li>Over-optimize prematurely</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="decision-tree">
+          <h4>🌳 Which Strategy to Use?</h4>
+          <pre><code>Start with OnPush
+    ↓
+Do you mutate data directly? 
+    ├─ Yes → Use Default (or refactor to immutable)
+    └─ No → Keep OnPush
+         ↓
+    Still having issues?
+         ├─ Yes → Add markForCheck() where needed
+         └─ No → Perfect! 🎉</code></pre>
+        </div>
+      </div>
+    </ng-template>
+  </mat-tab>
+</mat-tab-group>

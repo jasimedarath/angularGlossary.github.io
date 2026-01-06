@@ -1,0 +1,71 @@
+<h2 class="header">Services</h2>
+<label
+  ><b>Definition</b>: A service is a class with a narrow, well-defined purpose.
+  It provides functionality that can be used across multiple components and
+  modules.</label
+><br />
+<label
+  ><b>Usage</b>: Services are typically used for tasks such as fetching data
+  from a server, logging, validating user input, and any other non-UI related
+  tasks.</label
+>
+
+<mat-tab-group>
+  <mat-tab label="Syntax Reference">
+    <ng-template matTabContent>
+      <pre><code #codeElement class="language-typescript">{{ code }}</code></pre>
+    </ng-template>
+  </mat-tab>
+
+  <mat-tab label="Providing Services">
+    <ng-template matTabContent>
+        <div>
+            <h3><b>providedIn: 'root'</b></h3>
+            <ul>
+              <li>This registers the service with the root injector, making it a singleton and available application-wide.</li>
+            </ul>
+            <pre><code #codeElement class="language-typescript">{{ root }}</code></pre>
+          </div>
+          <div>
+            <h3><b>NgModule Providers</b></h3>
+            <ul>
+              <li>Register the service in the providers array of an Angular module.</li>
+            </ul>
+            <pre><code #codeElement class="language-typescript">{{ module }}</code></pre>
+          </div>
+          <div>
+            <h3><b>Component Providers</b></h3>
+            <ul>
+              <li>Register the service in the providers array of a component, creating a new instance for each component.</li>
+            </ul>
+            <pre><code #codeElement class="language-typescript">{{ component }}</code></pre>
+          </div>
+    </ng-template>
+  </mat-tab>
+
+  <mat-tab label="Other Details">
+    <ng-template matTabContent>
+        <div>
+            <h3><b>Dependency Injection</b></h3>
+            <ul>
+              <li>Constructor Injection: Inject services into components, directives, or other services via the constructor.</li>
+            </ul>
+            <pre><code #codeElement class="language-typescript">{{ injection }}</code></pre>
+          </div>
+          <div>
+            <h3><b>NgModule Providers</b></h3>
+            <ul>
+              <li>Injector Hierarchy: Angular's DI system is hierarchical, meaning child injectors inherit providers from parent injectors. This allows different instances of services to be created at different levels of the application.</li>
+            </ul>
+            <pre><code #codeElement class="language-typescript">{{ hierarchicalInjection }}</code></pre>
+          </div>
+          <div>
+            <h3><b>Service Scope</b></h3>
+            <ul>
+              <li>Singleton Services: Provided at the root level or a module level, ensuring a single instance throughout the application.</li>
+              <li>Scoped Services: Provided at the component level, creating a new instance for each component and its child components.</li>
+            </ul>
+          </div>
+    </ng-template>
+  </mat-tab>
+</mat-tab-group>
