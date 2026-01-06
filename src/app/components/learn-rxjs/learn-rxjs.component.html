@@ -1,2 +1,335 @@
-<h2>RxJS</h2>
-<p>learn-rxjs works!</p>
+<h2 class="header">RxJS - Reactive Extensions for JavaScript</h2>
+<label>RxJS is a library for reactive programming using observables. It's essential for handling asynchronous operations, events, and data streams in Angular applications.</label>
+
+<mat-tab-group>
+  <mat-tab label="Observables Basics">
+    <ng-template matTabContent>
+      <div class="tab-content">
+        <h3>What is RxJS?</h3>
+        <p>
+          RxJS (Reactive Extensions for JavaScript) is a library for composing asynchronous and event-based programs
+          using observable sequences. It provides powerful operators to transform, combine, and manage data streams.
+        </p>
+        
+        <h4>Core Concepts</h4>
+        <ul>
+          <li><strong>Observable:</strong> Represents a stream of values over time</li>
+          <li><strong>Observer:</strong> Consumes values from an observable (next, error, complete)</li>
+          <li><strong>Subscription:</strong> Represents execution of an observable</li>
+          <li><strong>Operators:</strong> Pure functions to transform observables</li>
+          <li><strong>Subject:</strong> Both observable and observer (multicast)</li>
+        </ul>
+
+        <h4>Why RxJS?</h4>
+        <ul>
+          <li>🔄 <strong>Unified API:</strong> Handle events, promises, and async data consistently</li>
+          <li>🎯 <strong>Composable:</strong> Chain operators to build complex logic</li>
+          <li>🚀 <strong>Powerful:</strong> 100+ operators for any scenario</li>
+          <li>⚡ <strong>Cancellable:</strong> Unsubscribe to stop execution</li>
+          <li>🔧 <strong>Error Handling:</strong> Built-in error handling and retry logic</li>
+        </ul>
+
+        <pre><code class="language-typescript">{{ basicObservables }}</code></pre>
+
+        <div class="info-box">
+          <h4>💡 Observable vs Promise</h4>
+          <ul>
+            <li><strong>Observables:</strong> Lazy (don't execute until subscribed), can emit multiple values, cancellable</li>
+            <li><strong>Promises:</strong> Eager (execute immediately), emit single value, not cancellable</li>
+          </ul>
+        </div>
+      </div>
+    </ng-template>
+  </mat-tab>
+
+  <mat-tab label="Common Operators">
+    <ng-template matTabContent>
+      <div class="tab-content">
+        <h3>Essential RxJS Operators</h3>
+        <p>
+          Operators are functions that transform observables. They're the building blocks
+          for creating complex data transformations and async logic.
+        </p>
+        
+        <h4>Transformation Operators</h4>
+        <ul>
+          <li><code>map</code> - Transform each value</li>
+          <li><code>scan</code> - Accumulate values (like reduce)</li>
+          <li><code>pluck</code> - Extract property from objects</li>
+        </ul>
+
+        <h4>Filtering Operators</h4>
+        <ul>
+          <li><code>filter</code> - Filter values by predicate</li>
+          <li><code>take</code> - Take first N values</li>
+          <li><code>takeUntil</code> - Take until another observable emits</li>
+          <li><code>skip</code> - Skip first N values</li>
+          <li><code>distinctUntilChanged</code> - Emit only when value changes</li>
+        </ul>
+
+        <h4>Timing Operators</h4>
+        <ul>
+          <li><code>debounceTime</code> - Wait for pause in emissions</li>
+          <li><code>throttleTime</code> - Emit at most once per time period</li>
+          <li><code>delay</code> - Delay emissions</li>
+          <li><code>timeout</code> - Error if no emission within time</li>
+        </ul>
+
+        <pre><code class="language-typescript">{{ commonOperators }}</code></pre>
+
+        <div class="tip-box">
+          <h4>🎯 When to Use Which</h4>
+          <ul>
+            <li><strong>debounceTime:</strong> Search as user types (wait for pause)</li>
+            <li><strong>throttleTime:</strong> Scroll events (limit frequency)</li>
+            <li><strong>distinctUntilChanged:</strong> Prevent duplicate API calls</li>
+            <li><strong>take:</strong> Get first N results then complete</li>
+          </ul>
+        </div>
+      </div>
+    </ng-template>
+  </mat-tab>
+
+  <mat-tab label="Combination Operators">
+    <ng-template matTabContent>
+      <div class="tab-content">
+        <h3>Combining Multiple Observables</h3>
+        <p>
+          These operators allow you to work with multiple observables simultaneously,
+          combining their emissions in different ways.
+        </p>
+        
+        <h4>Join Operators</h4>
+        <ul>
+          <li><strong>combineLatest:</strong> Emits when ANY source emits (latest from all)</li>
+          <li><strong>merge:</strong> Combines emissions from all sources</li>
+          <li><strong>forkJoin:</strong> Waits for all to complete (like Promise.all)</li>
+          <li><strong>zip:</strong> Combines emissions by index</li>
+          <li><strong>concat:</strong> Sequential execution</li>
+        </ul>
+
+        <pre><code class="language-typescript">{{ combinationOperators }}</code></pre>
+
+        <div class="comparison-table">
+          <h4>Operator Comparison</h4>
+          <table>
+            <tr>
+              <th>Operator</th>
+              <th>Behavior</th>
+              <th>Use Case</th>
+            </tr>
+            <tr>
+              <td><code>combineLatest</code></td>
+              <td>Latest from each when any emits</td>
+              <td>Form validation, multiple filters</td>
+            </tr>
+            <tr>
+              <td><code>merge</code></td>
+              <td>All emissions as they occur</td>
+              <td>Multiple event sources</td>
+            </tr>
+            <tr>
+              <td><code>forkJoin</code></td>
+              <td>Wait for all to complete</td>
+              <td>Loading multiple resources</td>
+            </tr>
+            <tr>
+              <td><code>zip</code></td>
+              <td>Pair by index</td>
+              <td>Parallel processing</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </ng-template>
+  </mat-tab>
+
+  <mat-tab label="Higher-Order Operators">
+    <ng-template matTabContent>
+      <div class="tab-content">
+        <h3>Flattening Operators</h3>
+        <p>
+          Higher-order operators handle observables that emit other observables.
+          They "flatten" nested observables into a single stream.
+        </p>
+        
+        <h4>The Four Flattening Operators</h4>
+        <ul>
+          <li><strong>switchMap:</strong> Cancel previous, switch to new (most common)</li>
+          <li><strong>mergeMap:</strong> Run all in parallel</li>
+          <li><strong>concatMap:</strong> Run sequentially, preserve order</li>
+          <li><strong>exhaustMap:</strong> Ignore new until current completes</li>
+        </ul>
+
+        <pre><code class="language-typescript">{{ higherOrderOperators }}</code></pre>
+
+        <div class="decision-guide">
+          <h4>📋 Which Operator to Use?</h4>
+          <table>
+            <tr>
+              <th>Scenario</th>
+              <th>Operator</th>
+              <th>Why</th>
+            </tr>
+            <tr>
+              <td>Search/Autocomplete</td>
+              <td><code>switchMap</code></td>
+              <td>Cancel old searches</td>
+            </tr>
+            <tr>
+              <td>Save button click</td>
+              <td><code>exhaustMap</code></td>
+              <td>Prevent duplicate saves</td>
+            </tr>
+            <tr>
+              <td>Load multiple items</td>
+              <td><code>mergeMap</code></td>
+              <td>Parallel requests OK</td>
+            </tr>
+            <tr>
+              <td>Sequential operations</td>
+              <td><code>concatMap</code></td>
+              <td>Order matters</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </ng-template>
+  </mat-tab>
+
+  <mat-tab label="Error Handling">
+    <ng-template matTabContent>
+      <div class="tab-content">
+        <h3>Handling Errors in RxJS</h3>
+        <p>
+          Proper error handling is crucial for building robust applications.
+          RxJS provides several operators for managing errors gracefully.
+        </p>
+        
+        <h4>Error Handling Strategies</h4>
+        <ul>
+          <li><strong>catchError:</strong> Catch errors and return fallback</li>
+          <li><strong>retry:</strong> Retry failed operations</li>
+          <li><strong>retryWhen:</strong> Custom retry logic</li>
+          <li><strong>throwError:</strong> Create error observable</li>
+          <li><strong>onErrorResumeNext:</strong> Continue with next observable</li>
+        </ul>
+
+        <pre><code class="language-typescript">{{ errorHandling }}</code></pre>
+
+        <div class="warning-box">
+          <h4>⚠️ Important Notes</h4>
+          <ul>
+            <li>Errors terminate the observable unless caught</li>
+            <li>Always use catchError to prevent stream termination</li>
+            <li>Place catchError strategically (inner vs outer)</li>
+            <li>Consider user experience when retrying</li>
+          </ul>
+        </div>
+      </div>
+    </ng-template>
+  </mat-tab>
+
+  <mat-tab label="Subjects">
+    <ng-template matTabContent>
+      <div class="tab-content">
+        <h3>Subjects - Multicasting Observables</h3>
+        <p>
+          Subjects are special types of observables that can multicast to multiple observers.
+          They act as both observable and observer.
+        </p>
+        
+        <h4>Types of Subjects</h4>
+        <ul>
+          <li><strong>Subject:</strong> No initial value, new subscribers don't get past values</li>
+          <li><strong>BehaviorSubject:</strong> Has current value, new subscribers get latest value</li>
+          <li><strong>ReplaySubject:</strong> Replays N last values to new subscribers</li>
+          <li><strong>AsyncSubject:</strong> Only emits last value when completed</li>
+        </ul>
+
+        <pre><code class="language-typescript">{{ subjects }}</code></pre>
+
+        <div class="use-cases">
+          <h4>🎯 When to Use Each Subject</h4>
+          <ul>
+            <li><strong>Subject:</strong> Event bus, notifications</li>
+            <li><strong>BehaviorSubject:</strong> Current user, app state</li>
+            <li><strong>ReplaySubject:</strong> Chat messages, activity log</li>
+            <li><strong>AsyncSubject:</strong> API calls that emit once</li>
+          </ul>
+        </div>
+      </div>
+    </ng-template>
+  </mat-tab>
+
+  <mat-tab label="Angular Integration">
+    <ng-template matTabContent>
+      <div class="tab-content">
+        <h3>RxJS in Angular Applications</h3>
+        <p>
+          Angular uses RxJS extensively for HTTP, forms, routing, and more.
+          Understanding RxJS patterns is essential for Angular development.
+        </p>
+        
+        <h4>Common Angular + RxJS Patterns</h4>
+        <ul>
+          <li>HttpClient returns observables</li>
+          <li>Reactive forms use observables for value changes</li>
+          <li>Router events are observables</li>
+          <li>async pipe auto-subscribes and unsubscribes</li>
+        </ul>
+
+        <pre><code class="language-typescript">{{ angularIntegration }}</code></pre>
+
+        <div class="migration-tip">
+          <h4>📦 RxJS + Signals</h4>
+          <p>Angular 16+ provides utilities to bridge RxJS and Signals:</p>
+          <ul>
+            <li><code>toSignal(observable$)</code> - Convert observable to signal</li>
+            <li><code>toObservable(signal)</code> - Convert signal to observable</li>
+            <li>Use signals for synchronous state</li>
+            <li>Use RxJS for complex async operations</li>
+          </ul>
+        </div>
+      </div>
+    </ng-template>
+  </mat-tab>
+
+  <mat-tab label="Best Practices">
+    <ng-template matTabContent>
+      <div class="tab-content">
+        <h3>RxJS Best Practices</h3>
+        <p>
+          Follow these practices to write clean, efficient, and maintainable RxJS code.
+        </p>
+
+        <pre><code class="language-typescript">{{ bestPractices }}</code></pre>
+
+        <div class="best-practices-list">
+          <h4>✅ Essential Best Practices</h4>
+          <ul>
+            <li><strong>Always unsubscribe:</strong> Prevent memory leaks</li>
+            <li><strong>Use async pipe:</strong> Automatic subscription management</li>
+            <li><strong>Avoid nested subscriptions:</strong> Use operators instead</li>
+            <li><strong>Handle errors:</strong> Don't let errors crash streams</li>
+            <li><strong>Use shareReplay:</strong> Avoid duplicate requests</li>
+            <li><strong>Name observables with $:</strong> users$, data$ convention</li>
+            <li><strong>Keep operators pure:</strong> No side effects in operators</li>
+            <li><strong>Use takeUntil pattern:</strong> For component cleanup</li>
+          </ul>
+        </div>
+
+        <div class="performance-tips">
+          <h4>🚀 Performance Tips</h4>
+          <ul>
+            <li>Use <code>shareReplay</code> for expensive operations</li>
+            <li>Debounce user input to reduce API calls</li>
+            <li>Use <code>distinctUntilChanged</code> to prevent redundant work</li>
+            <li>Lazy subscribe - don't subscribe in constructors</li>
+            <li>Consider using signals for synchronous state</li>
+          </ul>
+        </div>
+      </div>
+    </ng-template>
+  </mat-tab>
+</mat-tab-group>

@@ -1,1 +1,295 @@
-<p>learn-signals works!</p>
+<h2 class="header">Signals</h2>
+<label>Signals are Angular's reactive primitives for managing state changes and dependencies, providing fine-grained reactivity and better performance.</label>
+
+<mat-tab-group>
+  <mat-tab label="Basic Signals">
+    <ng-template matTabContent>
+      <div class="tab-content">
+        <h3>What are Signals?</h3>
+        <p>
+          Signals are a reactive primitive introduced in Angular 16 that notify interested consumers when their value changes.
+          They provide a new way to manage state and reactivity in Angular applications with better performance and developer experience.
+        </p>
+        
+        <h4>Key Concepts</h4>
+        <ul>
+          <li><strong>Writable Signal:</strong> Created with <code>signal()</code>, can be read and updated</li>
+          <li><strong>Computed Signal:</strong> Derived from other signals, automatically updates</li>
+          <li><strong>Effect:</strong> Side effects that run when signals change</li>
+          <li><strong>Fine-grained Reactivity:</strong> Only affected components update</li>
+        </ul>
+
+        <h4>Why Use Signals?</h4>
+        <ul>
+          <li>🚀 <strong>Better Performance:</strong> Fine-grained reactivity, no zone.js overhead</li>
+          <li>🎯 <strong>Simpler Code:</strong> Less boilerplate than RxJS for simple state</li>
+          <li>🔍 <strong>Better Debugging:</strong> Clear dependency graph</li>
+          <li>⚡ <strong>Automatic Updates:</strong> Computed values update automatically</li>
+          <li>🏃 <strong>Zoneless Future:</strong> Enables running without zone.js</li>
+        </ul>
+
+        <pre><code class="language-typescript">{{ basicSignals }}</code></pre>
+
+        <div class="info-box">
+          <h4>💡 Signal Reading Syntax</h4>
+          <p>
+            Signals use a function call syntax to read values: <code>count()</code>.
+            This allows Angular to track dependencies automatically and is necessary for the reactive system to work.
+          </p>
+        </div>
+      </div>
+    </ng-template>
+  </mat-tab>
+
+  <mat-tab label="Computed Signals">
+    <ng-template matTabContent>
+      <div class="tab-content">
+        <h3>Computed Signals</h3>
+        <p>
+          Computed signals derive their value from other signals. They automatically track dependencies
+          and only recompute when dependent signals change, making them highly efficient.
+        </p>
+        
+        <h4>Characteristics</h4>
+        <ul>
+          <li><strong>Readonly:</strong> Cannot be directly set, only computed from dependencies</li>
+          <li><strong>Lazy:</strong> Only computes when read and dependencies have changed</li>
+          <li><strong>Memoized:</strong> Caches result until dependencies change</li>
+          <li><strong>Automatic Dependencies:</strong> Tracks all signals read during computation</li>
+        </ul>
+
+        <h4>When to Use Computed</h4>
+        <ul>
+          <li>Deriving data from other signals</li>
+          <li>Filtering or transforming signal data</li>
+          <li>Creating complex calculations</li>
+          <li>Building dependent state chains</li>
+        </ul>
+
+        <pre><code class="language-typescript">{{ computedSignals }}</code></pre>
+
+        <div class="tip-box">
+          <h4>🎯 Best Practices</h4>
+          <ul>
+            <li>Keep computed functions pure (no side effects)</li>
+            <li>Computed signals should be cheap to calculate</li>
+            <li>Use computed for derived state, effect for side effects</li>
+            <li>Avoid circular dependencies between computed signals</li>
+          </ul>
+        </div>
+      </div>
+    </ng-template>
+  </mat-tab>
+
+  <mat-tab label="Effects">
+    <ng-template matTabContent>
+      <div class="tab-content">
+        <h3>Effects</h3>
+        <p>
+          Effects are operations that run when signals they depend on change. Unlike computed signals,
+          effects are designed for side effects like logging, API calls, or DOM manipulation.
+        </p>
+        
+        <h4>Effect Characteristics</h4>
+        <ul>
+          <li>Run automatically when dependent signals change</li>
+          <li>Should be used for side effects only</li>
+          <li>Support cleanup functions</li>
+          <li>Run at least once on creation</li>
+        </ul>
+
+        <h4>Common Use Cases</h4>
+        <ul>
+          <li>Logging or analytics</li>
+          <li>Synchronizing with localStorage</li>
+          <li>Triggering API calls</li>
+          <li>DOM manipulation</li>
+          <li>WebSocket connections</li>
+        </ul>
+
+        <pre><code class="language-typescript">{{ effectSignals }}</code></pre>
+
+        <div class="warning-box">
+          <h4>⚠️ Important Notes</h4>
+          <ul>
+            <li>Effects run in an async task by default</li>
+            <li>Don't update signals within effects (can cause infinite loops)</li>
+            <li>Use <code>allowSignalWrites</code> option if absolutely necessary</li>
+            <li>Effects should not return values - use computed instead</li>
+            <li>Always provide cleanup for subscriptions or timers</li>
+          </ul>
+        </div>
+      </div>
+    </ng-template>
+  </mat-tab>
+
+  <mat-tab label="Signal Inputs">
+    <ng-template matTabContent>
+      <div class="tab-content">
+        <h3>Signal-based Inputs (Angular 17.1+)</h3>
+        <p>
+          Signal inputs provide a reactive way to handle component inputs, replacing the traditional
+          <code>&#64;Input()</code> decorator with a more powerful and type-safe API.
+        </p>
+        
+        <h4>Advantages Over <code>&#64;Input()</code></h4>
+        <ul>
+          <li>Better type safety and inference</li>
+          <li>Can be used in computed and effect</li>
+          <li>Required inputs are type-checked at compile time</li>
+          <li>Transform functions are type-safe</li>
+          <li>No OnChanges lifecycle hook needed</li>
+        </ul>
+
+        <h4>Input Types</h4>
+        <ul>
+          <li><code>input()</code> - Optional input with default</li>
+          <li><code>input.required()</code> - Required input</li>
+          <li><code>model()</code> - Two-way binding signal</li>
+          <li><code>linkedSignal()</code> - Writable signal linked to input</li>
+        </ul>
+
+        <pre><code class="language-typescript">{{ signalInputs }}</code></pre>
+
+        <div class="migration-tip">
+          <h4>📦 Migration Path</h4>
+          <pre><code>// Before (traditional)
+&#64;Input() name: string;
+&#64;Input() required email!: string;
+&#64;Output() nameChange = new EventEmitter&lt;string&gt;();
+
+// After (signals)
+name = input&lt;string&gt;('');
+email = input.required&lt;string&gt;();
+name = model&lt;string&gt;('');</code></pre>
+        </div>
+      </div>
+    </ng-template>
+  </mat-tab>
+
+  <mat-tab label="Linked Signals">
+    <ng-template matTabContent>
+      <div class="tab-content">
+        <h3>Linked Signals (Angular 18+)</h3>
+        <p>
+          Linked signals create a writable signal that tracks an input signal but can also be modified
+          independently. They reset to the source value when the source changes.
+        </p>
+        
+        <h4>Use Cases</h4>
+        <ul>
+          <li>Form fields that need local edits and reset functionality</li>
+          <li>Filters that can be temporarily overridden</li>
+          <li>Draft state that syncs with saved data</li>
+          <li>Optimistic UI updates with rollback</li>
+        </ul>
+
+        <pre><code class="language-typescript">{{ linkedSignal }}</code></pre>
+
+        <div class="pattern-box">
+          <h4>🎨 Common Pattern: Editable with Reset</h4>
+          <pre><code>// Perfect for forms where you want to:
+// 1. Show initial value from parent
+// 2. Allow local edits
+// 3. Reset back to original
+
+editableValue = linkedSignal(() => this.originalValue());
+hasChanges = computed(() => 
+  this.editableValue() !== this.originalValue()
+);</code></pre>
+        </div>
+      </div>
+    </ng-template>
+  </mat-tab>
+
+  <mat-tab label="Signals & RxJS">
+    <ng-template matTabContent>
+      <div class="tab-content">
+        <h3>Interoperability with RxJS</h3>
+        <p>
+          Angular provides utilities to convert between signals and observables, allowing you to
+          leverage both paradigms in your application.
+        </p>
+        
+        <h4>Conversion Functions</h4>
+        <ul>
+          <li><code>toSignal()</code> - Converts Observable to Signal</li>
+          <li><code>toObservable()</code> - Converts Signal to Observable</li>
+        </ul>
+
+        <h4>When to Use Each</h4>
+        <table>
+          <tr>
+            <th>Use Signals For</th>
+            <th>Use RxJS For</th>
+          </tr>
+          <tr>
+            <td>Component state</td>
+            <td>HTTP requests</td>
+          </tr>
+          <tr>
+            <td>Simple transformations</td>
+            <td>Complex async operations</td>
+          </tr>
+          <tr>
+            <td>Derived values</td>
+            <td>Debouncing, throttling</td>
+          </tr>
+          <tr>
+            <td>UI state</td>
+            <td>WebSocket streams</td>
+          </tr>
+        </table>
+
+        <pre><code class="language-typescript">{{ signalsRxjs }}</code></pre>
+
+        <div class="tip-box">
+          <h4>💡 Best Practices</h4>
+          <ul>
+            <li>Use signals for synchronous state management</li>
+            <li>Use RxJS for complex async operations</li>
+            <li>Convert at the boundaries (service → signal)</li>
+            <li>Prefer signals for component-local state</li>
+            <li>toSignal requires initialValue or can return undefined</li>
+          </ul>
+        </div>
+      </div>
+    </ng-template>
+  </mat-tab>
+
+  <mat-tab label="Advanced Patterns">
+    <ng-template matTabContent>
+      <div class="tab-content">
+        <h3>Advanced Signal Patterns</h3>
+        <p>
+          These patterns demonstrate how to build sophisticated state management solutions using signals.
+        </p>
+
+        <pre><code class="language-typescript">{{ advancedPatterns }}</code></pre>
+
+        <div class="best-practices">
+          <h4>✅ Signal Best Practices</h4>
+          <ul>
+            <li><strong>Immutability:</strong> Always update signals immutably</li>
+            <li><strong>Privacy:</strong> Expose readonly signals, keep writable private</li>
+            <li><strong>Granularity:</strong> Break state into smaller signals for better performance</li>
+            <li><strong>Computation:</strong> Use computed for derived state, not manual updates</li>
+            <li><strong>Effects:</strong> Keep effects focused and provide cleanup</li>
+            <li><strong>Testing:</strong> Signals are easy to test - just set values and read results</li>
+          </ul>
+        </div>
+
+        <div class="performance-tip">
+          <h4>🚀 Performance Tips</h4>
+          <ul>
+            <li>Signals enable OnPush-like performance everywhere</li>
+            <li>Computed signals only recalculate when dependencies change</li>
+            <li>No need for ChangeDetectorRef or manual detection</li>
+            <li>Works towards zoneless Angular applications</li>
+            <li>Fine-grained updates mean less work for Angular</li>
+          </ul>
+        </div>
+      </div>
+    </ng-template>
+  </mat-tab>
+</mat-tab-group>

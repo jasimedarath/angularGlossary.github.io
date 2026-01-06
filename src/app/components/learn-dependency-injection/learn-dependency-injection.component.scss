@@ -13,7 +13,7 @@
     margin-bottom: 0.5rem;
   }
 
-  h4 {
+  h4, h5 {
     color: #444;
     margin-top: 1rem;
     margin-bottom: 0.5rem;
@@ -105,7 +105,7 @@
   }
 }
 
-.decision-guide, .comparison-table {
+.decision-guide {
   background-color: #f3e5f5;
   padding: 15px;
   margin: 20px 0;
@@ -117,7 +117,54 @@
   }
 }
 
-.use-cases {
+.scope-levels {
+  margin: 20px 0;
+
+  .scope-item {
+    background-color: #fafafa;
+    border-left: 3px solid #dd0031;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+
+    h5 {
+      margin: 0 0 8px 0;
+      color: #dd0031;
+    }
+
+    p {
+      margin: 0;
+      font-size: 0.95rem;
+      color: #666;
+    }
+  }
+}
+
+.hierarchy-diagram {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 8px;
+  margin: 20px 0;
+  text-align: center;
+
+  .level {
+    background-color: white;
+    border: 2px solid #dd0031;
+    padding: 12px 20px;
+    border-radius: 6px;
+    margin: 5px auto;
+    max-width: 400px;
+    font-weight: 500;
+  }
+
+  .arrow {
+    color: #dd0031;
+    font-size: 1.5rem;
+    margin: 5px 0;
+  }
+}
+
+.use-cases, .best-practices {
   background-color: #e0f2f1;
   border-left: 4px solid #009688;
   padding: 15px;
@@ -128,47 +175,12 @@
     margin-top: 0;
     color: #00796b;
   }
-}
 
-.migration-tip {
-  background-color: #e0f2f1;
-  border-left: 4px solid #009688;
-  padding: 15px;
-  margin: 20px 0;
-  border-radius: 4px;
+  ul {
+    margin-bottom: 0;
+  }
 
-  h4 {
-    margin-top: 0;
+  li strong {
     color: #00796b;
-  }
-}
-
-.best-practices-list {
-  background-color: #e8f5e9;
-  border-left: 4px solid #4caf50;
-  padding: 15px;
-  margin: 20px 0;
-  border-radius: 4px;
-
-  h4 {
-    margin-top: 0;
-    color: #2e7d32;
-  }
-
-  strong {
-    color: #2e7d32;
-  }
-}
-
-.performance-tips {
-  background-color: #f3e5f5;
-  border-left: 4px solid #9c27b0;
-  padding: 15px;
-  margin: 20px 0;
-  border-radius: 4px;
-
-  h4 {
-    margin-top: 0;
-    color: #7b1fa2;
   }
 }

@@ -16,6 +16,10 @@ import { LearnSignalsComponent } from './components/learn-signals/learn-signals.
 import { LearnNgrxComponent } from './components/learn-ngrx/learn-ngrx.component';
 import { LearnAngularmaterialComponent } from './components/learn-angularmaterial/learn-angularmaterial.component';
 import { LearnRoutingComponent } from './components/learn-routing/learn-routing.component';
+import { LearnDeferrableViewsComponent } from './components/learn-deferrable-views/learn-deferrable-views.component';
+import { LearnControlFlowComponent } from './components/learn-control-flow/learn-control-flow.component';
+import { LearnDependencyInjectionComponent } from './components/learn-dependency-injection/learn-dependency-injection.component';
+import { LearnSsrHydrationComponent } from './components/learn-ssr-hydration/learn-ssr-hydration.component';
 
 export const routes: Routes = [
     { path: 'modules', component: LearnModuleComponent},
@@ -35,4 +39,8 @@ export const routes: Routes = [
     { path: 'webPack', component: LearnWebpackComponent},
     { path: 'unitTesting', component: LearnUnittestingComponent},
     { path: 'angularmaterial', component: LearnAngularmaterialComponent},
+    { path: 'dependencyInjection', component: LearnDependencyInjectionComponent},
+    { path: 'controlFlow', component: LearnControlFlowComponent},
+    { path: 'deferrableViews', component: LearnDeferrableViewsComponent},
+    { path: 'ssrHydration', component: LearnSsrHydrationComponent},
 ];

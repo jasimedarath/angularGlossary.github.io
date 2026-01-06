@@ -10,29 +10,55 @@ import { RouterOutlet } from '@angular/router';
   styleUrl: './app.component.scss',
 })
 export class AppComponent {
-  title = 'angularGlossary';
+  title = 'Angular Glossary - Complete Developer Reference';
   hideHeader: boolean = false;
   modules = [
-    { title: 'Modules', link: 'modules' },
-    { title: 'Components', link: 'components' },
-    { title: 'Directives', link: 'directives' },
-    { title: 'Pipes', link: 'pipes' },
-    { title: 'Services', link: 'services' },
-    { title: 'Routing', link: 'routing' },
-    { title: 'Interceptors', link: 'interceptors' },
-    { title: 'Guards', link: 'guards' },
-    { title: 'Forms', link: 'forms' },
-    { title: 'Life Cycle Hooks', link: 'lifeCycleHooks' },
-    { title: 'Change Detection', link: 'changeDetection' },
-    { title: 'Dependency Injection', link: 'unitTesting' },
-    { title: 'Signals', link: 'signals' },
-    { title: 'RxJS', link: 'rxjs' },
-    { title: 'Web Pack', link: 'webPack' },
-    { title: 'Unit Testing', link: 'unitTesting' },
-    { title: 'NgRx', link: 'ngrx' },
-    { title: 'Angular Material', link: 'angularmaterial' },
+    // Core Concepts
+    { title: 'Modules', link: 'modules', category: 'Core' },
+    { title: 'Components', link: 'components', category: 'Core' },
+    { title: 'Directives', link: 'directives', category: 'Core' },
+    { title: 'Pipes', link: 'pipes', category: 'Core' },
+    { title: 'Services', link: 'services', category: 'Core' },
+    
+    // Modern Angular (16+)
+    { title: 'Signals', link: 'signals', category: 'Modern' },
+    { title: 'Control Flow (@if, @for)', link: 'controlFlow', category: 'Modern' },
+    { title: 'Deferrable Views (@defer)', link: 'deferrableViews', category: 'Modern' },
+    { title: 'Dependency Injection', link: 'dependencyInjection', category: 'Modern' },
+    { title: 'SSR & Hydration', link: 'ssrHydration', category: 'Modern' },
+    
+    // Routing & Navigation
+    { title: 'Routing', link: 'routing', category: 'Routing' },
+    { title: 'Guards', link: 'guards', category: 'Routing' },
+    
+    // HTTP & State
+    { title: 'Interceptors', link: 'interceptors', category: 'HTTP' },
+    { title: 'RxJS', link: 'rxjs', category: 'State' },
+    { title: 'NgRx', link: 'ngrx', category: 'State' },
+    
+    // Forms & Validation
+    { title: 'Forms', link: 'forms', category: 'Forms' },
+    
+    // Advanced Concepts
+    { title: 'Life Cycle Hooks', link: 'lifeCycleHooks', category: 'Advanced' },
+    { title: 'Change Detection', link: 'changeDetection', category: 'Advanced' },
+    
+    // Testing & Build
+    { title: 'Unit Testing', link: 'unitTesting', category: 'Testing' },
+    { title: 'Webpack', link: 'webPack', category: 'Build' },
+    
+    // UI Library
+    { title: 'Angular Material', link: 'angularmaterial', category: 'UI' },
   ];
 
   displayHeader = () => this.hideHeader = !this.hideHeader;
 
+  // Group modules by category for better organization
+  get categorizedModules() {
+    const categories = ['Core', 'Modern', 'Routing', 'HTTP', 'State', 'Forms', 'Advanced', 'Testing', 'Build', 'UI'];
+    return categories.map(category => ({
+      name: category,
+      items: this.modules.filter(m => m.category === category)
+    })).filter(c => c.items.length > 0);
+  }
 }
