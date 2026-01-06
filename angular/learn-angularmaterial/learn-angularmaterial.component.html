@@ -1,0 +1,582 @@
+<h2 class="header">Angular Material</h2>
+<label>Angular Material is Google's official Material Design component library, providing pre-built, accessible UI components for Angular applications.</label>
+
+<mat-tab-group>
+  <mat-tab label="Introduction & Setup">
+    <ng-template matTabContent>
+      <div class="tab-content">
+        <h3>What is Angular Material?</h3>
+        <p>
+          Angular Material is a UI component library that implements Google's Material Design specifications.
+          It provides a set of reusable, well-tested, and accessible UI components for Angular applications.
+        </p>
+        
+        <h4>Key Features</h4>
+        <ul>
+          <li><strong>Pre-built Components:</strong> 40+ production-ready components</li>
+          <li><strong>Material Design:</strong> Follows Google's design system</li>
+          <li><strong>Accessibility:</strong> WCAG 2.1 compliant components</li>
+          <li><strong>Responsive:</strong> Mobile-first, responsive layouts</li>
+          <li><strong>Theming:</strong> Powerful theming and customization</li>
+          <li><strong>TypeScript:</strong> Full TypeScript support</li>
+        </ul>
+
+        <h4>Why Use Angular Material?</h4>
+        <ul>
+          <li>⚡ <strong>Fast Development:</strong> Pre-built components speed up development</li>
+          <li>🎨 <strong>Consistent Design:</strong> Uniform look and feel across app</li>
+          <li>♿ <strong>Accessible:</strong> Built-in accessibility features</li>
+          <li>📱 <strong>Responsive:</strong> Works seamlessly on all devices</li>
+          <li>🔧 <strong>Customizable:</strong> Extensive theming capabilities</li>
+          <li>📚 <strong>Well Documented:</strong> Comprehensive documentation and examples</li>
+        </ul>
+
+        <h4>Component Categories</h4>
+        <ul>
+          <li><strong>Form Controls:</strong> Input, select, checkbox, radio, slider, datepicker</li>
+          <li><strong>Navigation:</strong> Toolbar, sidenav, menu, tabs</li>
+          <li><strong>Layout:</strong> Card, expansion panel, stepper, grid list</li>
+          <li><strong>Buttons & Indicators:</strong> Button, FAB, badge, progress bar, spinner</li>
+          <li><strong>Popups & Modals:</strong> Dialog, snackbar, tooltip, bottom sheet</li>
+          <li><strong>Data Tables:</strong> Table, paginator, sort</li>
+        </ul>
+
+        <pre><code class="language-typescript">{{ introduction }}</code></pre>
+
+        <div class="info-box">
+          <h4>💡 Installation Note</h4>
+          <p>
+            When you install Angular Material, you'll be prompted to choose a theme, set up typography,
+            and configure browser animations. You can also run <code>ng add &#64;angular/material</code> to
+            automatically configure your project.
+          </p>
+        </div>
+
+        <div class="tip-box">
+          <h4>🎯 Getting Started Tips</h4>
+          <ul>
+            <li>Start with a pre-built theme, customize later</li>
+            <li>Import components as needed to keep bundle size small</li>
+            <li>Use Angular CDK alongside Material for advanced features</li>
+            <li>Explore the official Material Design documentation</li>
+          </ul>
+        </div>
+      </div>
+    </ng-template>
+  </mat-tab>
+
+  <mat-tab label="Common Components">
+    <ng-template matTabContent>
+      <div class="tab-content">
+        <h3>Essential Material Components</h3>
+        <p>
+          Learn the most commonly used Angular Material components that form the foundation
+          of modern Angular applications. These components cover buttons, forms, dialogs, and more.
+        </p>
+        
+        <h4>Button Variants</h4>
+        <ul>
+          <li><strong>mat-button:</strong> Flat button without elevation</li>
+          <li><strong>mat-raised-button:</strong> Button with elevation shadow</li>
+          <li><strong>mat-flat-button:</strong> Flat button with colored background</li>
+          <li><strong>mat-stroked-button:</strong> Button with border outline</li>
+          <li><strong>mat-icon-button:</strong> Circular button for icons</li>
+          <li><strong>mat-fab:</strong> Large circular floating action button</li>
+          <li><strong>mat-mini-fab:</strong> Small circular floating action button</li>
+        </ul>
+
+        <h4>Form Field Appearances</h4>
+        <ul>
+          <li><strong>fill:</strong> Filled background (default, modern look)</li>
+          <li><strong>outline:</strong> Outlined border (Material Design style)</li>
+          <li><strong>legacy:</strong> Classic underline style (deprecated)</li>
+        </ul>
+
+        <h4>Dialog Best Practices</h4>
+        <ul>
+          <li>Always handle the <code>afterClosed()</code> observable</li>
+          <li>Set appropriate width for content (typically 400-600px)</li>
+          <li>Use <code>disableClose</code> for important confirmations</li>
+          <li>Provide <code>ariaLabel</code> for accessibility</li>
+          <li>Use <code>cdkFocusInitial</code> on primary action button</li>
+        </ul>
+
+        <pre><code class="language-typescript">{{ commonComponents }}</code></pre>
+
+        <div class="info-box">
+          <h4>💡 Component Modularity</h4>
+          <p>
+            Always import only the specific Material modules you need. Importing all Material modules
+            increases your bundle size significantly. For standalone components, import modules directly
+            in the component's imports array.
+          </p>
+        </div>
+
+        <div class="tip-box">
+          <h4>🎯 Component Usage Tips</h4>
+          <ul>
+            <li>Use color attribute (primary, accent, warn) for semantic meaning</li>
+            <li>Provide mat-hint and mat-error for better UX</li>
+            <li>Use mat-icon-button with aria-label for accessibility</li>
+            <li>Leverage dialog data passing for component communication</li>
+          </ul>
+        </div>
+
+        <div class="warning-box">
+          <h4>⚠️ Common Mistakes</h4>
+          <ul>
+            <li>Forgetting to import MatButtonModule for buttons</li>
+            <li>Not handling dialog result subscriptions</li>
+            <li>Missing aria-labels on icon buttons</li>
+            <li>Using deprecated legacy form field appearance</li>
+          </ul>
+        </div>
+      </div>
+    </ng-template>
+  </mat-tab>
+
+  <mat-tab label="Theming">
+    <ng-template matTabContent>
+      <div class="tab-content">
+        <h3>Angular Material Theming</h3>
+        <p>
+          Theming in Angular Material allows you to customize the colors, typography, and density
+          of your application. Material uses Sass to generate themes that can be applied globally or to specific components.
+        </p>
+        
+        <h4>Theme Structure</h4>
+        <ul>
+          <li><strong>Primary Palette:</strong> Main brand color used throughout app</li>
+          <li><strong>Accent Palette:</strong> Secondary color for highlights and actions</li>
+          <li><strong>Warn Palette:</strong> Color for warnings and errors</li>
+          <li><strong>Typography:</strong> Font families, sizes, and weights</li>
+          <li><strong>Density:</strong> Component compactness (0 to -5 scale)</li>
+        </ul>
+
+        <h4>Pre-built Themes</h4>
+        <ul>
+          <li><strong>indigo-pink.css:</strong> Indigo primary, pink accent</li>
+          <li><strong>deeppurple-amber.css:</strong> Deep purple primary, amber accent</li>
+          <li><strong>pink-bluegrey.css:</strong> Pink primary, blue grey accent</li>
+          <li><strong>purple-green.css:</strong> Purple primary, green accent</li>
+        </ul>
+
+        <h4>Color Palettes</h4>
+        <ul>
+          <li>Material provides 19 pre-defined color palettes</li>
+          <li>Each palette has shades from 50 (lightest) to 900 (darkest)</li>
+          <li>Special shades: A100, A200, A400, A700 (accent variations)</li>
+          <li>Each shade has a corresponding contrast color</li>
+        </ul>
+
+        <pre><code class="language-typescript">{{ theming }}</code></pre>
+
+        <div class="info-box">
+          <h4>💡 Theme Application</h4>
+          <p>
+            Use <code>&#64;include mat.all-component-themes($theme)</code> to apply your theme to all Material components.
+            For better performance in production, use <code>&#64;include mat.all-component-colors($theme)</code> if you only
+            need to change colors.
+          </p>
+        </div>
+
+        <div class="tip-box">
+          <h4>🎯 Theming Best Practices</h4>
+          <ul>
+            <li>Define your theme in a separate _theme.scss file</li>
+            <li>Use semantic color names (primary, accent, warn)</li>
+            <li>Test your theme with both light and dark modes</li>
+            <li>Ensure sufficient color contrast for accessibility</li>
+            <li>Use Material's color system instead of custom colors</li>
+          </ul>
+        </div>
+
+        <div class="warning-box">
+          <h4>⚠️ Theme Pitfalls</h4>
+          <ul>
+            <li>Including core styles multiple times (use &#64;include mat.core() once)</li>
+            <li>Overriding Material styles with !important (use theming instead)</li>
+            <li>Forgetting to test dark theme thoroughly</li>
+            <li>Not considering color contrast ratios</li>
+          </ul>
+        </div>
+      </div>
+    </ng-template>
+  </mat-tab>
+
+  <mat-tab label="Custom Themes">
+    <ng-template matTabContent>
+      <div class="tab-content">
+        <h3>Creating Custom Themes</h3>
+        <p>
+          Build custom themes that match your brand identity. Learn how to create custom color palettes,
+          implement theme switching, and apply multiple themes within a single application.
+        </p>
+        
+        <h4>Custom Theme Steps</h4>
+        <ul>
+          <li><strong>Step 1:</strong> Define custom color palettes</li>
+          <li><strong>Step 2:</strong> Create light and dark themes</li>
+          <li><strong>Step 3:</strong> Apply themes to components</li>
+          <li><strong>Step 4:</strong> Implement theme switching logic</li>
+          <li><strong>Step 5:</strong> Persist user's theme preference</li>
+        </ul>
+
+        <h4>Theme Switching Strategies</h4>
+        <ul>
+          <li><strong>CSS Classes:</strong> Add/remove theme class on body element</li>
+          <li><strong>CSS Variables:</strong> Dynamic theming with custom properties</li>
+          <li><strong>Service-Based:</strong> Centralized theme management service</li>
+          <li><strong>Persistence:</strong> Save preference to localStorage or server</li>
+        </ul>
+
+        <h4>Advanced Theming</h4>
+        <ul>
+          <li>🎨 Multiple themed sections in single app</li>
+          <li>🌓 Automatic dark mode based on system preference</li>
+          <li>🎯 Component-specific themes</li>
+          <li>📱 Different themes for mobile vs desktop</li>
+          <li>🔧 Runtime theme customization</li>
+        </ul>
+
+        <pre><code class="language-typescript">{{ customThemes }}</code></pre>
+
+        <div class="info-box">
+          <h4>💡 Material 3 Theming</h4>
+          <p>
+            Angular Material 17+ supports Material Design 3 (M3) theming system. M3 provides enhanced
+            color schemes, improved accessibility, and more flexible customization options. Use
+            <code>mat.define-theme()</code> for M3 themes.
+          </p>
+        </div>
+
+        <div class="tip-box">
+          <h4>🎯 Theme Switching Tips</h4>
+          <ul>
+            <li>Load saved theme preference before app bootstrap</li>
+            <li>Provide smooth transitions between themes</li>
+            <li>Test theme switch doesn't break layout</li>
+            <li>Consider prefers-color-scheme media query for default</li>
+            <li>Offer theme preview before applying</li>
+          </ul>
+        </div>
+
+        <div class="best-practices">
+          <h4>✅ Custom Theme Checklist</h4>
+          <ul>
+            <li><strong>Color Contrast:</strong> Meet WCAG AA standards (4.5:1 minimum)</li>
+            <li><strong>Test Both Themes:</strong> Thoroughly test light and dark modes</li>
+            <li><strong>Consistent Spacing:</strong> Use Material's density system</li>
+            <li><strong>Typography:</strong> Define clear type hierarchy</li>
+            <li><strong>Accessibility:</strong> Test with screen readers</li>
+          </ul>
+        </div>
+      </div>
+    </ng-template>
+  </mat-tab>
+
+  <mat-tab label="Responsive Layouts">
+    <ng-template matTabContent>
+      <div class="tab-content">
+        <h3>Building Responsive Layouts</h3>
+        <p>
+          Angular Material provides powerful tools for creating responsive layouts that adapt to different
+          screen sizes. Use the CDK Layout module to detect breakpoints and adjust your UI accordingly.
+        </p>
+        
+        <h4>Breakpoint Detection</h4>
+        <ul>
+          <li><strong>BreakpointObserver:</strong> Reactive breakpoint detection service</li>
+          <li><strong>Standard Breakpoints:</strong> XSmall, Small, Medium, Large, XLarge</li>
+          <li><strong>Device Types:</strong> Handset, Tablet, Web</li>
+          <li><strong>Custom Breakpoints:</strong> Define your own media queries</li>
+        </ul>
+
+        <h4>Responsive Patterns</h4>
+        <ul>
+          <li><strong>Adaptive Sidenav:</strong> Side mode on desktop, over mode on mobile</li>
+          <li><strong>Responsive Grid:</strong> Dynamic column count based on screen size</li>
+          <li><strong>Conditional Rendering:</strong> Show/hide components per device</li>
+          <li><strong>Responsive Tables:</strong> Compact view on mobile devices</li>
+          <li><strong>Flexible Toolbar:</strong> Adapt toolbar content to screen width</li>
+        </ul>
+
+        <h4>Material Breakpoints</h4>
+        <ul>
+          <li><strong>XSmall:</strong> < 600px (phones in portrait)</li>
+          <li><strong>Small:</strong> 600px - 959px (phones landscape, tablets portrait)</li>
+          <li><strong>Medium:</strong> 960px - 1279px (tablets landscape, small desktops)</li>
+          <li><strong>Large:</strong> 1280px - 1919px (desktops)</li>
+          <li><strong>XLarge:</strong> ≥ 1920px (large desktops)</li>
+        </ul>
+
+        <pre><code class="language-typescript">{{ responsiveLayouts }}</code></pre>
+
+        <div class="info-box">
+          <h4>💡 Mobile-First Approach</h4>
+          <p>
+            Design for mobile screens first, then progressively enhance for larger screens.
+            This ensures your app works well on all devices and improves performance on mobile networks.
+          </p>
+        </div>
+
+        <div class="tip-box">
+          <h4>🎯 Responsive Design Tips</h4>
+          <ul>
+            <li>Test on real devices, not just browser DevTools</li>
+            <li>Use BreakpointObserver instead of CSS media queries in components</li>
+            <li>Consider touch targets (minimum 48x48px for buttons)</li>
+            <li>Optimize images for different screen sizes</li>
+            <li>Test landscape and portrait orientations</li>
+          </ul>
+        </div>
+
+        <div class="warning-box">
+          <h4>⚠️ Common Responsive Issues</h4>
+          <ul>
+            <li>Not testing on actual mobile devices</li>
+            <li>Fixed pixel widths breaking on small screens</li>
+            <li>Horizontal scrolling on mobile</li>
+            <li>Touch targets too small (< 44x44px)</li>
+            <li>Ignoring landscape orientation</li>
+          </ul>
+        </div>
+      </div>
+    </ng-template>
+  </mat-tab>
+
+  <mat-tab label="Accessibility">
+    <ng-template matTabContent>
+      <div class="tab-content">
+        <h3>Accessibility in Angular Material</h3>
+        <p>
+          Angular Material components are designed to be accessible by default, implementing WCAG 2.1 Level AA standards.
+          However, proper usage and additional configuration are required to ensure full accessibility.
+        </p>
+        
+        <h4>Built-in Accessibility Features</h4>
+        <ul>
+          <li><strong>ARIA Labels:</strong> Semantic labels for screen readers</li>
+          <li><strong>Keyboard Navigation:</strong> Full keyboard support for all components</li>
+          <li><strong>Focus Management:</strong> Proper focus indicators and trap</li>
+          <li><strong>Color Contrast:</strong> WCAG compliant color ratios</li>
+          <li><strong>Screen Reader Support:</strong> Descriptive announcements</li>
+        </ul>
+
+        <h4>Accessibility Tools</h4>
+        <ul>
+          <li><strong>FocusMonitor:</strong> Track and manage element focus</li>
+          <li><strong>LiveAnnouncer:</strong> Announce dynamic content to screen readers</li>
+          <li><strong>A11yModule:</strong> CDK accessibility utilities</li>
+          <li><strong>InteractivityChecker:</strong> Detect focusable elements</li>
+        </ul>
+
+        <h4>Testing Accessibility</h4>
+        <ul>
+          <li>🎹 <strong>Keyboard Only:</strong> Navigate entire app without mouse</li>
+          <li>🔊 <strong>Screen Readers:</strong> Test with NVDA, JAWS, VoiceOver</li>
+          <li>🔍 <strong>Automated Tools:</strong> axe, Lighthouse accessibility audits</li>
+          <li>🎨 <strong>Color Contrast:</strong> Check all text meets minimum ratios</li>
+          <li>🔎 <strong>Zoom Testing:</strong> Test at 200% zoom level</li>
+        </ul>
+
+        <pre><code class="language-typescript">{{ accessibility }}</code></pre>
+
+        <div class="best-practices">
+          <h4>✅ Accessibility Checklist</h4>
+          <ul>
+            <li><strong>Semantic HTML:</strong> Use proper heading hierarchy (h1-h6)</li>
+            <li><strong>ARIA Labels:</strong> Provide labels for icon-only buttons</li>
+            <li><strong>Keyboard Access:</strong> All interactive elements keyboard accessible</li>
+            <li><strong>Focus Indicators:</strong> Visible focus states for all elements</li>
+            <li><strong>Color Contrast:</strong> Text meets 4.5:1 ratio minimum</li>
+            <li><strong>Error Messages:</strong> Clear, descriptive error feedback</li>
+            <li><strong>Form Labels:</strong> Every input has associated label</li>
+          </ul>
+        </div>
+
+        <div class="info-box">
+          <h4>💡 WCAG Standards</h4>
+          <p>
+            Web Content Accessibility Guidelines (WCAG) 2.1 defines three conformance levels:
+            A (minimum), AA (recommended), and AAA (enhanced). Angular Material targets Level AA compliance.
+          </p>
+        </div>
+
+        <div class="warning-box">
+          <h4>⚠️ Accessibility Pitfalls</h4>
+          <ul>
+            <li>Missing aria-labels on icon-only buttons</li>
+            <li>Custom components without proper ARIA attributes</li>
+            <li>Insufficient color contrast in custom themes</li>
+            <li>Dialog focus not managed properly</li>
+            <li>Dynamic content not announced to screen readers</li>
+          </ul>
+        </div>
+      </div>
+    </ng-template>
+  </mat-tab>
+
+  <mat-tab label="Best Practices">
+    <ng-template matTabContent>
+      <div class="tab-content">
+        <h3>Angular Material Best Practices</h3>
+        <p>
+          Follow these proven best practices to build maintainable, performant, and accessible
+          Angular applications with Material Design components.
+        </p>
+        
+        <h4>Module Organization</h4>
+        <ul>
+          <li><strong>Import Selectively:</strong> Only import Material modules you use</li>
+          <li><strong>Avoid Barrels:</strong> Don't create module with all Material imports</li>
+          <li><strong>Standalone Components:</strong> Import Material modules directly in component</li>
+          <li><strong>Lazy Loading:</strong> Load Material modules with lazy routes</li>
+        </ul>
+
+        <h4>Design Consistency</h4>
+        <ul>
+          <li>✅ Use consistent form field appearance (fill or outline)</li>
+          <li>✅ Stick to theme colors (primary, accent, warn)</li>
+          <li>✅ Follow Material Design guidelines</li>
+          <li>✅ Use consistent button types throughout app</li>
+          <li>✅ Maintain consistent spacing and typography</li>
+        </ul>
+
+        <h4>Performance Guidelines</h4>
+        <ul>
+          <li>Use virtual scrolling for lists with 100+ items</li>
+          <li>Implement pagination for large data sets</li>
+          <li>Lazy load dialog components</li>
+          <li>Use OnPush change detection where possible</li>
+          <li>Add trackBy functions to *ngFor directives</li>
+        </ul>
+
+        <pre><code class="language-typescript">{{ bestPractices }}</code></pre>
+
+        <div class="best-practices">
+          <h4>✅ Material Component Checklist</h4>
+          <ul>
+            <li><strong>Forms:</strong> Provide clear labels, hints, and error messages</li>
+            <li><strong>Dialogs:</strong> Always handle afterClosed() subscriptions</li>
+            <li><strong>Icons:</strong> Provide aria-labels for icon-only buttons</li>
+            <li><strong>Tables:</strong> Add sorting, filtering, and pagination</li>
+            <li><strong>Accessibility:</strong> Test with keyboard and screen readers</li>
+            <li><strong>Theming:</strong> Use theme colors, not custom styles</li>
+          </ul>
+        </div>
+
+        <div class="info-box">
+          <h4>💡 Testing Material Components</h4>
+          <p>
+            Use Angular Material's component harnesses for testing. Harnesses provide a robust API
+            for interacting with Material components in tests, making tests less brittle and more maintainable.
+          </p>
+        </div>
+
+        <div class="tip-box">
+          <h4>🎯 Quick Tips</h4>
+          <ul>
+            <li>Use mat-error for form validation messages</li>
+            <li>Leverage mat-hint for helpful input guidance</li>
+            <li>Provide sensible defaults for select components</li>
+            <li>Use snackbars for non-critical notifications</li>
+            <li>Reserve dialogs for important user decisions</li>
+          </ul>
+        </div>
+
+        <div class="warning-box">
+          <h4>⚠️ Common Mistakes</h4>
+          <ul>
+            <li>Importing entire Material module in every component</li>
+            <li>Overriding Material styles with !important</li>
+            <li>Not providing feedback for async operations</li>
+            <li>Ignoring accessibility requirements</li>
+            <li>Inconsistent component usage across app</li>
+          </ul>
+        </div>
+      </div>
+    </ng-template>
+  </mat-tab>
+
+  <mat-tab label="Performance Tips">
+    <ng-template matTabContent>
+      <div class="tab-content">
+        <h3>Optimizing Material Performance</h3>
+        <p>
+          Learn how to optimize Angular Material applications for better performance, smaller bundle sizes,
+          and improved user experience across all devices.
+        </p>
+        
+        <h4>Bundle Size Optimization</h4>
+        <ul>
+          <li><strong>Selective Imports:</strong> Import only required Material modules</li>
+          <li><strong>Lazy Loading:</strong> Load Material modules with lazy routes</li>
+          <li><strong>Tree Shaking:</strong> Ensure production build removes unused code</li>
+          <li><strong>CDK Alternative:</strong> Use CDK primitives when full component not needed</li>
+        </ul>
+
+        <h4>Rendering Performance</h4>
+        <ul>
+          <li><strong>Virtual Scrolling:</strong> Essential for lists with 100+ items</li>
+          <li><strong>Pagination:</strong> Limit displayed data in tables</li>
+          <li><strong>OnPush Detection:</strong> Reduce change detection cycles</li>
+          <li><strong>TrackBy Functions:</strong> Optimize *ngFor rendering</li>
+          <li><strong>Lazy Components:</strong> Dynamic import for heavy dialogs</li>
+        </ul>
+
+        <h4>Critical Performance Metrics</h4>
+        <ul>
+          <li>📦 <strong>Bundle Size:</strong> Material core ≈ 50KB, components ≈ 10-20KB each</li>
+          <li>⚡ <strong>First Paint:</strong> Optimize for < 1 second</li>
+          <li>🎯 <strong>Interactive:</strong> Time to Interactive < 3 seconds</li>
+          <li>📊 <strong>List Rendering:</strong> Virtual scrolling for > 100 items</li>
+        </ul>
+
+        <pre><code class="language-typescript">{{ performanceTips }}</code></pre>
+
+        <div class="info-box">
+          <h4>💡 Virtual Scrolling</h4>
+          <p>
+            Virtual scrolling dramatically improves performance for long lists by only rendering visible items.
+            Use <code>cdk-virtual-scroll-viewport</code> for lists with more than 100 items.
+          </p>
+        </div>
+
+        <div class="tip-box">
+          <h4>🎯 Performance Tips</h4>
+          <ul>
+            <li>Monitor bundle size with webpack-bundle-analyzer</li>
+            <li>Use Lighthouse for performance audits</li>
+            <li>Implement pagination for data-heavy tables</li>
+            <li>Debounce autocomplete and search inputs</li>
+            <li>Preload frequently used Material modules</li>
+          </ul>
+        </div>
+
+        <div class="best-practices">
+          <h4>✅ Performance Checklist</h4>
+          <ul>
+            <li><strong>Import Optimization:</strong> Only import needed Material modules</li>
+            <li><strong>Virtual Scrolling:</strong> Use for lists > 100 items</li>
+            <li><strong>Lazy Loading:</strong> Load features on demand</li>
+            <li><strong>Change Detection:</strong> Use OnPush where possible</li>
+            <li><strong>Pagination:</strong> Limit displayed data</li>
+            <li><strong>Monitoring:</strong> Track bundle size in CI/CD</li>
+          </ul>
+        </div>
+
+        <div class="warning-box">
+          <h4>⚠️ Performance Pitfalls</h4>
+          <ul>
+            <li>Rendering 1000+ items without virtual scrolling</li>
+            <li>Importing all Material modules in shared module</li>
+            <li>Not implementing pagination for large datasets</li>
+            <li>Forgetting trackBy in *ngFor with Material components</li>
+            <li>Loading all data client-side instead of server-side filtering</li>
+          </ul>
+        </div>
+      </div>
+    </ng-template>
+  </mat-tab>
+</mat-tab-group>

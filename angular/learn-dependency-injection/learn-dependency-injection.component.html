@@ -1,0 +1,255 @@
+<h2 class="header">Dependency Injection</h2>
+<label>Dependency Injection is Angular's powerful system for managing dependencies and creating maintainable, testable applications.</label>
+
+<mat-tab-group>
+  <mat-tab label="inject() Function">
+    <ng-template matTabContent>
+      <div class="tab-content">
+        <h3>Modern Dependency Injection with inject()</h3>
+        <p>
+          Angular 14+ introduced the <code>inject()</code> function, providing a more flexible and functional
+          approach to dependency injection compared to constructor injection.
+        </p>
+        
+        <h4>Why Use inject()?</h4>
+        <ul>
+          <li><strong>Less boilerplate:</strong> No need for constructor parameters</li>
+          <li><strong>Functional composition:</strong> Can be used in factory functions</li>
+          <li><strong>Better tree-shaking:</strong> Unused dependencies are eliminated</li>
+          <li><strong>More flexible:</strong> Can be used in field initializers</li>
+          <li><strong>Easier testing:</strong> Simpler to mock and override</li>
+        </ul>
+
+        <h4>Comparison: Constructor vs inject()</h4>
+        <pre><code class="language-typescript">{{ basicDI }}</code></pre>
+
+        <div class="info-box">
+          <h4>💡 When to Use inject()</h4>
+          <p>The <code>inject()</code> function can only be called during:</p>
+          <ul>
+            <li>Class field initialization</li>
+            <li>Constructor execution</li>
+            <li>Factory functions called by the injector</li>
+            <li>Within an injection context</li>
+          </ul>
+        </div>
+      </div>
+    </ng-template>
+  </mat-tab>
+
+  <mat-tab label="Functional Injection">
+    <ng-template matTabContent>
+      <div class="tab-content">
+        <h3>Using inject() in Functions</h3>
+        <p>
+          One of the most powerful features of <code>inject()</code> is the ability to use it in
+          standalone functions, enabling better code reuse and composition.
+        </p>
+
+        <h4>Benefits</h4>
+        <ul>
+          <li>Create reusable factory functions</li>
+          <li>Better separation of concerns</li>
+          <li>Easier to compose functionality</li>
+          <li>Improved testability</li>
+        </ul>
+
+        <pre><code class="language-typescript">{{ injectInFunctions }}</code></pre>
+
+        <div class="tip-box">
+          <h4>🎯 Best Practices</h4>
+          <ul>
+            <li>Use inject() for new code and components</li>
+            <li>Create factory functions for complex initialization logic</li>
+            <li>Combine with signals for reactive patterns</li>
+            <li>Keep factory functions pure and focused</li>
+          </ul>
+        </div>
+      </div>
+    </ng-template>
+  </mat-tab>
+
+  <mat-tab label="Optional & Flags">
+    <ng-template matTabContent>
+      <div class="tab-content">
+        <h3>Optional Dependencies and Injection Flags</h3>
+        <p>
+          Angular provides several flags to control how dependencies are resolved.
+          These flags give you fine-grained control over the injection process.
+        </p>
+
+        <h4>Available Flags</h4>
+        <ul>
+          <li><strong>optional:</strong> Returns null if dependency is not available</li>
+          <li><strong>self:</strong> Only look in the current injector</li>
+          <li><strong>skipSelf:</strong> Skip the current injector and look in parent</li>
+          <li><strong>host:</strong> Stop searching at the host component</li>
+        </ul>
+
+        <pre><code class="language-typescript">{{ optionalDI }}</code></pre>
+
+        <div class="warning-box">
+          <h4>⚠️ Common Pitfalls</h4>
+          <ul>
+            <li>Don't overuse optional dependencies - they can hide configuration issues</li>
+            <li>Be careful with skipSelf - ensure parent actually provides the service</li>
+            <li>Self flag is rarely needed - use it only for specific scoping scenarios</li>
+          </ul>
+        </div>
+      </div>
+    </ng-template>
+  </mat-tab>
+
+  <mat-tab label="Provider Scopes">
+    <ng-template matTabContent>
+      <div class="tab-content">
+        <h3>Understanding Provider Scopes</h3>
+        <p>
+          Angular's DI system is hierarchical. Understanding where to provide services is crucial
+          for managing state and performance.
+        </p>
+
+        <h4>Scope Levels</h4>
+        <div class="scope-levels">
+          <div class="scope-item">
+            <h5>Root (providedIn: 'root')</h5>
+            <p>Application-wide singleton, available everywhere, tree-shakeable</p>
+          </div>
+          <div class="scope-item">
+            <h5>Module (providedIn: SomeModule)</h5>
+            <p>Scoped to a feature module, loaded lazily with the module</p>
+          </div>
+          <div class="scope-item">
+            <h5>Component (providers: [...])</h5>
+            <p>New instance for each component and its children</p>
+          </div>
+          <div class="scope-item">
+            <h5>Platform</h5>
+            <p>Shared across multiple Angular applications on the same page</p>
+          </div>
+        </div>
+
+        <pre><code class="language-typescript">{{ providerScopes }}</code></pre>
+
+        <div class="decision-guide">
+          <h4>📋 When to Use Each Scope</h4>
+          <table>
+            <tr>
+              <th>Scope</th>
+              <th>Use When</th>
+              <th>Examples</th>
+            </tr>
+            <tr>
+              <td>Root</td>
+              <td>Shared across entire app</td>
+              <td>AuthService, GlobalStateService</td>
+            </tr>
+            <tr>
+              <td>Module</td>
+              <td>Feature-specific, lazy loaded</td>
+              <td>AdminService, ShoppingCartService</td>
+            </tr>
+            <tr>
+              <td>Component</td>
+              <td>Isolated state per component</td>
+              <td>FormStateService, LocalFilterService</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </ng-template>
+  </mat-tab>
+
+  <mat-tab label="Injection Tokens">
+    <ng-template matTabContent>
+      <div class="tab-content">
+        <h3>Custom Injection Tokens</h3>
+        <p>
+          Injection tokens allow you to provide and inject values that aren't classes,
+          such as configuration objects, strings, or functions.
+        </p>
+
+        <h4>Why Use Injection Tokens?</h4>
+        <ul>
+          <li>Provide configuration objects</li>
+          <li>Type-safe non-class dependencies</li>
+          <li>Avoid naming collisions</li>
+          <li>Create flexible APIs</li>
+        </ul>
+
+        <pre><code class="language-typescript">{{ injectionTokens }}</code></pre>
+
+        <h3>Factory Providers</h3>
+        <p>
+          Factory providers allow you to create dependencies dynamically based on other dependencies
+          or runtime conditions.
+        </p>
+
+        <pre><code class="language-typescript">{{ factoryProviders }}</code></pre>
+      </div>
+    </ng-template>
+  </mat-tab>
+
+  <mat-tab label="Hierarchical DI">
+    <ng-template matTabContent>
+      <div class="tab-content">
+        <h3>Understanding Hierarchical Dependency Injection</h3>
+        <p>
+          Angular's DI system is hierarchical, meaning injectors form a tree structure
+          that mirrors your component tree. This enables powerful scoping strategies.
+        </p>
+
+        <h4>Injector Hierarchy</h4>
+        <div class="hierarchy-diagram">
+          <div class="level">Platform Injector (shared across apps)</div>
+          <div class="arrow">↓</div>
+          <div class="level">Root Injector (application singleton)</div>
+          <div class="arrow">↓</div>
+          <div class="level">Module Injector (lazy loaded modules)</div>
+          <div class="arrow">↓</div>
+          <div class="level">Component Injector (component instance)</div>
+          <div class="arrow">↓</div>
+          <div class="level">Element Injector (directives)</div>
+        </div>
+
+        <pre><code class="language-typescript">{{ hierarchicalDI }}</code></pre>
+
+        <div class="use-cases">
+          <h4>🎯 Common Use Cases</h4>
+          <ul>
+            <li><strong>Form State:</strong> Provide FormService at component level for isolated form state</li>
+            <li><strong>Filter State:</strong> Provide FilterService per list component</li>
+            <li><strong>Theme Context:</strong> Provide theme at module level for feature-specific theming</li>
+            <li><strong>Multi-tenancy:</strong> Provide tenant config at component subtree level</li>
+          </ul>
+        </div>
+      </div>
+    </ng-template>
+  </mat-tab>
+
+  <mat-tab label="Real-World Example">
+    <ng-template matTabContent>
+      <div class="tab-content">
+        <h3>Complete Real-World Example</h3>
+        <p>
+          This example demonstrates a modern Angular feature store using inject(),
+          signals, and proper dependency injection patterns.
+        </p>
+
+        <pre><code class="language-typescript">{{ realWorldExample }}</code></pre>
+
+        <div class="best-practices">
+          <h4>✅ Key Takeaways</h4>
+          <ul>
+            <li>Use <code>inject()</code> for cleaner code</li>
+            <li>Provide stores at component level for isolated state</li>
+            <li>Combine with signals for reactive patterns</li>
+            <li>Use injection tokens for configuration</li>
+            <li>Keep services focused and single-purpose</li>
+            <li>Leverage computed signals for derived state</li>
+          </ul>
+        </div>
+      </div>
+    </ng-template>
+  </mat-tab>
+</mat-tab-group>

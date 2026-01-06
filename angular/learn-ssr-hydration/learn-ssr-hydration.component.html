@@ -1,0 +1,249 @@
+<h2 class="header">Server-Side Rendering (SSR) & Hydration</h2>
+<label>SSR renders your Angular application on the server for better performance, SEO, and user experience. Hydration makes the transition from server to browser seamless.</label>
+
+<mat-tab-group>
+  <mat-tab label="SSR Basics">
+    <ng-template matTabContent>
+      <div class="tab-content">
+        <h3>What is Server-Side Rendering?</h3>
+        <p>
+          SSR renders your Angular application on the server and sends fully rendered HTML to the browser.
+          This improves initial load time, SEO, and provides content to users with JavaScript disabled.
+        </p>
+        
+        <h4>Key Benefits</h4>
+        <ul>
+          <li><strong>Faster First Contentful Paint (FCP):</strong> Users see content immediately</li>
+          <li><strong>Better SEO:</strong> Search engines can crawl fully rendered content</li>
+          <li><strong>Social Media Sharing:</strong> Meta tags and content available for link previews</li>
+          <li><strong>Improved perceived performance:</strong> Content appears before JavaScript loads</li>
+          <li><strong>Accessibility:</strong> Works without JavaScript (progressive enhancement)</li>
+        </ul>
+
+        <h4>When to Use SSR</h4>
+        <ul>
+          <li>Public-facing websites that need SEO</li>
+          <li>Content-heavy applications (blogs, news sites)</li>
+          <li>E-commerce product pages</li>
+          <li>Landing pages and marketing sites</li>
+          <li>Applications with slow initial JavaScript load</li>
+        </ul>
+
+        <pre><code class="language-typescript">{{ basicSSR }}</code></pre>
+
+        <div class="info-box">
+          <h4>💡 SSR vs Static Site Generation (SSG)</h4>
+          <p><strong>SSR:</strong> Renders on each request (dynamic content)</p>
+          <p><strong>SSG (Prerendering):</strong> Renders at build time (static content)</p>
+          <p>Angular supports both - use SSR for dynamic content and prerendering for static pages!</p>
+        </div>
+      </div>
+    </ng-template>
+  </mat-tab>
+
+  <mat-tab label="Hydration">
+    <ng-template matTabContent>
+      <div class="tab-content">
+        <h3>Non-Destructive Hydration</h3>
+        <p>
+          Hydration is the process of attaching Angular to server-rendered HTML without destroying and recreating it.
+          This eliminates flickering and improves performance.
+        </p>
+        
+        <h4>How Hydration Works</h4>
+        <ol>
+          <li>Server renders the application to HTML</li>
+          <li>HTML is sent to the browser with hydration annotations</li>
+          <li>Browser displays the static HTML immediately (fast FCP)</li>
+          <li>Angular JavaScript loads and parses</li>
+          <li>Angular "hydrates" by attaching to existing DOM</li>
+          <li>Event listeners and interactivity are restored</li>
+          <li>Application is fully functional</li>
+        </ol>
+
+        <h4>Before Hydration (Angular &lt; 16)</h4>
+        <ul class="comparison">
+          <li>❌ Angular would destroy server-rendered DOM</li>
+          <li>❌ Recreate everything from scratch</li>
+          <li>❌ Visible content flickering</li>
+          <li>❌ Lost user focus/scroll position</li>
+          <li>❌ Wasted rendering work</li>
+        </ul>
+
+        <h4>With Hydration (Angular 16+)</h4>
+        <ul class="comparison success">
+          <li>✅ Preserves server-rendered DOM</li>
+          <li>✅ Attaches to existing elements</li>
+          <li>✅ No flickering or re-rendering</li>
+          <li>✅ Maintains state and position</li>
+          <li>✅ Better performance</li>
+        </ul>
+
+        <pre><code class="language-typescript">{{ hydration }}</code></pre>
+      </div>
+    </ng-template>
+  </mat-tab>
+
+  <mat-tab label="Platform Detection">
+    <ng-template matTabContent>
+      <div class="tab-content">
+        <h3>Platform-Specific Code</h3>
+        <p>
+          Not all code can run on both server and browser. Use platform checks to conditionally
+          execute code based on where your application is running.
+        </p>
+        
+        <h4>Browser-Only APIs</h4>
+        <ul>
+          <li><code>window</code> - Browser window object</li>
+          <li><code>document</code> - DOM document</li>
+          <li><code>localStorage</code> / <code>sessionStorage</code></li>
+          <li><code>navigator</code> - Browser information</li>
+          <li><code>WebSocket</code> - Real-time communication</li>
+          <li>Third-party libraries that use DOM</li>
+        </ul>
+
+        <h4>Server-Only Scenarios</h4>
+        <ul>
+          <li>File system access</li>
+          <li>Database connections</li>
+          <li>Environment variables</li>
+          <li>Server-side caching</li>
+        </ul>
+
+        <pre><code class="language-typescript">{{ platformCheck }}</code></pre>
+
+        <div class="warning-box">
+          <h4>⚠️ Common SSR Pitfalls</h4>
+          <ul>
+            <li>Accessing <code>window</code> or <code>document</code> without platform check</li>
+            <li>Using browser-only libraries (charts, maps) directly</li>
+            <li>Assuming <code>localStorage</code> is available</li>
+            <li>Direct DOM manipulation in ngOnInit</li>
+            <li>Timer-based code without cleanup</li>
+          </ul>
+        </div>
+      </div>
+    </ng-template>
+  </mat-tab>
+
+  <mat-tab label="Transfer State">
+    <ng-template matTabContent>
+      <div class="tab-content">
+        <h3>Transferring Data from Server to Browser</h3>
+        <p>
+          Transfer State allows you to serialize data on the server and reuse it on the browser,
+          avoiding duplicate HTTP requests and improving performance.
+        </p>
+        
+        <h4>Why Transfer State?</h4>
+        <ul>
+          <li>Avoid duplicate API calls (server + browser)</li>
+          <li>Faster browser interactivity</li>
+          <li>Consistent data between SSR and hydration</li>
+          <li>Reduced server load</li>
+        </ul>
+
+        <h4>What to Transfer</h4>
+        <ul>
+          <li>Initial data from API calls</li>
+          <li>User authentication state</li>
+          <li>Configuration or settings</li>
+          <li>Computed or derived data</li>
+        </ul>
+
+        <pre><code class="language-typescript">{{ transferState }}</code></pre>
+
+        <div class="tip-box">
+          <h4>🎯 Best Practices</h4>
+          <ul>
+            <li>Only transfer data needed for initial render</li>
+            <li>Clear transferred data after use to prevent memory leaks</li>
+            <li>Don't transfer sensitive data (use secure cookies instead)</li>
+            <li>Consider data size - large transfers slow down hydration</li>
+            <li>Use HTTP interceptors for automatic transfer state handling</li>
+          </ul>
+        </div>
+      </div>
+    </ng-template>
+  </mat-tab>
+
+  <mat-tab label="Optimization">
+    <ng-template matTabContent>
+      <div class="tab-content">
+        <h3>SSR Performance Optimization</h3>
+        <p>
+          Optimize your SSR setup to provide the best possible performance for both server and client.
+        </p>
+
+        <h4>Optimization Strategies</h4>
+        <ul>
+          <li><strong>Prerendering:</strong> Generate static HTML at build time for static routes</li>
+          <li><strong>Defer Non-Critical Content:</strong> Use <code>&#64;defer</code> blocks for below-fold content</li>
+          <li><strong>Lazy Loading:</strong> Load routes and components on-demand</li>
+          <li><strong>Caching:</strong> Cache rendered pages on CDN or server</li>
+          <li><strong>Timeouts:</strong> Set reasonable timeouts for SSR rendering</li>
+        </ul>
+
+        <pre><code class="language-typescript">{{ ssrOptimization }}</code></pre>
+
+        <h3>Non-Destructive Hydration Details</h3>
+        <pre><code class="language-typescript">{{ nonDestructiveHydration }}</code></pre>
+
+        <div class="performance-tips">
+          <h4>🚀 Performance Tips</h4>
+          <ul>
+            <li>Use prerendering for static pages (/, /about, /contact)</li>
+            <li>Implement proper caching strategies (CDN, HTTP cache)</li>
+            <li>Optimize Critical Rendering Path (minimize CSS, inline critical CSS)</li>
+            <li>Use Image optimization (responsive images, lazy loading)</li>
+            <li>Monitor SSR performance (rendering time, memory usage)</li>
+            <li>Consider using a CDN for static assets</li>
+          </ul>
+        </div>
+      </div>
+    </ng-template>
+  </mat-tab>
+
+  <mat-tab label="Complete Example">
+    <ng-template matTabContent>
+      <div class="tab-content">
+        <h3>Production-Ready SSR Setup</h3>
+        <p>
+          This example shows a complete SSR setup with hydration, transfer state,
+          and optimization strategies for a real-world application.
+        </p>
+
+        <pre><code class="language-typescript">{{ realWorldSSR }}</code></pre>
+
+        <div class="checklist">
+          <h4>✅ SSR Checklist</h4>
+          <ul>
+            <li>✅ Enable SSR with <code>ng add &#64;angular/ssr</code></li>
+            <li>✅ Enable hydration with <code>provideClientHydration()</code></li>
+            <li>✅ Add event replay with <code>withEventReplay()</code></li>
+            <li>✅ Implement transfer state for API calls</li>
+            <li>✅ Add platform checks for browser-only code</li>
+            <li>✅ Use <code>&#64;defer</code> blocks for non-critical content</li>
+            <li>✅ Configure prerendering for static routes</li>
+            <li>✅ Add proper meta tags for SEO</li>
+            <li>✅ Test without JavaScript enabled</li>
+            <li>✅ Monitor Core Web Vitals (FCP, LCP, CLS)</li>
+          </ul>
+        </div>
+
+        <div class="seo-tips">
+          <h4>🔍 SEO Optimization</h4>
+          <ul>
+            <li>Use proper meta tags (title, description, OG tags)</li>
+            <li>Implement structured data (JSON-LD)</li>
+            <li>Create sitemap.xml and robots.txt</li>
+            <li>Ensure content is visible in server-rendered HTML</li>
+            <li>Test with Google's Mobile-Friendly Test</li>
+            <li>Monitor search console for indexing issues</li>
+          </ul>
+        </div>
+      </div>
+    </ng-template>
+  </mat-tab>
+</mat-tab-group>
