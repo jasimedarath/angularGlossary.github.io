@@ -1,0 +1,168 @@
+<div class="container">
+  <h1>Next.js Database with Prisma</h1>
+  <p>Integrate Prisma ORM with Next.js for type-safe database access, migrations, CRUD operations, and connection pooling.</p>
+
+  <mat-tab-group>
+    <mat-tab label="Prisma Setup">
+      <div class="tab-content">
+        <h2>Prisma ORM Setup</h2>
+        <div class="info-box">
+          <p><strong>Prisma</strong> is a next-generation ORM that provides type-safe database access.</p>
+          <ul>
+            <li>Type-safe database client</li>
+            <li>Schema-first approach</li>
+            <li>Automatic migrations</li>
+            <li>Supports PostgreSQL, MySQL, SQLite, MongoDB</li>
+            <li>Excellent TypeScript support</li>
+            <li>Visual database browser</li>
+          </ul>
+        </div>
+        <pre><code class="language-tsx">{{prismaSetup}}</code></pre>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Prisma Client">
+      <div class="tab-content">
+        <h2>Prisma Client Setup</h2>
+        <div class="info-box">
+          <p>Configure Prisma Client for Next.js with proper connection management.</p>
+          <ul>
+            <li>Singleton pattern for client</li>
+            <li>Prevents multiple instances</li>
+            <li>Works with hot reload</li>
+            <li>Query logging configuration</li>
+            <li>Use in Server Components</li>
+            <li>Direct database access</li>
+          </ul>
+        </div>
+        <pre><code class="language-tsx">{{prismaClient}}</code></pre>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="CRUD Operations">
+      <div class="tab-content">
+        <h2>CRUD Operations</h2>
+        <div class="info-box">
+          <p>Perform Create, Read, Update, and Delete operations with Prisma.</p>
+          <ul>
+            <li>create: Insert new records</li>
+            <li>findUnique/findMany: Query records</li>
+            <li>update: Modify existing records</li>
+            <li>delete: Remove records</li>
+            <li>upsert: Create or update</li>
+            <li>Type-safe queries</li>
+          </ul>
+        </div>
+        <pre><code class="language-tsx">{{crudOperations}}</code></pre>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="API Routes">
+      <div class="tab-content">
+        <h2>Database in API Routes</h2>
+        <div class="info-box">
+          <p>Use Prisma in Next.js API routes for RESTful endpoints.</p>
+          <ul>
+            <li>GET for fetching data</li>
+            <li>POST for creating records</li>
+            <li>PUT for updating records</li>
+            <li>DELETE for removing records</li>
+            <li>Pagination support</li>
+            <li>Error handling</li>
+          </ul>
+        </div>
+        <pre><code class="language-tsx">{{apiRoutes}}</code></pre>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Relations">
+      <div class="tab-content">
+        <h2>Working with Relations</h2>
+        <div class="info-box">
+          <p>Query and manage relationships between database models.</p>
+          <ul>
+            <li>One-to-many relationships</li>
+            <li>Many-to-many relationships</li>
+            <li>Include related data</li>
+            <li>Create with relations</li>
+            <li>Connect existing relations</li>
+            <li>Nested queries</li>
+          </ul>
+        </div>
+        <pre><code class="language-tsx">{{relations}}</code></pre>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Transactions">
+      <div class="tab-content">
+        <h2>Database Transactions</h2>
+        <div class="info-box">
+          <p>Execute multiple database operations atomically with transactions.</p>
+          <ul>
+            <li>Sequential transactions</li>
+            <li>Batch operations</li>
+            <li>Rollback on error</li>
+            <li>Isolation levels</li>
+            <li>Timeout configuration</li>
+            <li>ACID guarantees</li>
+          </ul>
+        </div>
+        <pre><code class="language-tsx">{{transactions}}</code></pre>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Migrations">
+      <div class="tab-content">
+        <h2>Database Migrations</h2>
+        <div class="info-box">
+          <p>Manage database schema changes with Prisma migrations.</p>
+          <ul>
+            <li>Create migrations automatically</li>
+            <li>Version control for schema</li>
+            <li>Deploy to production safely</li>
+            <li>Rollback support</li>
+            <li>Database seeding</li>
+            <li>Schema synchronization</li>
+          </ul>
+        </div>
+        <pre><code class="language-tsx">{{migrations}}</code></pre>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Connection Pooling">
+      <div class="tab-content">
+        <h2>Connection Pooling</h2>
+        <div class="info-box">
+          <p>Configure connection pooling for serverless and production environments.</p>
+          <ul>
+            <li>PgBouncer integration</li>
+            <li>Connection limits</li>
+            <li>Direct URL for migrations</li>
+            <li>Serverless optimization</li>
+            <li>Connection management</li>
+            <li>Production best practices</li>
+          </ul>
+        </div>
+        <pre><code class="language-tsx">{{connectionPooling}}</code></pre>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Advanced Queries">
+      <div class="tab-content">
+        <h2>Advanced Queries</h2>
+        <div class="info-box">
+          <p>Perform complex queries with aggregation, search, and raw SQL.</p>
+          <ul>
+            <li>Full-text search</li>
+            <li>Aggregation functions</li>
+            <li>Group by queries</li>
+            <li>Raw SQL support</li>
+            <li>Nested writes</li>
+            <li>Computed fields</li>
+          </ul>
+        </div>
+        <pre><code class="language-tsx">{{advancedQueries}}</code></pre>
+      </div>
+    </mat-tab>
+  </mat-tab-group>
+</div>

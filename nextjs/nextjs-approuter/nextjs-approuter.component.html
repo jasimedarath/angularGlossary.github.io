@@ -1,0 +1,150 @@
+<div class="container">
+  <h1>Next.js App Router</h1>
+  <p>The App Router is a new paradigm for building applications with Next.js, introducing Server Components, nested layouts, and simplified data fetching.</p>
+
+  <mat-tab-group>
+    <mat-tab label="Basics">
+      <div class="tab-content">
+        <h2>App Router Fundamentals</h2>
+        <div class="info-box">
+          <p><strong>App Router</strong> is built on React Server Components and introduces a new file-system based routing approach.</p>
+          <ul>
+            <li>File-based routing in the <code>app</code> directory</li>
+            <li>page.tsx defines route UI</li>
+            <li>Supports nested layouts and templates</li>
+            <li>Server Components by default</li>
+            <li>Simplified data fetching with async components</li>
+            <li>Automatic code splitting</li>
+          </ul>
+        </div>
+        <pre><code class="language-tsx">{{appRouterBasics}}</code></pre>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Layouts">
+      <div class="tab-content">
+        <h2>Layouts in App Router</h2>
+        <div class="info-box">
+          <p><strong>Layouts</strong> are UI that wrap pages and persist across navigation without re-rendering.</p>
+          <ul>
+            <li>Root layout is required (app/layout.tsx)</li>
+            <li>Layouts can be nested</li>
+            <li>Preserve state and remain interactive</li>
+            <li>Can fetch data using async/await</li>
+            <li>Don't re-render on navigation</li>
+            <li>Can share UI across multiple pages</li>
+          </ul>
+        </div>
+        <pre><code class="language-tsx">{{layouts}}</code></pre>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Route Groups">
+      <div class="tab-content">
+        <h2>Route Groups</h2>
+        <div class="info-box">
+          <p><strong>Route Groups</strong> allow you to organize routes without affecting the URL structure.</p>
+          <ul>
+            <li>Use parentheses: (folderName)</li>
+            <li>Group routes logically</li>
+            <li>Apply different layouts to different groups</li>
+            <li>Don't affect the URL path</li>
+            <li>Great for separating marketing and app sections</li>
+            <li>Can have multiple root layouts</li>
+          </ul>
+        </div>
+        <pre><code class="language-tsx">{{routeGroups}}</code></pre>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Parallel Routes">
+      <div class="tab-content">
+        <h2>Parallel Routes</h2>
+        <div class="info-box">
+          <p><strong>Parallel Routes</strong> allow you to render multiple pages in the same layout simultaneously.</p>
+          <ul>
+            <li>Use &#64;folder syntax for slots</li>
+            <li>Render multiple pages independently</li>
+            <li>Each slot can have its own loading/error states</li>
+            <li>Great for dashboards with multiple sections</li>
+            <li>Conditional rendering of slots</li>
+            <li>Independent navigation per slot</li>
+          </ul>
+        </div>
+        <pre><code class="language-tsx">{{parallelRoutes}}</code></pre>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Intercepting Routes">
+      <div class="tab-content">
+        <h2>Intercepting Routes</h2>
+        <div class="info-box">
+          <p><strong>Intercepting Routes</strong> allow you to display a route in a modal while preserving the URL.</p>
+          <ul>
+            <li>(.) - intercept same level</li>
+            <li>(..) - intercept one level up</li>
+            <li>(...) - intercept from app root</li>
+            <li>Perfect for modals and overlays</li>
+            <li>Preserves context and URL</li>
+            <li>Fallback to full page on refresh</li>
+          </ul>
+        </div>
+        <pre><code class="language-tsx">{{interceptingRoutes}}</code></pre>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Loading States">
+      <div class="tab-content">
+        <h2>Loading UI</h2>
+        <div class="info-box">
+          <p><strong>loading.tsx</strong> creates automatic loading UI using React Suspense.</p>
+          <ul>
+            <li>Shown instantly while content loads</li>
+            <li>Automatically wraps page in Suspense</li>
+            <li>Can be nested at any route level</li>
+            <li>Works with streaming</li>
+            <li>Great for skeleton screens</li>
+            <li>Improves perceived performance</li>
+          </ul>
+        </div>
+        <pre><code class="language-tsx">{{loadingStates}}</code></pre>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Error Handling">
+      <div class="tab-content">
+        <h2>Error Boundaries</h2>
+        <div class="info-box">
+          <p><strong>error.tsx</strong> creates automatic error boundaries for handling errors gracefully.</p>
+          <ul>
+            <li>Must be Client Component ('use client')</li>
+            <li>Automatically wraps route in Error Boundary</li>
+            <li>Can reset and retry</li>
+            <li>Isolates errors to specific segments</li>
+            <li>not-found.tsx for 404 errors</li>
+            <li>global-error.tsx for root layout errors</li>
+          </ul>
+        </div>
+        <pre><code class="language-tsx">{{errorStates}}</code></pre>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Templates">
+      <div class="tab-content">
+        <h2>Template Files</h2>
+        <div class="info-box">
+          <p><strong>template.tsx</strong> is similar to layouts but creates a new instance on each navigation.</p>
+          <ul>
+            <li>Re-mounts on navigation (unlike layouts)</li>
+            <li>Fresh component state on each page</li>
+            <li>Useful for animations and transitions</li>
+            <li>Track page views with useEffect</li>
+            <li>Children re-mount but not siblings</li>
+            <li>Use sparingly for performance</li>
+          </ul>
+        </div>
+        <pre><code class="language-tsx">{{templateFiles}}</code></pre>
+      </div>
+    </mat-tab>
+  </mat-tab-group>
+</div>
