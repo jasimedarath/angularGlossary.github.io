@@ -1,0 +1,150 @@
+<div class="container">
+  <h1>Next.js Data Fetching</h1>
+  <p>Next.js provides powerful data fetching capabilities with Server Components, fetch API with caching, and client-side libraries like SWR and React Query.</p>
+
+  <mat-tab-group>
+    <mat-tab label="Fetch Basics">
+      <div class="tab-content">
+        <h2>Server Component Data Fetching</h2>
+        <div class="info-box">
+          <p><strong>Server Components</strong> can fetch data directly using async/await.</p>
+          <ul>
+            <li>Async Server Components by default</li>
+            <li>Direct database or API access</li>
+            <li>No client-side JavaScript for data fetching</li>
+            <li>Better performance and security</li>
+            <li>Automatic request deduplication</li>
+            <li>Built-in error handling</li>
+          </ul>
+        </div>
+        <pre><code class="language-tsx">{{fetchBasics}}</code></pre>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Cache Options">
+      <div class="tab-content">
+        <h2>Caching and Revalidation</h2>
+        <div class="info-box">
+          <p>Control caching behavior with <code>cache</code> and <code>next</code> options.</p>
+          <ul>
+            <li><code>force-cache</code>: Static generation (default)</li>
+            <li><code>no-store</code>: Server-side rendering</li>
+            <li><code>revalidate</code>: Incremental static regeneration</li>
+            <li><code>tags</code>: Group related requests for revalidation</li>
+            <li>On-demand revalidation with revalidatePath/Tag</li>
+            <li>Route segment config options</li>
+          </ul>
+        </div>
+        <pre><code class="language-tsx">{{cacheOptions}}</code></pre>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Parallel Fetching">
+      <div class="tab-content">
+        <h2>Parallel Data Fetching</h2>
+        <div class="info-box">
+          <p>Fetch multiple data sources concurrently with <code>Promise.all</code>.</p>
+          <ul>
+            <li>Fetch independent data in parallel</li>
+            <li>Reduces total loading time</li>
+            <li>Use Promise.all for concurrent requests</li>
+            <li>Better performance than sequential</li>
+            <li>All requests start simultaneously</li>
+            <li>Ideal for dashboard pages</li>
+          </ul>
+        </div>
+        <pre><code class="language-tsx">{{parallelFetching}}</code></pre>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Sequential Fetching">
+      <div class="tab-content">
+        <h2>Sequential Data Fetching</h2>
+        <div class="info-box">
+          <p>Fetch data sequentially when each request depends on the previous result.</p>
+          <ul>
+            <li>Used when data depends on previous results</li>
+            <li>Each request waits for the previous to complete</li>
+            <li>Longer total loading time</li>
+            <li>Sometimes necessary for dependent data</li>
+            <li>Consider if parallel is possible</li>
+            <li>Use Suspense for progressive rendering</li>
+          </ul>
+        </div>
+        <pre><code class="language-tsx">{{sequentialFetching}}</code></pre>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Client Fetching">
+      <div class="tab-content">
+        <h2>Client-Side Data Fetching</h2>
+        <div class="info-box">
+          <p>Use <code>useEffect</code> for client-side data fetching in Client Components.</p>
+          <ul>
+            <li>Fetching happens in the browser</li>
+            <li>Use 'use client' directive</li>
+            <li>Good for user interactions</li>
+            <li>Access to browser state</li>
+            <li>Personalized content</li>
+            <li>Consider SWR or React Query for better UX</li>
+          </ul>
+        </div>
+        <pre><code class="language-tsx">{{clientFetching}}</code></pre>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="SWR">
+      <div class="tab-content">
+        <h2>SWR - Stale-While-Revalidate</h2>
+        <div class="info-box">
+          <p><strong>SWR</strong> is a React Hooks library for data fetching with caching and revalidation.</p>
+          <ul>
+            <li>Built by Vercel for Next.js</li>
+            <li>Automatic caching and revalidation</li>
+            <li>Focus/reconnect revalidation</li>
+            <li>Polling and pagination support</li>
+            <li>Optimistic updates</li>
+            <li>Lightweight and fast</li>
+          </ul>
+        </div>
+        <pre><code class="language-tsx">{{swrPattern}}</code></pre>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="React Query">
+      <div class="tab-content">
+        <h2>React Query (TanStack Query)</h2>
+        <div class="info-box">
+          <p><strong>React Query</strong> provides powerful data synchronization and caching.</p>
+          <ul>
+            <li>Advanced caching strategies</li>
+            <li>Automatic background refetching</li>
+            <li>Mutations with optimistic updates</li>
+            <li>Pagination and infinite scroll</li>
+            <li>DevTools for debugging</li>
+            <li>TypeScript support</li>
+          </ul>
+        </div>
+        <pre><code class="language-tsx">{{reactQuery}}</code></pre>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Error Handling">
+      <div class="tab-content">
+        <h2>Error Handling</h2>
+        <div class="info-box">
+          <p>Properly handle errors in both server and client data fetching.</p>
+          <ul>
+            <li>Try-catch in Server Components</li>
+            <li>error.tsx boundaries for UI</li>
+            <li>Client-side error states</li>
+            <li>Retry strategies with React Query</li>
+            <li>Graceful degradation</li>
+            <li>User-friendly error messages</li>
+          </ul>
+        </div>
+        <pre><code class="language-tsx">{{errorHandling}}</code></pre>
+      </div>
+    </mat-tab>
+  </mat-tab-group>
+</div>

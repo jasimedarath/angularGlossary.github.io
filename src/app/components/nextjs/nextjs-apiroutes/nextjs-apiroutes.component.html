@@ -1,0 +1,150 @@
+<div class="container">
+  <h1>Next.js API Routes</h1>
+  <p>Route Handlers in Next.js App Router allow you to create custom request handlers using Web APIs for REST endpoints and webhooks.</p>
+
+  <mat-tab-group>
+    <mat-tab label="Basics">
+      <div class="tab-content">
+        <h2>Route Handler Basics</h2>
+        <div class="info-box">
+          <p><strong>Route Handlers</strong> are defined in route.ts files and support all HTTP methods.</p>
+          <ul>
+            <li>Define in app/api directory</li>
+            <li>Support GET, POST, PUT, DELETE, PATCH</li>
+            <li>Use Web Request and Response APIs</li>
+            <li>Can be co-located with pages</li>
+            <li>Automatic TypeScript support</li>
+            <li>Built-in request deduplication</li>
+          </ul>
+        </div>
+        <pre><code class="language-tsx">{{routeHandlerBasics}}</code></pre>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Request Handling">
+      <div class="tab-content">
+        <h2>Handling Requests</h2>
+        <div class="info-box">
+          <p>Extract data from requests including query params, headers, cookies, and body.</p>
+          <ul>
+            <li>Access URL search params</li>
+            <li>Read request headers</li>
+            <li>Get cookies from request</li>
+            <li>Parse JSON body</li>
+            <li>Handle FormData uploads</li>
+            <li>Read raw text body</li>
+          </ul>
+        </div>
+        <pre><code class="language-tsx">{{requestHandling}}</code></pre>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Response Handling">
+      <div class="tab-content">
+        <h2>Creating Responses</h2>
+        <div class="info-box">
+          <p>Return different types of responses with custom status codes and headers.</p>
+          <ul>
+            <li>JSON responses with Response.json()</li>
+            <li>Custom status codes</li>
+            <li>Set response headers</li>
+            <li>Set cookies in response</li>
+            <li>Text and HTML responses</li>
+            <li>Redirects</li>
+          </ul>
+        </div>
+        <pre><code class="language-tsx">{{responseHandling}}</code></pre>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Dynamic Routes">
+      <div class="tab-content">
+        <h2>Dynamic Route Handlers</h2>
+        <div class="info-box">
+          <p>Create dynamic API routes using folder structure with parameters.</p>
+          <ul>
+            <li>Use [param] syntax for dynamic segments</li>
+            <li>Access params from second argument</li>
+            <li>Support nested dynamic routes</li>
+            <li>Multiple parameters per route</li>
+            <li>Type-safe with TypeScript</li>
+            <li>Great for RESTful APIs</li>
+          </ul>
+        </div>
+        <pre><code class="language-tsx">{{dynamicRoutes}}</code></pre>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Error Handling">
+      <div class="tab-content">
+        <h2>Error Handling</h2>
+        <div class="info-box">
+          <p>Handle errors gracefully with proper status codes and messages.</p>
+          <ul>
+            <li>Try-catch for unexpected errors</li>
+            <li>400 for validation errors</li>
+            <li>401 for authentication errors</li>
+            <li>403 for authorization errors</li>
+            <li>404 for not found</li>
+            <li>500 for server errors</li>
+          </ul>
+        </div>
+        <pre><code class="language-tsx">{{errorHandling}}</code></pre>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Middleware">
+      <div class="tab-content">
+        <h2>Middleware for APIs</h2>
+        <div class="info-box">
+          <p>Use middleware to handle cross-cutting concerns like CORS and authentication.</p>
+          <ul>
+            <li>CORS headers for cross-origin requests</li>
+            <li>Authentication checks</li>
+            <li>Request logging</li>
+            <li>Rate limiting</li>
+            <li>Response headers</li>
+            <li>Runs before route handlers</li>
+          </ul>
+        </div>
+        <pre><code class="language-tsx">{{middleware}}</code></pre>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Advanced Patterns">
+      <div class="tab-content">
+        <h2>Advanced Patterns</h2>
+        <div class="info-box">
+          <p>Implement advanced features like streaming, file uploads, and webhooks.</p>
+          <ul>
+            <li>Streaming responses for SSE</li>
+            <li>File upload handling</li>
+            <li>Webhook signature verification</li>
+            <li>Long-polling implementations</li>
+            <li>Binary data handling</li>
+            <li>Custom content types</li>
+          </ul>
+        </div>
+        <pre><code class="language-tsx">{{advancedPatterns}}</code></pre>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Caching">
+      <div class="tab-content">
+        <h2>Caching Strategies</h2>
+        <div class="info-box">
+          <p>Control caching behavior for API routes with route segment config.</p>
+          <ul>
+            <li>Static by default (cached)</li>
+            <li><code>dynamic = 'force-dynamic'</code> for SSR</li>
+            <li><code>revalidate</code> for ISR</li>
+            <li>Custom Cache-Control headers</li>
+            <li>CDN caching with s-maxage</li>
+            <li>Stale-while-revalidate pattern</li>
+          </ul>
+        </div>
+        <pre><code class="language-tsx">{{caching}}</code></pre>
+      </div>
+    </mat-tab>
+  </mat-tab-group>
+</div>
