@@ -37,7 +37,7 @@
               "src/styles.scss"
             ],
             "scripts": [],
-            "baseHref": "techGlossary.github.io"
+            "baseHref": "/techGlossary.github.io/"
           },
           "configurations": {
             "production": {
