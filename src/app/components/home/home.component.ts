@@ -24,7 +24,7 @@ export class HomeComponent {
       name: 'Angular',
       icon: 'https://angular.io/assets/images/logos/angular/angular.svg',
       description: 'A comprehensive Angular glossary covering components, services, routing, state management, and modern features.',
-      route: '/angular/components',
+      route: '/angular/gettingstarted',
       color: '#dd0031',
       available: true
     },
