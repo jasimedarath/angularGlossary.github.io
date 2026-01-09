@@ -93,7 +93,7 @@ export const routes: Routes = [
         path: 'angular/ssrHydration', 
         loadComponent: () => import('./components/angular/learn-ssr-hydration/learn-ssr-hydration.component').then(m => m.LearnSsrHydrationComponent)
     },
-    { path: 'angular', redirectTo: 'angular/components', pathMatch: 'full' },
+    { path: 'angular', redirectTo: 'angular/gettingstarted', pathMatch: 'full' },
     
     // React routes with lazy loading
     { 
