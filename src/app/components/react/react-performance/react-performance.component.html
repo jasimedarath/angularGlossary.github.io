@@ -4,6 +4,7 @@
 
   <mat-tab-group>
     <mat-tab label="React.memo">
+    <ng-template matTabContent>
       <div class="tab-content">
         <h2>React.memo - Memoized Components</h2>
         <div class="info-box">
@@ -17,9 +18,11 @@
         </div>
         <pre><code class="language-jsx">{{reactMemo}}</code></pre>
       </div>
-    </mat-tab>
+    </ng-template>
+  </mat-tab>
 
     <mat-tab label="useMemo">
+    <ng-template matTabContent>
       <div class="tab-content">
         <h2>useMemo Hook</h2>
         <div class="info-box">
@@ -33,9 +36,11 @@
         </div>
         <pre><code class="language-jsx">{{useMemoHook}}</code></pre>
       </div>
-    </mat-tab>
+    </ng-template>
+  </mat-tab>
 
     <mat-tab label="useCallback">
+    <ng-template matTabContent>
       <div class="tab-content">
         <h2>useCallback Hook</h2>
         <div class="info-box">
@@ -49,9 +54,11 @@
         </div>
         <pre><code class="language-jsx">{{useCallbackHook}}</code></pre>
       </div>
-    </mat-tab>
+    </ng-template>
+  </mat-tab>
 
     <mat-tab label="Code Splitting">
+    <ng-template matTabContent>
       <div class="tab-content">
         <h2>Code Splitting & Lazy Loading</h2>
         <div class="info-box">
@@ -65,9 +72,11 @@
         </div>
         <pre><code class="language-jsx">{{codeSplitting}}</code></pre>
       </div>
-    </mat-tab>
+    </ng-template>
+  </mat-tab>
 
     <mat-tab label="Virtualization">
+    <ng-template matTabContent>
       <div class="tab-content">
         <h2>List Virtualization</h2>
         <div class="info-box">
@@ -81,9 +90,11 @@
         </div>
         <pre><code class="language-jsx">{{virtualization}}</code></pre>
       </div>
-    </mat-tab>
+    </ng-template>
+  </mat-tab>
 
     <mat-tab label="Best Practices">
+    <ng-template matTabContent>
       <div class="tab-content">
         <h2>Performance Best Practices</h2>
         <div class="info-box success">
@@ -100,6 +111,7 @@
         </div>
         <pre><code class="language-jsx">{{bestPractices}}</code></pre>
       </div>
-    </mat-tab>
+    </ng-template>
+  </mat-tab>
   </mat-tab-group>
 </div>

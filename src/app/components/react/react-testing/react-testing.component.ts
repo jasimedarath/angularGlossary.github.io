@@ -1,7 +1,9 @@
 import { Component, AfterViewChecked } from '@angular/core';
 import { MatTabsModule } from '@angular/material/tabs';
 
-declare var Prism: any;
+import * as Prism from 'prismjs';
+import 'prismjs/components/prism-typescript';
+import 'prismjs/components/prism-jsx';
 
 @Component({
   selector: 'app-react-testing',

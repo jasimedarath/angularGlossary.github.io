@@ -4,6 +4,7 @@
 
   <mat-tab-group>
     <mat-tab label="Setup & Basics">
+    <ng-template matTabContent>
       <div class="tab-content">
         <h2>Router Setup</h2>
         <div class="info-box">
@@ -17,9 +18,11 @@
         </div>
         <pre><code class="language-jsx">{{routerSetup}}</code></pre>
       </div>
-    </mat-tab>
+    </ng-template>
+  </mat-tab>
 
     <mat-tab label="Navigation">
+    <ng-template matTabContent>
       <div class="tab-content">
         <h2>Navigation Methods</h2>
         <div class="info-box">
@@ -33,9 +36,11 @@
         </div>
         <pre><code class="language-jsx">{{navigation}}</code></pre>
       </div>
-    </mat-tab>
+    </ng-template>
+  </mat-tab>
 
     <mat-tab label="Dynamic Routes">
+    <ng-template matTabContent>
       <div class="tab-content">
         <h2>Dynamic Routes & Parameters</h2>
         <div class="info-box">
@@ -49,9 +54,11 @@
         </div>
         <pre><code class="language-jsx">{{dynamicRoutes}}</code></pre>
       </div>
-    </mat-tab>
+    </ng-template>
+  </mat-tab>
 
     <mat-tab label="Nested Routes">
+    <ng-template matTabContent>
       <div class="tab-content">
         <h2>Nested Routes & Layouts</h2>
         <div class="info-box">
@@ -65,9 +72,11 @@
         </div>
         <pre><code class="language-jsx">{{nestedRoutes}}</code></pre>
       </div>
-    </mat-tab>
+    </ng-template>
+  </mat-tab>
 
     <mat-tab label="Protected Routes">
+    <ng-template matTabContent>
       <div class="tab-content">
         <h2>Protected Routes</h2>
         <div class="info-box warning">
@@ -81,9 +90,11 @@
         </div>
         <pre><code class="language-jsx">{{protectedRoutes}}</code></pre>
       </div>
-    </mat-tab>
+    </ng-template>
+  </mat-tab>
 
     <mat-tab label="Lazy Loading">
+    <ng-template matTabContent>
       <div class="tab-content">
         <h2>Code Splitting & Lazy Loading</h2>
         <div class="info-box success">
@@ -97,9 +108,11 @@
         </div>
         <pre><code class="language-jsx">{{lazyLoading}}</code></pre>
       </div>
-    </mat-tab>
+    </ng-template>
+  </mat-tab>
 
     <mat-tab label="Router Hooks">
+    <ng-template matTabContent>
       <div class="tab-content">
         <h2>Router Hooks</h2>
         <div class="info-box">
@@ -113,9 +126,11 @@
         </div>
         <pre><code class="language-jsx">{{hooks}}</code></pre>
       </div>
-    </mat-tab>
+    </ng-template>
+  </mat-tab>
 
     <mat-tab label="Best Practices">
+    <ng-template matTabContent>
       <div class="tab-content">
         <h2>Router Best Practices</h2>
         <div class="info-box success">
@@ -132,6 +147,7 @@
         </div>
         <pre><code class="language-jsx">{{bestPractices}}</code></pre>
       </div>
-    </mat-tab>
+    </ng-template>
+  </mat-tab>
   </mat-tab-group>
 </div>

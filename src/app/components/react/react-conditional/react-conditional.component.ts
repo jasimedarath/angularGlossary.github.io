@@ -1,7 +1,7 @@
 import { Component, AfterViewChecked } from '@angular/core';
 import { MatTabsModule } from '@angular/material/tabs';
 
-declare var Prism: any;
+import * as Prism from 'prismjs';
 
 @Component({
   selector: 'app-react-conditional',

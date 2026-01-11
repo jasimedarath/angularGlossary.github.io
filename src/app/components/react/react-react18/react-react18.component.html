@@ -4,6 +4,7 @@
 
   <mat-tab-group>
     <mat-tab label="Concurrent Rendering">
+    <ng-template matTabContent>
       <div class="tab-content">
         <h2>Concurrent Rendering</h2>
         <div class="info-box">
@@ -17,9 +18,11 @@
         </div>
         <pre><code class="language-jsx">{{concurrentRendering}}</code></pre>
       </div>
-    </mat-tab>
+    </ng-template>
+  </mat-tab>
 
     <mat-tab label="Transitions">
+    <ng-template matTabContent>
       <div class="tab-content">
         <h2>Transitions & Deferred Values</h2>
         <div class="info-box">
@@ -33,9 +36,11 @@
         </div>
         <pre><code class="language-jsx">{{transitions}}</code></pre>
       </div>
-    </mat-tab>
+    </ng-template>
+  </mat-tab>
 
     <mat-tab label="Suspense">
+    <ng-template matTabContent>
       <div class="tab-content">
         <h2>Suspense for Data Fetching</h2>
         <div class="info-box">
@@ -49,9 +54,11 @@
         </div>
         <pre><code class="language-jsx">{{suspense}}</code></pre>
       </div>
-    </mat-tab>
+    </ng-template>
+  </mat-tab>
 
     <mat-tab label="Automatic Batching">
+    <ng-template matTabContent>
       <div class="tab-content">
         <h2>Automatic Batching</h2>
         <div class="info-box">
@@ -65,9 +72,11 @@
         </div>
         <pre><code class="language-jsx">{{automaticBatching}}</code></pre>
       </div>
-    </mat-tab>
+    </ng-template>
+  </mat-tab>
 
     <mat-tab label="Server Components">
+    <ng-template matTabContent>
       <div class="tab-content">
         <h2>React Server Components</h2>
         <div class="info-box">
@@ -81,9 +90,11 @@
         </div>
         <pre><code class="language-jsx">{{serverComponents}}</code></pre>
       </div>
-    </mat-tab>
+    </ng-template>
+  </mat-tab>
 
     <mat-tab label="New Hooks">
+    <ng-template matTabContent>
       <div class="tab-content">
         <h2>New Hooks in React 18</h2>
         <div class="info-box">
@@ -96,6 +107,7 @@
         </div>
         <pre><code class="language-jsx">{{newHooks}}</code></pre>
       </div>
-    </mat-tab>
+    </ng-template>
+  </mat-tab>
   </mat-tab-group>
 </div>
