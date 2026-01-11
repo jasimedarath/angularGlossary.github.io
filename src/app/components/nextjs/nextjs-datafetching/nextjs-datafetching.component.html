@@ -4,6 +4,7 @@
 
   <mat-tab-group>
     <mat-tab label="Fetch Basics">
+    <ng-template matTabContent>
       <div class="tab-content">
         <h2>Server Component Data Fetching</h2>
         <div class="info-box">
@@ -19,9 +20,11 @@
         </div>
         <pre><code class="language-tsx">{{fetchBasics}}</code></pre>
       </div>
-    </mat-tab>
+    </ng-template>
+  </mat-tab>
 
     <mat-tab label="Cache Options">
+    <ng-template matTabContent>
       <div class="tab-content">
         <h2>Caching and Revalidation</h2>
         <div class="info-box">
@@ -37,9 +40,11 @@
         </div>
         <pre><code class="language-tsx">{{cacheOptions}}</code></pre>
       </div>
-    </mat-tab>
+    </ng-template>
+  </mat-tab>
 
     <mat-tab label="Parallel Fetching">
+    <ng-template matTabContent>
       <div class="tab-content">
         <h2>Parallel Data Fetching</h2>
         <div class="info-box">
@@ -55,9 +60,11 @@
         </div>
         <pre><code class="language-tsx">{{parallelFetching}}</code></pre>
       </div>
-    </mat-tab>
+    </ng-template>
+  </mat-tab>
 
     <mat-tab label="Sequential Fetching">
+    <ng-template matTabContent>
       <div class="tab-content">
         <h2>Sequential Data Fetching</h2>
         <div class="info-box">
@@ -73,9 +80,11 @@
         </div>
         <pre><code class="language-tsx">{{sequentialFetching}}</code></pre>
       </div>
-    </mat-tab>
+    </ng-template>
+  </mat-tab>
 
     <mat-tab label="Client Fetching">
+    <ng-template matTabContent>
       <div class="tab-content">
         <h2>Client-Side Data Fetching</h2>
         <div class="info-box">
@@ -91,9 +100,11 @@
         </div>
         <pre><code class="language-tsx">{{clientFetching}}</code></pre>
       </div>
-    </mat-tab>
+    </ng-template>
+  </mat-tab>
 
     <mat-tab label="SWR">
+    <ng-template matTabContent>
       <div class="tab-content">
         <h2>SWR - Stale-While-Revalidate</h2>
         <div class="info-box">
@@ -109,9 +120,11 @@
         </div>
         <pre><code class="language-tsx">{{swrPattern}}</code></pre>
       </div>
-    </mat-tab>
+    </ng-template>
+  </mat-tab>
 
     <mat-tab label="React Query">
+    <ng-template matTabContent>
       <div class="tab-content">
         <h2>React Query (TanStack Query)</h2>
         <div class="info-box">
@@ -127,9 +140,11 @@
         </div>
         <pre><code class="language-tsx">{{reactQuery}}</code></pre>
       </div>
-    </mat-tab>
+    </ng-template>
+  </mat-tab>
 
     <mat-tab label="Error Handling">
+    <ng-template matTabContent>
       <div class="tab-content">
         <h2>Error Handling</h2>
         <div class="info-box">
@@ -145,6 +160,7 @@
         </div>
         <pre><code class="language-tsx">{{errorHandling}}</code></pre>
       </div>
-    </mat-tab>
+    </ng-template>
+  </mat-tab>
   </mat-tab-group>
 </div>

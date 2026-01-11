@@ -4,6 +4,7 @@
 
   <mat-tab-group>
     <mat-tab label="SSR">
+    <ng-template matTabContent>
       <div class="tab-content">
         <h2>Server-Side Rendering (SSR)</h2>
         <div class="info-box">
@@ -19,9 +20,11 @@
         </div>
         <pre><code class="language-tsx">{{ssrBasics}}</code></pre>
       </div>
-    </mat-tab>
+    </ng-template>
+  </mat-tab>
 
     <mat-tab label="SSG">
+    <ng-template matTabContent>
       <div class="tab-content">
         <h2>Static Site Generation (SSG)</h2>
         <div class="info-box">
@@ -37,9 +40,11 @@
         </div>
         <pre><code class="language-tsx">{{ssgBasics}}</code></pre>
       </div>
-    </mat-tab>
+    </ng-template>
+  </mat-tab>
 
     <mat-tab label="ISR">
+    <ng-template matTabContent>
       <div class="tab-content">
         <h2>Incremental Static Regeneration (ISR)</h2>
         <div class="info-box">
@@ -55,9 +60,11 @@
         </div>
         <pre><code class="language-tsx">{{isrBasics}}</code></pre>
       </div>
-    </mat-tab>
+    </ng-template>
+  </mat-tab>
 
     <mat-tab label="CSR">
+    <ng-template matTabContent>
       <div class="tab-content">
         <h2>Client-Side Rendering (CSR)</h2>
         <div class="info-box">
@@ -73,9 +80,11 @@
         </div>
         <pre><code class="language-tsx">{{csrBasics}}</code></pre>
       </div>
-    </mat-tab>
+    </ng-template>
+  </mat-tab>
 
     <mat-tab label="Comparison">
+    <ng-template matTabContent>
       <div class="tab-content">
         <h2>Rendering Methods Comparison</h2>
         <div class="info-box">
@@ -89,9 +98,11 @@
         </div>
         <pre><code class="language-tsx">{{comparison}}</code></pre>
       </div>
-    </mat-tab>
+    </ng-template>
+  </mat-tab>
 
     <mat-tab label="generateStaticParams">
+    <ng-template matTabContent>
       <div class="tab-content">
         <h2>Generating Static Params</h2>
         <div class="info-box">
@@ -107,9 +118,11 @@
         </div>
         <pre><code class="language-tsx">{{generateStaticParams}}</code></pre>
       </div>
-    </mat-tab>
+    </ng-template>
+  </mat-tab>
 
     <mat-tab label="Revalidation">
+    <ng-template matTabContent>
       <div class="tab-content">
         <h2>Revalidation Strategies</h2>
         <div class="info-box">
@@ -125,9 +138,11 @@
         </div>
         <pre><code class="language-tsx">{{revalidation}}</code></pre>
       </div>
-    </mat-tab>
+    </ng-template>
+  </mat-tab>
 
     <mat-tab label="Streaming">
+    <ng-template matTabContent>
       <div class="tab-content">
         <h2>Streaming with Suspense</h2>
         <div class="info-box">
@@ -143,6 +158,7 @@
         </div>
         <pre><code class="language-tsx">{{streaming}}</code></pre>
       </div>
-    </mat-tab>
+    </ng-template>
+  </mat-tab>
   </mat-tab-group>
 </div>

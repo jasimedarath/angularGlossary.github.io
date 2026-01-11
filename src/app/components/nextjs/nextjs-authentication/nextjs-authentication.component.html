@@ -4,6 +4,7 @@
 
   <mat-tab-group>
     <mat-tab label="NextAuth Setup">
+    <ng-template matTabContent>
       <div class="tab-content">
         <h2>NextAuth.js Setup</h2>
         <div class="info-box">
@@ -19,9 +20,11 @@
         </div>
         <pre><code class="language-tsx">{{nextAuthSetup}}</code></pre>
       </div>
-    </mat-tab>
+    </ng-template>
+  </mat-tab>
 
     <mat-tab label="Session Management">
+    <ng-template matTabContent>
       <div class="tab-content">
         <h2>Session Management</h2>
         <div class="info-box">
@@ -37,9 +40,11 @@
         </div>
         <pre><code class="language-tsx">{{sessionManagement}}</code></pre>
       </div>
-    </mat-tab>
+    </ng-template>
+  </mat-tab>
 
     <mat-tab label="Protected Routes">
+    <ng-template matTabContent>
       <div class="tab-content">
         <h2>Protected Routes</h2>
         <div class="info-box">
@@ -55,9 +60,11 @@
         </div>
         <pre><code class="language-tsx">{{protectedRoutes}}</code></pre>
       </div>
-    </mat-tab>
+    </ng-template>
+  </mat-tab>
 
     <mat-tab label="JWT Authentication">
+    <ng-template matTabContent>
       <div class="tab-content">
         <h2>JWT Authentication</h2>
         <div class="info-box">
@@ -73,9 +80,11 @@
         </div>
         <pre><code class="language-tsx">{{jwtAuth}}</code></pre>
       </div>
-    </mat-tab>
+    </ng-template>
+  </mat-tab>
 
     <mat-tab label="OAuth Providers">
+    <ng-template matTabContent>
       <div class="tab-content">
         <h2>OAuth Provider Setup</h2>
         <div class="info-box">
@@ -91,9 +100,11 @@
         </div>
         <pre><code class="language-tsx">{{oauthProviders}}</code></pre>
       </div>
-    </mat-tab>
+    </ng-template>
+  </mat-tab>
 
     <mat-tab label="Sign In/Out">
+    <ng-template matTabContent>
       <div class="tab-content">
         <h2>Sign In and Sign Out</h2>
         <div class="info-box">
@@ -109,9 +120,11 @@
         </div>
         <pre><code class="language-tsx">{{signInSignOut}}</code></pre>
       </div>
-    </mat-tab>
+    </ng-template>
+  </mat-tab>
 
     <mat-tab label="Role-Based Access">
+    <ng-template matTabContent>
       <div class="tab-content">
         <h2>Role-Based Access Control</h2>
         <div class="info-box">
@@ -127,9 +140,11 @@
         </div>
         <pre><code class="language-tsx">{{roleBasedAccess}}</code></pre>
       </div>
-    </mat-tab>
+    </ng-template>
+  </mat-tab>
 
     <mat-tab label="Password Hashing">
+    <ng-template matTabContent>
       <div class="tab-content">
         <h2>Password Hashing</h2>
         <div class="info-box">
@@ -145,6 +160,7 @@
         </div>
         <pre><code class="language-tsx">{{passwordHashing}}</code></pre>
       </div>
-    </mat-tab>
+    </ng-template>
+  </mat-tab>
   </mat-tab-group>
 </div>

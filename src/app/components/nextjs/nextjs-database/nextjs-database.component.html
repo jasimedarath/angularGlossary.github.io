@@ -4,6 +4,7 @@
 
   <mat-tab-group>
     <mat-tab label="Prisma Setup">
+    <ng-template matTabContent>
       <div class="tab-content">
         <h2>Prisma ORM Setup</h2>
         <div class="info-box">
@@ -19,9 +20,11 @@
         </div>
         <pre><code class="language-tsx">{{prismaSetup}}</code></pre>
       </div>
-    </mat-tab>
+    </ng-template>
+  </mat-tab>
 
     <mat-tab label="Prisma Client">
+    <ng-template matTabContent>
       <div class="tab-content">
         <h2>Prisma Client Setup</h2>
         <div class="info-box">
@@ -37,9 +40,11 @@
         </div>
         <pre><code class="language-tsx">{{prismaClient}}</code></pre>
       </div>
-    </mat-tab>
+    </ng-template>
+  </mat-tab>
 
     <mat-tab label="CRUD Operations">
+    <ng-template matTabContent>
       <div class="tab-content">
         <h2>CRUD Operations</h2>
         <div class="info-box">
@@ -55,9 +60,11 @@
         </div>
         <pre><code class="language-tsx">{{crudOperations}}</code></pre>
       </div>
-    </mat-tab>
+    </ng-template>
+  </mat-tab>
 
     <mat-tab label="API Routes">
+    <ng-template matTabContent>
       <div class="tab-content">
         <h2>Database in API Routes</h2>
         <div class="info-box">
@@ -73,9 +80,11 @@
         </div>
         <pre><code class="language-tsx">{{apiRoutes}}</code></pre>
       </div>
-    </mat-tab>
+    </ng-template>
+  </mat-tab>
 
     <mat-tab label="Relations">
+    <ng-template matTabContent>
       <div class="tab-content">
         <h2>Working with Relations</h2>
         <div class="info-box">
@@ -91,9 +100,11 @@
         </div>
         <pre><code class="language-tsx">{{relations}}</code></pre>
       </div>
-    </mat-tab>
+    </ng-template>
+  </mat-tab>
 
     <mat-tab label="Transactions">
+    <ng-template matTabContent>
       <div class="tab-content">
         <h2>Database Transactions</h2>
         <div class="info-box">
@@ -109,9 +120,11 @@
         </div>
         <pre><code class="language-tsx">{{transactions}}</code></pre>
       </div>
-    </mat-tab>
+    </ng-template>
+  </mat-tab>
 
     <mat-tab label="Migrations">
+    <ng-template matTabContent>
       <div class="tab-content">
         <h2>Database Migrations</h2>
         <div class="info-box">
@@ -127,9 +140,11 @@
         </div>
         <pre><code class="language-tsx">{{migrations}}</code></pre>
       </div>
-    </mat-tab>
+    </ng-template>
+  </mat-tab>
 
     <mat-tab label="Connection Pooling">
+    <ng-template matTabContent>
       <div class="tab-content">
         <h2>Connection Pooling</h2>
         <div class="info-box">
@@ -145,9 +160,11 @@
         </div>
         <pre><code class="language-tsx">{{connectionPooling}}</code></pre>
       </div>
-    </mat-tab>
+    </ng-template>
+  </mat-tab>
 
     <mat-tab label="Advanced Queries">
+    <ng-template matTabContent>
       <div class="tab-content">
         <h2>Advanced Queries</h2>
         <div class="info-box">
@@ -163,6 +180,7 @@
         </div>
         <pre><code class="language-tsx">{{advancedQueries}}</code></pre>
       </div>
-    </mat-tab>
+    </ng-template>
+  </mat-tab>
   </mat-tab-group>
 </div>
