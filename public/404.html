@@ -4,10 +4,10 @@
   <meta charset="utf-8">
   <title>Tech Glossary Hub</title>
   <script>
-    // GitHub Pages SPA redirect handler
-    // This script stores the current path and redirects to index.html
-    // which will then restore the correct URL
-    var pathSegmentsToKeep = 1;
+    // GitHub Pages SPA redirect handler for multi-level base path
+    // Handles path: /techGlossary.github.io/angular/directives
+    // Redirects to: /techGlossary.github.io/?/angular/directives
+    var pathSegmentsToKeep = 2; // Keep both 'techGlossary.github.io' segments
     var l = window.location;
     l.replace(
       l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
