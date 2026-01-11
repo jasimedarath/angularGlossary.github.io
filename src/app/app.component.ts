@@ -28,6 +28,11 @@ export class AppComponent implements OnInit {
     this.hideHeader = this.router.url === '/' || this.router.url === '';
   }
 
+  // Check if current route is Angular
+  isAngularRoute(): boolean {
+    return this.router.url.startsWith('/angular');
+  }
+
   // Check if current route is React
   isReactRoute(): boolean {
     return this.router.url.startsWith('/react');
@@ -40,15 +45,18 @@ export class AppComponent implements OnInit {
 
   // Get page title based on route
   getPageTitle(): string {
-    if (this.router.url.startsWith('/react')) {
+    if (this.isAngularRoute()) {
+      return 'Angular Glossary - Complete Developer Reference';
+    }
+    if (this.isReactRoute()) {
       return 'React Glossary - Complete Developer Reference';
     }
-    if (this.router.url.startsWith('/nextjs')) {
+    if (this.isNextJsRoute()) {
       return 'Next.js Glossary - Complete Developer Reference';
     }
     return 'Angular Glossary - Complete Developer Reference';
   }
-  modules = [
+  angularModules = [
     // Getting Started
     { title: 'Getting Started', link: '/angular/gettingstarted', category: 'Getting Started', framework: 'angular' },
     
@@ -152,30 +160,38 @@ export class AppComponent implements OnInit {
 
   // Get current modules based on route
   get currentModules() {
-    if (this.isNextJsRoute()) return this.nextjsModules;
+    if (this.isAngularRoute()) return this.angularModules;
     if (this.isReactRoute()) return this.reactModules;
-    return this.modules;
+    if (this.isNextJsRoute()) return this.nextjsModules;
+    return this.angularModules; // Default fallback
   }
 
   // Get logo based on route
   get currentLogo() {
-    if (this.isNextJsRoute()) {
-      return { name: 'Next.js', color: '#000000', svg: 'nextjs-logo' };
+    if (this.isAngularRoute()) {
+      return { name: 'Angular', color: '#dd0031', svg: 'angular-logo' };
     }
     if (this.isReactRoute()) {
       return { name: 'React', color: '#61dafb', svg: 'react-logo' };
     }
-    return { name: 'Angular', color: '#dd0031', svg: 'angular-logo' };
+    if (this.isNextJsRoute()) {
+      return { name: 'Next.js', color: '#000000', svg: 'nextjs-logo' };
+    }
+    return { name: 'Angular', color: '#dd0031', svg: 'angular-logo' }; // Default fallback
   }
 
   // Group modules by category for better organization
   get categorizedModules() {
+    const isAngular = this.isAngularRoute();
     const isReact = this.isReactRoute();
     const isNextJs = this.isNextJsRoute();
-    const categories = isNextJs ?
-      ['Getting Started', 'Core', 'API', 'Advanced'] :
+    
+    const categories = isAngular ?
+      ['Getting Started', 'Core', 'Modern', 'Routing', 'HTTP', 'State', 'Forms', 'Advanced', 'Testing', 'Build', 'UI'] :
       isReact ? 
       ['Getting Started', 'Basics', 'Core', 'Advanced', 'Modern', 'Ecosystem', 'Testing'] :
+      isNextJs ?
+      ['Getting Started', 'Core', 'API', 'Advanced'] :
       ['Getting Started', 'Core', 'Modern', 'Routing', 'HTTP', 'State', 'Forms', 'Advanced', 'Testing', 'Build', 'UI'];
     
     const currentMods = this.currentModules;
