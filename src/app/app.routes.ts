@@ -1,231 +1,126 @@
 import { Routes } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
+// Angular components
+import { LearnGettingstartedComponent } from './components/angular/learn-gettingstarted/learn-gettingstarted.component';
+import { LearnModuleComponent } from './components/angular/learn-module/learn-module.component';
+import { LearnComponentComponent } from './components/angular/learn-component/learn-component.component';
+import { LearnDirectiveComponent } from './components/angular/learn-directive/learn-directive.component';
+import { LearnPipeComponent } from './components/angular/learn-pipe/learn-pipe.component';
+import { LearnServicesComponent } from './components/angular/learn-services/learn-services.component';
+import { LearnRoutingComponent } from './components/angular/learn-routing/learn-routing.component';
+import { LearnInterceptorsComponent } from './components/angular/learn-interceptors/learn-interceptors.component';
+import { LearnGuardsComponent } from './components/angular/learn-guards/learn-guards.component';
+import { LearnFormsComponent } from './components/angular/learn-forms/learn-forms.component';
+import { LearnLifecyclehooksComponent } from './components/angular/learn-lifecyclehooks/learn-lifecyclehooks.component';
+import { LearnChangedetectionComponent } from './components/angular/learn-changedetection/learn-changedetection.component';
+import { LearnSignalsComponent } from './components/angular/learn-signals/learn-signals.component';
+import { LearnNgrxComponent } from './components/angular/learn-ngrx/learn-ngrx.component';
+import { LearnRxjsComponent } from './components/angular/learn-rxjs/learn-rxjs.component';
+import { LearnWebpackComponent } from './components/angular/learn-webpack/learn-webpack.component';
+import { LearnUnittestingComponent } from './components/angular/learn-unittesting/learn-unittesting.component';
+import { LearnAngularmaterialComponent } from './components/angular/learn-angularmaterial/learn-angularmaterial.component';
+import { LearnDependencyInjectionComponent } from './components/angular/learn-dependency-injection/learn-dependency-injection.component';
+import { LearnControlFlowComponent } from './components/angular/learn-control-flow/learn-control-flow.component';
+import { LearnDeferrableViewsComponent } from './components/angular/learn-deferrable-views/learn-deferrable-views.component';
+import { LearnSsrHydrationComponent } from './components/angular/learn-ssr-hydration/learn-ssr-hydration.component';
+// React components
+import { ReactGettingstartedComponent } from './components/react/react-gettingstarted/react-gettingstarted.component';
+import { ReactJsxComponent } from './components/react/react-jsx/react-jsx.component';
+import { ReactComponentsComponent } from './components/react/react-components/react-components.component';
+import { ReactPropsComponent } from './components/react/react-props/react-props.component';
+import { ReactStateComponent } from './components/react/react-state/react-state.component';
+import { ReactHooksComponent } from './components/react/react-hooks/react-hooks.component';
+import { ReactEventsComponent } from './components/react/react-events/react-events.component';
+import { ReactConditionalComponent } from './components/react/react-conditional/react-conditional.component';
+import { ReactListsComponent } from './components/react/react-lists/react-lists.component';
+import { ReactFormsComponent } from './components/react/react-forms/react-forms.component';
+import { ReactContextComponent } from './components/react/react-context/react-context.component';
+import { ReactRouterComponent } from './components/react/react-router/react-router.component';
+import { ReactPerformanceComponent } from './components/react/react-performance/react-performance.component';
+import { ReactLifecycleComponent } from './components/react/react-lifecycle/react-lifecycle.component';
+import { ReactAdvancedComponent } from './components/react/react-advanced/react-advanced.component';
+import { ReactReact18Component } from './components/react/react-react18/react-react18.component';
+import { ReactTestingComponent } from './components/react/react-testing/react-testing.component';
+import { ReactTypescriptComponent } from './components/react/react-typescript/react-typescript.component';
+import { ReactStatemanagementComponent } from './components/react/react-statemanagement/react-statemanagement.component';
+import { ReactStylingComponent } from './components/react/react-styling/react-styling.component';
+import { ReactDatafetchingComponent } from './components/react/react-datafetching/react-datafetching.component';
+// Next.js components
+import { NextjsGettingstartedComponent } from './components/nextjs/nextjs-gettingstarted/nextjs-gettingstarted.component';
+import { NextjsApprouterComponent } from './components/nextjs/nextjs-approuter/nextjs-approuter.component';
+import { NextjsRenderingComponent } from './components/nextjs/nextjs-rendering/nextjs-rendering.component';
+import { NextjsDatafetchingComponent } from './components/nextjs/nextjs-datafetching/nextjs-datafetching.component';
+import { NextjsServercomponentsComponent } from './components/nextjs/nextjs-servercomponents/nextjs-servercomponents.component';
+import { NextjsApiroutesComponent } from './components/nextjs/nextjs-apiroutes/nextjs-apiroutes.component';
+import { NextjsMiddlewareComponent } from './components/nextjs/nextjs-middleware/nextjs-middleware.component';
+import { NextjsOptimizationComponent } from './components/nextjs/nextjs-optimization/nextjs-optimization.component';
+import { NextjsDeploymentComponent } from './components/nextjs/nextjs-deployment/nextjs-deployment.component';
+import { NextjsAuthenticationComponent } from './components/nextjs/nextjs-authentication/nextjs-authentication.component';
+import { NextjsDatabaseComponent } from './components/nextjs/nextjs-database/nextjs-database.component';
 
 export const routes: Routes = [
     { path: '', component: HomeComponent },
     
-    // Angular routes with lazy loading
-    { 
-        path: 'angular/gettingstarted', 
-        loadComponent: () => import('./components/angular/learn-gettingstarted/learn-gettingstarted.component').then(m => m.LearnGettingstartedComponent)
-    },
-    { 
-        path: 'angular/modules', 
-        loadComponent: () => import('./components/angular/learn-module/learn-module.component').then(m => m.LearnModuleComponent)
-    },
-    { 
-        path: 'angular/components', 
-        loadComponent: () => import('./components/angular/learn-component/learn-component.component').then(m => m.LearnComponentComponent)
-    },
-    { 
-        path: 'angular/directives', 
-        loadComponent: () => import('./components/angular/learn-directive/learn-directive.component').then(m => m.LearnDirectiveComponent)
-    },
-    { 
-        path: 'angular/pipes', 
-        loadComponent: () => import('./components/angular/learn-pipe/learn-pipe.component').then(m => m.LearnPipeComponent)
-    },
-    { 
-        path: 'angular/services', 
-        loadComponent: () => import('./components/angular/learn-services/learn-services.component').then(m => m.LearnServicesComponent)
-    },
-    { 
-        path: 'angular/routing', 
-        loadComponent: () => import('./components/angular/learn-routing/learn-routing.component').then(m => m.LearnRoutingComponent)
-    },
-    { 
-        path: 'angular/interceptors', 
-        loadComponent: () => import('./components/angular/learn-interceptors/learn-interceptors.component').then(m => m.LearnInterceptorsComponent)
-    },
-    { 
-        path: 'angular/guards', 
-        loadComponent: () => import('./components/angular/learn-guards/learn-guards.component').then(m => m.LearnGuardsComponent)
-    },
-    { 
-        path: 'angular/forms', 
-        loadComponent: () => import('./components/angular/learn-forms/learn-forms.component').then(m => m.LearnFormsComponent)
-    },
-    { 
-        path: 'angular/lifeCycleHooks', 
-        loadComponent: () => import('./components/angular/learn-lifecyclehooks/learn-lifecyclehooks.component').then(m => m.LearnLifecyclehooksComponent)
-    },
-    { 
-        path: 'angular/changeDetection', 
-        loadComponent: () => import('./components/angular/learn-changedetection/learn-changedetection.component').then(m => m.LearnChangedetectionComponent)
-    },
-    { 
-        path: 'angular/signals', 
-        loadComponent: () => import('./components/angular/learn-signals/learn-signals.component').then(m => m.LearnSignalsComponent)
-    },
-    { 
-        path: 'angular/ngrx', 
-        loadComponent: () => import('./components/angular/learn-ngrx/learn-ngrx.component').then(m => m.LearnNgrxComponent)
-    },
-    { 
-        path: 'angular/rxjs', 
-        loadComponent: () => import('./components/angular/learn-rxjs/learn-rxjs.component').then(m => m.LearnRxjsComponent)
-    },
-    { 
-        path: 'angular/webPack', 
-        loadComponent: () => import('./components/angular/learn-webpack/learn-webpack.component').then(m => m.LearnWebpackComponent)
-    },
-    { 
-        path: 'angular/unitTesting', 
-        loadComponent: () => import('./components/angular/learn-unittesting/learn-unittesting.component').then(m => m.LearnUnittestingComponent)
-    },
-    { 
-        path: 'angular/angularmaterial', 
-        loadComponent: () => import('./components/angular/learn-angularmaterial/learn-angularmaterial.component').then(m => m.LearnAngularmaterialComponent)
-    },
-    { 
-        path: 'angular/dependencyInjection', 
-        loadComponent: () => import('./components/angular/learn-dependency-injection/learn-dependency-injection.component').then(m => m.LearnDependencyInjectionComponent)
-    },
-    { 
-        path: 'angular/controlFlow', 
-        loadComponent: () => import('./components/angular/learn-control-flow/learn-control-flow.component').then(m => m.LearnControlFlowComponent)
-    },
-    { 
-        path: 'angular/deferrableViews', 
-        loadComponent: () => import('./components/angular/learn-deferrable-views/learn-deferrable-views.component').then(m => m.LearnDeferrableViewsComponent)
-    },
-    { 
-        path: 'angular/ssrHydration', 
-        loadComponent: () => import('./components/angular/learn-ssr-hydration/learn-ssr-hydration.component').then(m => m.LearnSsrHydrationComponent)
-    },
+    // Angular routes
+    { path: 'angular/gettingstarted', component: LearnGettingstartedComponent },
+    { path: 'angular/modules', component: LearnModuleComponent },
+    { path: 'angular/components', component: LearnComponentComponent },
+    { path: 'angular/directives', component: LearnDirectiveComponent },
+    { path: 'angular/pipes', component: LearnPipeComponent },
+    { path: 'angular/services', component: LearnServicesComponent },
+    { path: 'angular/routing', component: LearnRoutingComponent },
+    { path: 'angular/interceptors', component: LearnInterceptorsComponent },
+    { path: 'angular/guards', component: LearnGuardsComponent },
+    { path: 'angular/forms', component: LearnFormsComponent },
+    { path: 'angular/lifeCycleHooks', component: LearnLifecyclehooksComponent },
+    { path: 'angular/changeDetection', component: LearnChangedetectionComponent },
+    { path: 'angular/signals', component: LearnSignalsComponent },
+    { path: 'angular/ngrx', component: LearnNgrxComponent },
+    { path: 'angular/rxjs', component: LearnRxjsComponent },
+    { path: 'angular/webPack', component: LearnWebpackComponent },
+    { path: 'angular/unitTesting', component: LearnUnittestingComponent },
+    { path: 'angular/angularmaterial', component: LearnAngularmaterialComponent },
+    { path: 'angular/dependencyInjection', component: LearnDependencyInjectionComponent },
+    { path: 'angular/controlFlow', component: LearnControlFlowComponent },
+    { path: 'angular/deferrableViews', component: LearnDeferrableViewsComponent },
+    { path: 'angular/ssrHydration', component: LearnSsrHydrationComponent },
     { path: 'angular', redirectTo: 'angular/components', pathMatch: 'full' },
     
-    // React routes with lazy loading
-    { 
-        path: 'react/gettingstarted', 
-        loadComponent: () => import('./components/react/react-gettingstarted/react-gettingstarted.component').then(m => m.ReactGettingstartedComponent)
-    },
-    { 
-        path: 'react/jsx', 
-        loadComponent: () => import('./components/react/react-jsx/react-jsx.component').then(m => m.ReactJsxComponent)
-    },
-    { 
-        path: 'react/components', 
-        loadComponent: () => import('./components/react/react-components/react-components.component').then(m => m.ReactComponentsComponent)
-    },
-    { 
-        path: 'react/props', 
-        loadComponent: () => import('./components/react/react-props/react-props.component').then(m => m.ReactPropsComponent)
-    },
-    { 
-        path: 'react/state', 
-        loadComponent: () => import('./components/react/react-state/react-state.component').then(m => m.ReactStateComponent)
-    },
-    { 
-        path: 'react/hooks', 
-        loadComponent: () => import('./components/react/react-hooks/react-hooks.component').then(m => m.ReactHooksComponent)
-    },
-    { 
-        path: 'react/events', 
-        loadComponent: () => import('./components/react/react-events/react-events.component').then(m => m.ReactEventsComponent)
-    },
-    { 
-        path: 'react/conditional', 
-        loadComponent: () => import('./components/react/react-conditional/react-conditional.component').then(m => m.ReactConditionalComponent)
-    },
-    { 
-        path: 'react/lists', 
-        loadComponent: () => import('./components/react/react-lists/react-lists.component').then(m => m.ReactListsComponent)
-    },
-    { 
-        path: 'react/forms', 
-        loadComponent: () => import('./components/react/react-forms/react-forms.component').then(m => m.ReactFormsComponent)
-    },
-    { 
-        path: 'react/context', 
-        loadComponent: () => import('./components/react/react-context/react-context.component').then(m => m.ReactContextComponent)
-    },
-    { 
-        path: 'react/router', 
-        loadComponent: () => import('./components/react/react-router/react-router.component').then(m => m.ReactRouterComponent)
-    },
-    { 
-        path: 'react/performance', 
-        loadComponent: () => import('./components/react/react-performance/react-performance.component').then(m => m.ReactPerformanceComponent)
-    },
-    { 
-        path: 'react/lifecycle', 
-        loadComponent: () => import('./components/react/react-lifecycle/react-lifecycle.component').then(m => m.ReactLifecycleComponent)
-    },
-    { 
-        path: 'react/advanced', 
-        loadComponent: () => import('./components/react/react-advanced/react-advanced.component').then(m => m.ReactAdvancedComponent)
-    },
-    { 
-        path: 'react/react18', 
-        loadComponent: () => import('./components/react/react-react18/react-react18.component').then(m => m.ReactReact18Component)
-    },
-    { 
-        path: 'react/testing', 
-        loadComponent: () => import('./components/react/react-testing/react-testing.component').then(m => m.ReactTestingComponent)
-    },
-    { 
-        path: 'react/typescript', 
-        loadComponent: () => import('./components/react/react-typescript/react-typescript.component').then(m => m.ReactTypescriptComponent)
-    },
-    { 
-        path: 'react/statemanagement', 
-        loadComponent: () => import('./components/react/react-statemanagement/react-statemanagement.component').then(m => m.ReactStatemanagementComponent)
-    },
-    { 
-        path: 'react/styling', 
-        loadComponent: () => import('./components/react/react-styling/react-styling.component').then(m => m.ReactStylingComponent)
-    },
-    { 
-        path: 'react/datafetching', 
-        loadComponent: () => import('./components/react/react-datafetching/react-datafetching.component').then(m => m.ReactDatafetchingComponent)
-    },
+    // React routes
+    { path: 'react/gettingstarted', component: ReactGettingstartedComponent },
+    { path: 'react/jsx', component: ReactJsxComponent },
+    { path: 'react/components', component: ReactComponentsComponent },
+    { path: 'react/props', component: ReactPropsComponent },
+    { path: 'react/state', component: ReactStateComponent },
+    { path: 'react/hooks', component: ReactHooksComponent },
+    { path: 'react/events', component: ReactEventsComponent },
+    { path: 'react/conditional', component: ReactConditionalComponent },
+    { path: 'react/lists', component: ReactListsComponent },
+    { path: 'react/forms', component: ReactFormsComponent },
+    { path: 'react/context', component: ReactContextComponent },
+    { path: 'react/router', component: ReactRouterComponent },
+    { path: 'react/performance', component: ReactPerformanceComponent },
+    { path: 'react/lifecycle', component: ReactLifecycleComponent },
+    { path: 'react/advanced', component: ReactAdvancedComponent },
+    { path: 'react/react18', component: ReactReact18Component },
+    { path: 'react/testing', component: ReactTestingComponent },
+    { path: 'react/typescript', component: ReactTypescriptComponent },
+    { path: 'react/statemanagement', component: ReactStatemanagementComponent },
+    { path: 'react/styling', component: ReactStylingComponent },
+    { path: 'react/datafetching', component: ReactDatafetchingComponent },
     { path: 'react', redirectTo: 'react/jsx', pathMatch: 'full' },
     
-    // Next.js routes with lazy loading
-    { 
-        path: 'nextjs/gettingstarted', 
-        loadComponent: () => import('./components/nextjs/nextjs-gettingstarted/nextjs-gettingstarted.component').then(m => m.NextjsGettingstartedComponent)
-    },
-    { 
-        path: 'nextjs/approuter', 
-        loadComponent: () => import('./components/nextjs/nextjs-approuter/nextjs-approuter.component').then(m => m.NextjsApprouterComponent)
-    },
-    { 
-        path: 'nextjs/rendering', 
-        loadComponent: () => import('./components/nextjs/nextjs-rendering/nextjs-rendering.component').then(m => m.NextjsRenderingComponent)
-    },
-    { 
-        path: 'nextjs/datafetching', 
-        loadComponent: () => import('./components/nextjs/nextjs-datafetching/nextjs-datafetching.component').then(m => m.NextjsDatafetchingComponent)
-    },
-    { 
-        path: 'nextjs/servercomponents', 
-        loadComponent: () => import('./components/nextjs/nextjs-servercomponents/nextjs-servercomponents.component').then(m => m.NextjsServercomponentsComponent)
-    },
-    { 
-        path: 'nextjs/apiroutes', 
-        loadComponent: () => import('./components/nextjs/nextjs-apiroutes/nextjs-apiroutes.component').then(m => m.NextjsApiroutesComponent)
-    },
-    { 
-        path: 'nextjs/middleware', 
-        loadComponent: () => import('./components/nextjs/nextjs-middleware/nextjs-middleware.component').then(m => m.NextjsMiddlewareComponent)
-    },
-    { 
-        path: 'nextjs/optimization', 
-        loadComponent: () => import('./components/nextjs/nextjs-optimization/nextjs-optimization.component').then(m => m.NextjsOptimizationComponent)
-    },
-    { 
-        path: 'nextjs/deployment', 
-        loadComponent: () => import('./components/nextjs/nextjs-deployment/nextjs-deployment.component').then(m => m.NextjsDeploymentComponent)
-    },
-    { 
-        path: 'nextjs/authentication', 
-        loadComponent: () => import('./components/nextjs/nextjs-authentication/nextjs-authentication.component').then(m => m.NextjsAuthenticationComponent)
-    },
-    { 
-        path: 'nextjs/database', 
-        loadComponent: () => import('./components/nextjs/nextjs-database/nextjs-database.component').then(m => m.NextjsDatabaseComponent)
-    },
+    // Next.js routes
+    { path: 'nextjs/gettingstarted', component: NextjsGettingstartedComponent },
+    { path: 'nextjs/approuter', component: NextjsApprouterComponent },
+    { path: 'nextjs/rendering', component: NextjsRenderingComponent },
+    { path: 'nextjs/datafetching', component: NextjsDatafetchingComponent },
+    { path: 'nextjs/servercomponents', component: NextjsServercomponentsComponent },
+    { path: 'nextjs/apiroutes', component: NextjsApiroutesComponent },
+    { path: 'nextjs/middleware', component: NextjsMiddlewareComponent },
+    { path: 'nextjs/optimization', component: NextjsOptimizationComponent },
+    { path: 'nextjs/deployment', component: NextjsDeploymentComponent },
+    { path: 'nextjs/authentication', component: NextjsAuthenticationComponent },
+    { path: 'nextjs/database', component: NextjsDatabaseComponent },
     { path: 'nextjs', redirectTo: 'nextjs/gettingstarted', pathMatch: 'full' }
 ];
