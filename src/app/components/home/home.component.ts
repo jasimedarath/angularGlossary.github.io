@@ -47,18 +47,42 @@ export class HomeComponent {
     {
       name: 'Node.js',
       icon: 'https://nodejs.org/static/images/logo.svg',
-      description: 'Explore Node.js backend development, Express, APIs, and server-side concepts. (Coming Soon)',
-      route: '/nodejs',
+      description: 'Explore Node.js backend development, modules, async programming, and server-side concepts.',
+      route: '/nodejs/gettingstarted',
       color: '#339933',
-      available: false
+      available: true
+    },
+    {
+      name: 'Express.js',
+      icon: 'https://cdn.icon-icons.com/icons2/2699/PNG/512/expressjs_logo_icon_169185.png',
+      description: 'Master Express.js web framework, routing, middleware, and REST API development.',
+      route: '/expressjs/gettingstarted',
+      color: '#000000',
+      available: true
+    },
+    {
+      name: 'MongoDB',
+      icon: 'https://cdn.icon-icons.com/icons2/2415/PNG/512/mongodb_original_wordmark_logo_icon_146425.png',
+      description: 'Learn MongoDB database, CRUD operations, Mongoose ODM, and data modeling.',
+      route: '/mongodb/gettingstarted',
+      color: '#47A248',
+      available: true
     },
     {
       name: 'TypeScript',
       icon: 'https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/typescript/typescript.png',
-      description: 'Deep dive into TypeScript types, generics, and advanced patterns. (Coming Soon)',
-      route: '/typescript',
+      description: 'Deep dive into TypeScript types, interfaces, generics, and advanced patterns.',
+      route: '/typescript/gettingstarted',
       color: '#3178c6',
-      available: false
+      available: true
+    },
+    {
+      name: 'JavaScript',
+      icon: 'https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/javascript/javascript.png',
+      description: 'Master JavaScript fundamentals, ES6+ features, and asynchronous programming.',
+      route: '/javascript/basics',
+      color: '#F7DF1E',
+      available: true
     },
     {
       name: 'Vue.js',

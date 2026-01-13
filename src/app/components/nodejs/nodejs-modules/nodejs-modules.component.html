@@ -1,0 +1,118 @@
+<div class="container">
+  <h1>Node.js Modules</h1>
+  <p>Understanding module systems in Node.js - CommonJS and ES Modules.</p>
+
+  <mat-tab-group>
+    <mat-tab label="CommonJS">
+      <div class="tab-content">
+        <h2>CommonJS Modules</h2>
+        <div class="info-box">
+          <p><strong>CommonJS</strong> is the traditional module system used in Node.js.</p>
+          <ul>
+            <li>require() to import modules</li>
+            <li>module.exports to export</li>
+            <li>Synchronous loading</li>
+            <li>Widely used in Node.js ecosystem</li>
+          </ul>
+        </div>
+        <pre><code class="language-javascript">{{commonjsModules}}</code></pre>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="ES Modules">
+      <div class="tab-content">
+        <h2>ES Modules (ESM)</h2>
+        <div class="info-box">
+          <p><strong>ES Modules</strong> are the modern JavaScript module standard.</p>
+          <ul>
+            <li>import/export syntax</li>
+            <li>Static analysis support</li>
+            <li>Tree shaking friendly</li>
+            <li>Async module loading</li>
+          </ul>
+        </div>
+        <pre><code class="language-javascript">{{esModules}}</code></pre>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Built-in Modules">
+      <div class="tab-content">
+        <h2>Built-in Node.js Modules</h2>
+        <div class="info-box">
+          <p><strong>Core modules</strong> provide essential functionality without external dependencies.</p>
+          <ul>
+            <li>fs - File system operations</li>
+            <li>path - Path manipulation</li>
+            <li>http - HTTP functionality</li>
+            <li>url - URL parsing</li>
+          </ul>
+        </div>
+        <pre><code class="language-javascript">{{builtinModules}}</code></pre>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="npm Modules">
+      <div class="tab-content">
+        <h2>Working with npm Modules</h2>
+        <div class="info-box">
+          <p><strong>npm packages</strong> extend Node.js with third-party functionality.</p>
+          <ul>
+            <li>Install with npm install</li>
+            <li>Manage in package.json</li>
+            <li>Version control with semver</li>
+            <li>Development vs production dependencies</li>
+          </ul>
+        </div>
+        <pre><code class="language-bash">{{npmModules}}</code></pre>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Module Patterns">
+      <div class="tab-content">
+        <h2>Module Patterns</h2>
+        <div class="info-box">
+          <p><strong>Design patterns</strong> for organizing and structuring modules effectively.</p>
+          <ul>
+            <li>Singleton pattern</li>
+            <li>Revealing module pattern</li>
+            <li>Factory pattern</li>
+            <li>Namespace pattern</li>
+          </ul>
+        </div>
+        <pre><code class="language-javascript">{{modulePatterns}}</code></pre>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Module Resolution">
+      <div class="tab-content">
+        <h2>Module Resolution</h2>
+        <div class="info-box">
+          <p><strong>How Node.js</strong> locates and loads modules.</p>
+          <ul>
+            <li>Resolution algorithm</li>
+            <li>Search paths</li>
+            <li>Module caching</li>
+            <li>Circular dependencies</li>
+          </ul>
+        </div>
+        <pre><code class="language-javascript">{{moduleResolution}}</code></pre>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Best Practices">
+      <div class="tab-content">
+        <h2>Module Best Practices</h2>
+        <div class="info-box">
+          <p><strong>Follow best practices</strong> for maintainable module organization.</p>
+          <ul>
+            <li>Consistent file structure</li>
+            <li>Clear export patterns</li>
+            <li>Avoid circular dependencies</li>
+            <li>Use index files for directories</li>
+          </ul>
+        </div>
+        <pre><code class="language-javascript">{{bestPractices}}</code></pre>
+      </div>
+    </mat-tab>
+  </mat-tab-group>
+</div>

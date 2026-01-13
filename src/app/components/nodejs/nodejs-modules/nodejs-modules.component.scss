@@ -1,0 +1,63 @@
+﻿.container {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+
+  h1 {
+    color: #333;
+    margin-bottom: 0.5rem;
+  }
+
+  > p {
+    color: #666;
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+  }
+}
+
+.tab-content {
+  padding: 1.5rem 0;
+
+  h2 {
+    color: #333;
+    margin-bottom: 1rem;
+  }
+
+  .info-box {
+    background: #f8f9fa;
+    border-left: 4px solid #339933;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+    border-radius: 4px;
+
+    p {
+      margin-bottom: 0.5rem;
+      color: #333;
+    }
+
+    ul {
+      margin: 0.5rem 0 0 1.5rem;
+      color: #666;
+
+      li {
+        margin: 0.25rem 0;
+      }
+    }
+  }
+
+  pre {
+    background: #282c34;
+    border-radius: 8px;
+    padding: 1.5rem;
+    overflow-x: auto;
+    margin: 1rem 0;
+
+    code {
+      color: #abb2bf;
+      font-family: 'Fira Code', 'Consolas', monospace;
+      font-size: 0.9rem;
+      line-height: 1.6;
+      white-space: pre-wrap;
+    }
+  }
+}
