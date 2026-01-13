@@ -1,62 +1,63 @@
-.interview-section {
-  padding: 20px;
-  
-  h3 {
-    color: #dd0031;
-    margin-bottom: 20px;
-    font-size: 1.5rem;
-    border-bottom: 2px solid #dd0031;
-    padding-bottom: 10px;
+.container {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+
+  h1 {
+    color: #333;
+    margin-bottom: 0.5rem;
   }
-  
-  .question-block {
-    margin-bottom: 30px;
+
+  > p {
+    color: #666;
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+  }
+}
+
+.tab-content {
+  padding: 1.5rem 0;
+
+  h2 {
+    color: #333;
+    margin-bottom: 1rem;
+  }
+
+  .info-box {
     background: #f8f9fa;
-    padding: 20px;
-    border-radius: 8px;
     border-left: 4px solid #dd0031;
-    
-    h4 {
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+    border-radius: 4px;
+
+    p {
+      margin-bottom: 0.5rem;
       color: #333;
-      margin-bottom: 15px;
-      font-size: 1.1rem;
-      line-height: 1.5;
     }
-    
-    .answer {
-      p {
-        margin-bottom: 10px;
-        line-height: 1.6;
-        
-        strong {
-          color: #dd0031;
-        }
+
+    ul {
+      margin: 0.5rem 0 0 1.5rem;
+      color: #666;
+
+      li {
+        margin: 0.25rem 0;
       }
-      
-      ul {
-        list-style: none;
-        padding-left: 0;
-        
-        li {
-          margin-bottom: 10px;
-          padding-left: 25px;
-          position: relative;
-          line-height: 1.6;
-          
-          &:before {
-            content: "▸";
-            position: absolute;
-            left: 5px;
-            color: #dd0031;
-            font-weight: bold;
-          }
-          
-          strong {
-            color: #555;
-            font-weight: 600;
-          }
-        }
-      }
+    }
+  }
+
+  pre {
+    background: #282c34;
+    border-radius: 8px;
+    padding: 1.5rem;
+    overflow-x: auto;
+    margin: 1rem 0;
+
+    code {
+      color: #abb2bf;
+      font-family: 'Fira Code', 'Consolas', monospace;
+      font-size: 0.9rem;
+      line-height: 1.6;
+      white-space: pre-wrap;
     }
   }
 }
