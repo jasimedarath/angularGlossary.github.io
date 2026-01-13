@@ -158,5 +158,93 @@
       </div>
     </ng-template>
   </mat-tab>
+  <mat-tab label="Interview Q&A">
+    <ng-template matTabContent>
+      <div class="tab-content">
+        <div class="interview-section">
+          <h3>Expert/Senior/Architect Level Interview Questions</h3>
+          
+          <div class="question-block">
+            <h4>Q1: Explain the rules of hooks and why they exist. What problems would arise if these rules were not enforced?</h4>
+            <div class="answer">
+              <p><strong>Answer:</strong></p>
+              <ul>
+                <li><strong>Rule 1 - Only Call at Top Level:</strong> Hooks must be called in the same order every render to maintain consistent state mapping</li>
+                <li><strong>Rule 2 - Only in React Functions:</strong> Hooks only work in function components or custom hooks, not regular JS functions</li>
+                <li><strong>Without Rules:</strong> State would become misaligned between renders, causing bugs and unpredictable behavior</li>
+                <li><strong>Internal Mechanism:</strong> React uses a linked list to track hooks; conditional hooks would break this chain</li>
+                <li><strong>ESLint Plugin:</strong> Use eslint-plugin-react-hooks to enforce these rules automatically</li>
+                <li><strong>Custom Hooks:</strong> Must start with 'use' prefix to be recognized by linting tools</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="question-block">
+            <h4>Q2: How would you optimize a component that uses expensive computations with hooks?</h4>
+            <div class="answer">
+              <p><strong>Answer:</strong></p>
+              <ul>
+                <li><strong>useMemo:</strong> Memoize expensive calculations that depend on specific dependencies</li>
+                <li><strong>useCallback:</strong> Memoize functions to prevent recreating them on every render</li>
+                <li><strong>React.memo:</strong> Wrap component to prevent re-renders when props haven't changed</li>
+                <li><strong>Lazy Initialization:</strong> Use function form of useState for expensive initial values</li>
+                <li><strong>Code Splitting:</strong> Use React.lazy() and Suspense for component-level code splitting</li>
+                <li><strong>Web Workers:</strong> Offload heavy computations to Web Workers via hooks</li>
+                <li><strong>Profiling:</strong> Use React DevTools Profiler to identify actual bottlenecks before optimizing</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="question-block">
+            <h4>Q3: Explain the closure problem with hooks and how to solve it.</h4>
+            <div class="answer">
+              <p><strong>Answer:</strong></p>
+              <ul>
+                <li><strong>Stale Closure:</strong> Event handlers capture old state/props values from when they were created</li>
+                <li><strong>Solution 1 - Dependencies:</strong> Add all used values to useEffect/useCallback dependency array</li>
+                <li><strong>Solution 2 - Functional Updates:</strong> Use setState(prev => prev + 1) to access latest state</li>
+                <li><strong>Solution 3 - useRef:</strong> Store mutable values in ref that doesn't trigger re-renders</li>
+                <li><strong>Solution 4 - useReducer:</strong> Dispatch actions that always access current state in reducer</li>
+                <li><strong>ESLint:</strong> exhaustive-deps rule catches most closure issues</li>
+                <li><strong>Event Handlers:</strong> Be especially careful with event handlers and intervals</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="question-block">
+            <h4>Q4: How would you design a complex state management solution using only hooks?</h4>
+            <div class="answer">
+              <p><strong>Answer:</strong></p>
+              <ul>
+                <li><strong>Context + useReducer:</strong> Combine Context API with useReducer for global state management</li>
+                <li><strong>Custom Hooks:</strong> Encapsulate complex logic in reusable custom hooks</li>
+                <li><strong>State Splitting:</strong> Split global state into logical contexts to avoid unnecessary re-renders</li>
+                <li><strong>Selectors:</strong> Use useMemo to create derived state selectors</li>
+                <li><strong>Middleware Pattern:</strong> Implement middleware-like logging/persistence in custom hooks</li>
+                <li><strong>Optimistic Updates:</strong> Handle optimistic UI updates with local state + sync</li>
+                <li><strong>Libraries:</strong> Consider Zustand, Jotai, or Recoil for more sophisticated needs</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="question-block">
+            <h4>Q5: What are the advanced patterns for useEffect cleanup and how do they prevent bugs?</h4>
+            <div class="answer">
+              <p><strong>Answer:</strong></p>
+              <ul>
+                <li><strong>Cleanup Function:</strong> Return function from useEffect to clean up subscriptions/timers</li>
+                <li><strong>Abort Signals:</strong> Use AbortController to cancel pending fetch requests</li>
+                <li><strong>Boolean Flags:</strong> Use isSubscribed flag to ignore setState after unmount</li>
+                <li><strong>Race Conditions:</strong> Handle race conditions where multiple async operations complete out of order</li>
+                <li><strong>Memory Leaks:</strong> Always cleanup event listeners, intervals, websockets in return function</li>
+                <li><strong>Dependency Array:</strong> Include all dependencies to ensure cleanup runs when they change</li>
+                <li><strong>Strict Mode:</strong> React 18 Strict Mode double-invokes effects to catch cleanup issues</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+  </mat-tab>
   </mat-tab-group>
 </div>

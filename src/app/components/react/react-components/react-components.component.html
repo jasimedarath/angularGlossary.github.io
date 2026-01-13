@@ -156,5 +156,98 @@
       </div>
     </ng-template>
   </mat-tab>
+  <mat-tab label="Interview Q&A">
+    <ng-template matTabContent>
+      <div class="tab-content">
+        <div class="interview-section">
+          <h3>Expert/Senior/Architect Level Interview Questions</h3>
+          
+          <div class="question-block">
+            <h4>Q1: How would you architect a component library for a large organization with multiple teams?</h4>
+            <div class="answer">
+              <p><strong>Answer:</strong></p>
+              <ul>
+                <li><strong>Design System:</strong> Create comprehensive design tokens (colors, spacing, typography) as foundation</li>
+                <li><strong>Composition Pattern:</strong> Build atomic components (atoms, molecules, organisms) that compose into larger patterns</li>
+                <li><strong>TypeScript:</strong> Use strict TypeScript with comprehensive prop types and generics</li>
+                <li><strong>Documentation:</strong> Use Storybook with MDX for interactive documentation and examples</li>
+                <li><strong>Testing:</strong> Implement comprehensive unit, integration, and visual regression tests</li>
+                <li><strong>Versioning:</strong> Semantic versioning with changelogs and migration guides</li>
+                <li><strong>Distribution:</strong> Publish as npm packages with tree-shaking support and bundle size monitoring</li>
+                <li><strong>Accessibility:</strong> WCAG 2.1 AA compliance with ARIA patterns and keyboard navigation</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="question-block">
+            <h4>Q2: Explain component re-rendering optimization strategies at an architectural level.</h4>
+            <div class="answer">
+              <p><strong>Answer:</strong></p>
+              <ul>
+                <li><strong>React.memo:</strong> Wrap components to prevent re-renders when props haven't changed (shallow comparison)</li>
+                <li><strong>useMemo/useCallback:</strong> Memoize values and functions to maintain referential equality</li>
+                <li><strong>Component Splitting:</strong> Break large components into smaller ones to isolate re-renders</li>
+                <li><strong>Children Prop:</strong> Pass static content as children to avoid re-creating it</li>
+                <li><strong>State Placement:</strong> Move state down to leaves or up to shared ancestors strategically</li>
+                <li><strong>Context Splitting:</strong> Split contexts to prevent all consumers from re-rendering</li>
+                <li><strong>Virtualization:</strong> Use react-window or react-virtualized for large lists</li>
+                <li><strong>Profiling:</strong> Use React DevTools Profiler to measure and identify actual bottlenecks</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="question-block">
+            <h4>Q3: What are the advanced patterns for component composition and prop management?</h4>
+            <div class="answer">
+              <p><strong>Answer:</strong></p>
+              <ul>
+                <li><strong>Compound Components:</strong> Parent-child components that share state (e.g., Tabs/Tab pattern)</li>
+                <li><strong>Render Props:</strong> Pass functions as props to share code between components</li>
+                <li><strong>Higher-Order Components:</strong> Functions that take component and return enhanced component</li>
+                <li><strong>Custom Hooks:</strong> Modern approach to share stateful logic without wrapper components</li>
+                <li><strong>Slot Pattern:</strong> Use named slots for flexible component composition</li>
+                <li><strong>Prop Getters:</strong> Return props objects from hooks for consistent prop application</li>
+                <li><strong>Polymorphic Components:</strong> Use 'as' prop to change rendered element type</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="question-block">
+            <h4>Q4: How do you handle component error boundaries and error handling at scale?</h4>
+            <div class="answer">
+              <p><strong>Answer:</strong></p>
+              <ul>
+                <li><strong>Error Boundaries:</strong> Class components with componentDidCatch and getDerivedStateFromError</li>
+                <li><strong>Granular Boundaries:</strong> Place error boundaries at strategic levels (page, section, widget)</li>
+                <li><strong>Fallback UI:</strong> Provide contextual fallback UIs with recovery options</li>
+                <li><strong>Error Reporting:</strong> Integrate with services like Sentry, LogRocket, Bugsnag</li>
+                <li><strong>Retry Logic:</strong> Implement retry mechanisms for transient failures</li>
+                <li><strong>Async Errors:</strong> Error boundaries don't catch async errors - handle those separately</li>
+                <li><strong>Development vs Production:</strong> Show detailed errors in dev, user-friendly messages in prod</li>
+                <li><strong>React 18 Suspense:</strong> Combine with Suspense for async error handling</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="question-block">
+            <h4>Q5: What strategies would you use for component testing in a large codebase?</h4>
+            <div class="answer">
+              <p><strong>Answer:</strong></p>
+              <ul>
+                <li><strong>Testing Library:</strong> Use React Testing Library for user-centric component tests</li>
+                <li><strong>Unit Tests:</strong> Test individual components in isolation with mocked dependencies</li>
+                <li><strong>Integration Tests:</strong> Test component interactions and data flow between components</li>
+                <li><strong>Visual Regression:</strong> Use tools like Chromatic or Percy for visual testing</li>
+                <li><strong>Accessibility Testing:</strong> Use jest-axe or axe-core for automated a11y tests</li>
+                <li><strong>Mock Service Worker:</strong> Use MSW to mock API calls at network level</li>
+                <li><strong>Test Coverage:</strong> Aim for high coverage but focus on critical user flows</li>
+                <li><strong>E2E Tests:</strong> Complement with Cypress or Playwright for critical paths</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+  </mat-tab>
   </mat-tab-group>
 </div>

@@ -140,5 +140,95 @@
       </div>
     </ng-template>
   </mat-tab>
+  <mat-tab label="Interview Q&A">
+    <ng-template matTabContent>
+      <div class="tab-content">
+        <div class="interview-section">
+          <h3>Expert/Senior/Architect Level Interview Questions</h3>
+          
+          <div class="question-block">
+            <h4>Q1: Explain the difference between state updates in React 17 vs React 18 and their implications.</h4>
+            <div class="answer">
+              <p><strong>Answer:</strong></p>
+              <ul>
+                <li><strong>React 17 Batching:</strong> Only batches state updates in React event handlers</li>
+                <li><strong>React 18 Automatic Batching:</strong> Batches updates everywhere (promises, setTimeout, native events)</li>
+                <li><strong>Performance:</strong> React 18 reduces re-renders by batching more updates automatically</li>
+                <li><strong>Opt-out:</strong> Use flushSync() to force immediate synchronous updates if needed</li>
+                <li><strong>Concurrent Features:</strong> React 18 enables transitions and suspense for better UX</li>
+                <li><strong>Migration:</strong> Most apps benefit automatically; check for code assuming synchronous setState</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="question-block">
+            <h4>Q2: How would you architect state management for a complex multi-module enterprise application?</h4>
+            <div class="answer">
+              <p><strong>Answer:</strong></p>
+              <ul>
+                <li><strong>Layered Architecture:</strong> Local state → Context → Global state manager based on scope</li>
+                <li><strong>Module Isolation:</strong> Each module manages its own state, shared state in higher layers</li>
+                <li><strong>State Manager Choice:</strong> Redux Toolkit for complex apps, Zustand for simpler needs</li>
+                <li><strong>Normalized State:</strong> Normalize entities like database (users, posts by ID)</li>
+                <li><strong>Derived State:</strong> Use selectors/computed values instead of duplicating state</li>
+                <li><strong>Async State:</strong> Handle loading, error, data states with consistent patterns</li>
+                <li><strong>Persistence:</strong> Integrate redux-persist or similar for state hydration</li>
+                <li><strong>DevTools:</strong> Implement time-travel debugging and state inspection tools</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="question-block">
+            <h4>Q3: What are the common state management anti-patterns and how do you avoid them?</h4>
+            <div class="answer">
+              <p><strong>Answer:</strong></p>
+              <ul>
+                <li><strong>Anti-pattern: Prop Drilling:</strong> Passing props through many layers. Solution: Context or state manager</li>
+                <li><strong>Anti-pattern: Duplicated State:</strong> Storing same data in multiple places. Solution: Single source of truth</li>
+                <li><strong>Anti-pattern: Storing Derived Data:</strong> Caching computed values. Solution: Calculate on render or use useMemo</li>
+                <li><strong>Anti-pattern: Mutating State:</strong> Direct mutation. Solution: Always create new objects/arrays</li>
+                <li><strong>Anti-pattern: Over-globalization:</strong> All state in global store. Solution: Keep state close to where it's used</li>
+                <li><strong>Anti-pattern: Async setState Logic:</strong> Complex logic in components. Solution: Custom hooks or middleware</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="question-block">
+            <h4>Q4: How do you handle optimistic UI updates and rollback on failure?</h4>
+            <div class="answer">
+              <p><strong>Answer:</strong></p>
+              <ul>
+                <li><strong>Immediate Update:</strong> Update UI state immediately when user takes action</li>
+                <li><strong>Store Snapshot:</strong> Keep snapshot of previous state for rollback</li>
+                <li><strong>API Call:</strong> Make async API call in background</li>
+                <li><strong>Success Path:</strong> On success, confirm the update or merge server response</li>
+                <li><strong>Failure Path:</strong> On error, revert to snapshot and show error message</li>
+                <li><strong>Loading States:</strong> Show subtle loading indicators during optimistic update</li>
+                <li><strong>Conflict Resolution:</strong> Handle cases where server state differs from optimistic state</li>
+                <li><strong>Tools:</strong> Libraries like React Query or SWR handle this pattern well</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="question-block">
+            <h4>Q5: Explain strategies for state persistence and hydration in React applications.</h4>
+            <div class="answer">
+              <p><strong>Answer:</strong></p>
+              <ul>
+                <li><strong>localStorage:</strong> Store state in localStorage for browser-level persistence</li>
+                <li><strong>sessionStorage:</strong> Use for tab-specific temporary state</li>
+                <li><strong>IndexedDB:</strong> For large amounts of data that exceed localStorage limits</li>
+                <li><strong>URL State:</strong> Persist UI state in URL query params for shareability</li>
+                <li><strong>Redux Persist:</strong> Automatically sync Redux store with storage</li>
+                <li><strong>Server State:</strong> Store user preferences on server and sync on login</li>
+                <li><strong>Hydration Mismatch:</strong> Ensure client initial render matches server render (SSR)</li>
+                <li><strong>Security:</strong> Never store sensitive data; encrypt if necessary</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+  </mat-tab>
   </mat-tab-group>
 </div>
