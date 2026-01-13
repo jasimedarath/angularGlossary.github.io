@@ -65,4 +65,92 @@
       </div>
     </ng-template>
   </mat-tab>
+  <mat-tab label="Interview Q&A">
+    <ng-template matTabContent>
+      <div class="interview-section">
+        <h3>Expert/Senior/Architect Level Interview Questions</h3>
+        
+        <div class="question-block">
+          <h4>Q1: Explain the performance implications of pure vs impure pipes and when to use each.</h4>
+          <div class="answer">
+            <p><strong>Answer:</strong></p>
+            <ul>
+              <li><strong>Pure Pipes (default):</strong> Only execute when input reference changes. Highly performant, memoized results</li>
+              <li><strong>Impure Pipes:</strong> Execute on every change detection cycle. Expensive but necessary for mutable data</li>
+              <li><strong>Memory Trade-off:</strong> Pure pipes cache results; impure pipes recalculate each time</li>
+              <li><strong>When Pure:</strong> Transforming immutable data, formatting, simple calculations</li>
+              <li><strong>When Impure:</strong> Filtering/sorting mutable arrays, date formatting with current time, async operations</li>
+              <li><strong>Alternative to Impure:</strong> Use computed signals or observables with async pipe instead</li>
+              <li><strong>Best Practice:</strong> Default to pure, convert mutable operations to immutable updates</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="question-block">
+          <h4>Q2: How would you design a pipe composition architecture for complex data transformations?</h4>
+          <div class="answer">
+            <p><strong>Answer:</strong></p>
+            <ul>
+              <li><strong>Chained Pipes:</strong> Chain multiple simple pipes in templates for sequential transformations</li>
+              <li><strong>Composite Pipe:</strong> Create pipes that internally use other pipes for complex logic</li>
+              <li><strong>Parameterized Pipes:</strong> Accept configuration objects for flexible transformation</li>
+              <li><strong>Factory Pattern:</strong> Use factory service to generate pipes dynamically</li>
+              <li><strong>Async Composition:</strong> Combine async pipe with transformation pipes</li>
+              <li><strong>Reusability:</strong> Design atomic pipes that do one thing well</li>
+              <li><strong>Type Safety:</strong> Use TypeScript generics for strongly-typed pipe transforms</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="question-block">
+          <h4>Q3: What are the advanced techniques for optimizing pipe performance in large lists?</h4>
+          <div class="answer">
+            <p><strong>Answer:</strong></p>
+            <ul>
+              <li><strong>TrackBy with Pipes:</strong> Use trackBy with *ngFor to prevent re-rendering when pipe outputs change</li>
+              <li><strong>Memoization:</strong> Implement manual memoization in pipes for expensive operations</li>
+              <li><strong>Virtual Scrolling:</strong> Combine CDK virtual scrolling with pipes for large datasets</li>
+              <li><strong>Pagination:</strong> Apply pipes to paginated data rather than entire dataset</li>
+              <li><strong>Web Workers:</strong> Offload expensive pipe transformations to Web Workers</li>
+              <li><strong>OnPush Strategy:</strong> Ensure pipes work efficiently with OnPush components</li>
+              <li><strong>Signal-based Alternative:</strong> Consider using computed signals for complex transformations</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="question-block">
+          <h4>Q4: How do you handle async operations and error handling in custom pipes?</h4>
+          <div class="answer">
+            <p><strong>Answer:</strong></p>
+            <ul>
+              <li><strong>Async Pipe Pattern:</strong> Return observables and let async pipe handle subscription</li>
+              <li><strong>Error Boundaries:</strong> Implement try-catch in transform method with fallback values</li>
+              <li><strong>Loading States:</strong> Return observable with loading/error/success states</li>
+              <li><strong>Retry Logic:</strong> Use RxJS retry operators for resilient async pipes</li>
+              <li><strong>Caching Strategy:</strong> Cache async results with timeout for repeated requests</li>
+              <li><strong>Error Logging:</strong> Integrate error logging service for production debugging</li>
+              <li><strong>Null Safety:</strong> Handle null/undefined inputs gracefully with optional chaining</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="question-block">
+          <h4>Q5: How would you implement internationalization and localization using pipes?</h4>
+          <div class="answer">
+            <p><strong>Answer:</strong></p>
+            <ul>
+              <li><strong>Translation Pipe:</strong> Create custom translate pipe integrated with i18n service</li>
+              <li><strong>Date/Number Pipes:</strong> Use Angular's built-in locale-aware pipes (date, currency, number)</li>
+              <li><strong>Locale Injection:</strong> Inject LOCALE_ID to make pipes locale-aware</li>
+              <li><strong>Dynamic Loading:</strong> Load translation files on-demand for locale switching</li>
+              <li><strong>Pluralization:</strong> Implement pipes handling plural rules for different languages</li>
+              <li><strong>RTL Support:</strong> Create pipes that adapt content for RTL languages</li>
+              <li><strong>Fallback Strategy:</strong> Provide default values when translations are missing</li>
+              <li><strong>Performance:</strong> Cache translations and use pure pipes for locale-based formatting</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+  </mat-tab>
 </mat-tab-group>

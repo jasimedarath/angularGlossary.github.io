@@ -29,4 +29,91 @@
       </div>
     </ng-template>
   </mat-tab>
+  <mat-tab label="Interview Q&A">
+    <ng-template matTabContent>
+      <div class="interview-section">
+        <h3>Expert/Senior/Architect Level Interview Questions</h3>
+        
+        <div class="question-block">
+          <h4>Q1: How would you implement a sophisticated route permission system with role-based and feature-based access control?</h4>
+          <div class="answer">
+            <p><strong>Answer:</strong></p>
+            <ul>
+              <li><strong>Multi-level Guards:</strong> Implement authentication, authorization, and feature guards in sequence</li>
+              <li><strong>Permission Service:</strong> Create a centralized permission service with role hierarchy and feature flags</li>
+              <li><strong>Dynamic Route Configuration:</strong> Load routes dynamically based on user permissions</li>
+              <li><strong>Route Data:</strong> Store permission requirements in route data for declarative access control</li>
+              <li><strong>Functional Guards:</strong> Use functional guards (canActivate/canMatch) for better tree-shaking</li>
+              <li><strong>Redirection Strategy:</strong> Implement smart redirection based on user context and denied access</li>
+              <li><strong>SSO Integration:</strong> Handle SSO callbacks and token validation in guards</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="question-block">
+          <h4>Q2: Explain advanced lazy loading strategies and their impact on application performance.</h4>
+          <div class="answer">
+            <p><strong>Answer:</strong></p>
+            <ul>
+              <li><strong>Route-level Lazy Loading:</strong> Split features into separate chunks loaded on demand</li>
+              <li><strong>Preloading Strategies:</strong> Implement custom preloading (PreloadAllModules, QuicklinkStrategy)</li>
+              <li><strong>Selective Preloading:</strong> Preload based on user behavior, connection speed, or route priority</li>
+              <li><strong>Module Federation:</strong> Use Webpack Module Federation for micro-frontend architecture</li>
+              <li><strong>Component-level Lazy Loading:</strong> Use standalone components with lazy loading</li>
+              <li><strong>Bundle Analysis:</strong> Monitor chunk sizes and implement bundle budgets</li>
+              <li><strong>Network-aware Loading:</strong> Adapt preloading based on connection type (3G, 4G, WiFi)</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="question-block">
+          <h4>Q3: How do you handle complex routing scenarios with nested outlets and auxiliary routes?</h4>
+          <div class="answer">
+            <p><strong>Answer:</strong></p>
+            <ul>
+              <li><strong>Named Outlets:</strong> Use multiple named router-outlets for parallel views (e.g., sidebar + main content)</li>
+              <li><strong>Auxiliary Routes:</strong> Navigate auxiliary routes independently: router.navigate([&#123; outlets: &#123; sidebar: ['compose'] &#125; &#125;])</li>
+              <li><strong>Nested Routing:</strong> Design deep route hierarchies with proper parent-child component communication</li>
+              <li><strong>Route Configuration:</strong> Use loadChildren for nested lazy-loaded modules</li>
+              <li><strong>State Management:</strong> Coordinate state between multiple outlets using services or state management</li>
+              <li><strong>URL Serialization:</strong> Handle complex URL structures with multiple active routes</li>
+              <li><strong>Animation Coordination:</strong> Synchronize route animations across multiple outlets</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="question-block">
+          <h4>Q4: What strategies would you use for route state management and preventing data loss?</h4>
+          <div class="answer">
+            <p><strong>Answer:</strong></p>
+            <ul>
+              <li><strong>Route State:</strong> Pass state via NavigationExtras: router.navigate(['/path'], &#123; state: &#123; data &#125; &#125;)</li>
+              <li><strong>Query Params:</strong> Store UI state in query params for shareable/bookmarkable URLs</li>
+              <li><strong>canDeactivate Guard:</strong> Prompt users before leaving with unsaved changes</li>
+              <li><strong>RouteReuseStrategy:</strong> Implement custom strategy to preserve component state during navigation</li>
+              <li><strong>State Service:</strong> Use dedicated routing state service for complex navigation flows</li>
+              <li><strong>Navigation History:</strong> Maintain custom navigation stack for complex back/forward behavior</li>
+              <li><strong>Resolver Pattern:</strong> Pre-fetch data with resolvers to avoid loading states</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="question-block">
+          <h4>Q5: How would you architect routing for a multi-tenant SaaS application?</h4>
+          <div class="answer">
+            <p><strong>Answer:</strong></p>
+            <ul>
+              <li><strong>Tenant Resolution:</strong> Extract tenant from subdomain, path, or header in route guards</li>
+              <li><strong>Dynamic Route Loading:</strong> Load tenant-specific routes and features dynamically</li>
+              <li><strong>Tenant-aware Guards:</strong> Implement guards that verify tenant access and permissions</li>
+              <li><strong>Isolated Routing:</strong> Separate tenant admin routes from user routes</li>
+              <li><strong>Whitelabel Support:</strong> Handle tenant-specific branding and route configurations</li>
+              <li><strong>Cross-tenant Navigation:</strong> Safely handle navigation between tenant contexts</li>
+              <li><strong>Tenant Context Service:</strong> Maintain tenant context throughout navigation lifecycle</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+  </mat-tab>
 </mat-tab-group>

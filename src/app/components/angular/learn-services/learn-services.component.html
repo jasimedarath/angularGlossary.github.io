@@ -68,4 +68,187 @@
           </div>
     </ng-template>
   </mat-tab>
+
+  <mat-tab label="Service Patterns">
+    <ng-template matTabContent>
+      <div>
+        <h3><b>Common Service Patterns</b></h3>
+        
+        <h4><b>1. Data Service Pattern</b></h4>
+        <p>Services that handle HTTP requests and data management:</p>
+        <pre><code #codeElement class="language-typescript">{{ dataServicePattern }}</code></pre>
+        
+        <h4><b>2. State Management Service</b></h4>
+        <p>Services that manage application state using BehaviorSubject:</p>
+        <pre><code #codeElement class="language-typescript">{{ stateServicePattern }}</code></pre>
+        
+        <h4><b>3. Facade Service Pattern</b></h4>
+        <p>Simplify complex subsystems with a single interface:</p>
+        <pre><code #codeElement class="language-typescript">{{ facadeServicePattern }}</code></pre>
+        
+        <h4><b>4. Repository Pattern</b></h4>
+        <p>Abstract data access logic:</p>
+        <pre><code #codeElement class="language-typescript">{{ repositoryPattern }}</code></pre>
+        
+        <h4><b>5. Caching Service</b></h4>
+        <p>Implement caching to reduce API calls:</p>
+        <pre><code #codeElement class="language-typescript">{{ cachingService }}</code></pre>
+      </div>
+    </ng-template>
+  </mat-tab>
+
+  <mat-tab label="Advanced DI">
+    <ng-template matTabContent>
+      <div>
+        <h3><b>Advanced Dependency Injection</b></h3>
+        
+        <h4><b>Injection Tokens</b></h4>
+        <p>Use InjectionToken for non-class dependencies:</p>
+        <pre><code #codeElement class="language-typescript">{{ injectionTokens }}</code></pre>
+        
+        <h4><b>Factory Providers</b></h4>
+        <p>Create services with custom logic:</p>
+        <pre><code #codeElement class="language-typescript">{{ factoryProviders }}</code></pre>
+        
+        <h4><b>Multi Providers</b></h4>
+        <p>Provide multiple values for a single token:</p>
+        <pre><code #codeElement class="language-typescript">{{ multiProviders }}</code></pre>
+        
+        <h4><b>Optional and Self Decorators</b></h4>
+        <p>Control dependency resolution:</p>
+        <pre><code #codeElement class="language-typescript">{{ optionalDecorators }}</code></pre>
+        
+        <h4><b>inject() Function (Angular 14+)</b></h4>
+        <p>Modern functional approach to dependency injection:</p>
+        <pre><code #codeElement class="language-typescript">{{ injectFunction }}</code></pre>
+        
+        <h4><b>Best Practices</b></h4>
+        <ul>
+          <li><strong>providedIn:</strong> Prefer providedIn: 'root' for tree-shakeable services</li>
+          <li><strong>Single Responsibility:</strong> Each service should have one clear purpose</li>
+          <li><strong>Immutability:</strong> Use immutable patterns in state services</li>
+          <li><strong>Error Handling:</strong> Implement consistent error handling across services</li>
+          <li><strong>Testing:</strong> Design services to be easily testable with mocks</li>
+          <li><strong>Documentation:</strong> Document public APIs and expected behaviors</li>
+        </ul>
+      </div>
+    </ng-template>
+  </mat-tab>
+
+  <mat-tab label="Service Testing">
+    <ng-template matTabContent>
+      <div>
+        <h3><b>Testing Services in Angular</b></h3>
+        
+        <h4><b>Basic Service Test</b></h4>
+        <pre><code #codeElement class="language-typescript">{{ serviceTestBasic }}</code></pre>
+        
+        <h4><b>Testing HTTP Services</b></h4>
+        <pre><code #codeElement class="language-typescript">{{ serviceTestHttp }}</code></pre>
+        
+        <h4><b>Testing with Spies</b></h4>
+        <pre><code #codeElement class="language-typescript">{{ serviceTestSpies }}</code></pre>
+        
+        <h4><b>Testing Observables</b></h4>
+        <pre><code #codeElement class="language-typescript">{{ serviceTestObservables }}</code></pre>
+        
+        <h4><b>Testing Best Practices</b></h4>
+        <ul>
+          <li><strong>Isolation:</strong> Test services in isolation from components</li>
+          <li><strong>Mocking:</strong> Mock HTTP calls using HttpTestingController</li>
+          <li><strong>Async Testing:</strong> Use fakeAsync and tick for async operations</li>
+          <li><strong>Error Cases:</strong> Test error scenarios and edge cases</li>
+          <li><strong>Cleanup:</strong> Verify subscriptions are properly managed</li>
+          <li><strong>Coverage:</strong> Aim for high test coverage on business logic</li>
+        </ul>
+      </div>
+    </ng-template>
+  </mat-tab>
+
+  <mat-tab label="Interview Q&A">
+    <ng-template matTabContent>
+      <div class="interview-section">
+        <h3>Expert/Senior/Architect Level Interview Questions</h3>
+        
+        <div class="question-block">
+          <h4>Q1: How would you design a scalable service architecture for a microservices-based frontend application?</h4>
+          <div class="answer">
+            <p><strong>Answer:</strong></p>
+            <ul>
+              <li><strong>Service Layer Abstraction:</strong> Create abstract base services for common operations (CRUD, caching, error handling)</li>
+              <li><strong>API Gateway Pattern:</strong> Implement a central API service that routes requests to appropriate microservices</li>
+              <li><strong>Token Management:</strong> Centralize authentication token handling and automatic refresh logic</li>
+              <li><strong>Circuit Breaker:</strong> Implement retry logic and fallback strategies for failed service calls</li>
+              <li><strong>Service Worker Integration:</strong> Use service workers for offline capabilities and request caching</li>
+              <li><strong>Multi-tenancy:</strong> Design services to handle tenant context and data isolation</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="question-block">
+          <h4>Q2: Explain the implications of different service injection scopes and when to use each.</h4>
+          <div class="answer">
+            <p><strong>Answer:</strong></p>
+            <ul>
+              <li><strong>Root Level (providedIn: 'root'):</strong> Singleton across app, tree-shakeable, best for shared state</li>
+              <li><strong>Platform Level:</strong> Shared across multiple Angular apps in the same page (rare use case)</li>
+              <li><strong>Module Level:</strong> Creates separate instance per lazy-loaded module, useful for module-specific state</li>
+              <li><strong>Component Level:</strong> New instance per component tree, ideal for isolated state or cleanup</li>
+              <li><strong>Trade-offs:</strong> Root = memory efficiency but shared state risks; Component = isolation but memory overhead</li>
+              <li><strong>Best Practice:</strong> Default to root, use component-level only when state isolation is required</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="question-block">
+          <h4>Q3: How do you implement advanced error handling and recovery in services?</h4>
+          <div class="answer">
+            <p><strong>Answer:</strong></p>
+            <ul>
+              <li><strong>Global Error Handler:</strong> Implement ErrorHandler for catching unhandled errors</li>
+              <li><strong>HTTP Interceptor:</strong> Centralize HTTP error handling with retry logic using retryWhen</li>
+              <li><strong>Error Types:</strong> Create typed error classes (NetworkError, ValidationError, AuthError)</li>
+              <li><strong>Exponential Backoff:</strong> Implement exponential backoff for transient failures</li>
+              <li><strong>Error Logging Service:</strong> Integrate with logging platforms (Sentry, LogRocket)</li>
+              <li><strong>Graceful Degradation:</strong> Return cached data or default values on service failures</li>
+              <li><strong>Error Boundaries:</strong> Create component-level error boundaries for isolated failures</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="question-block">
+          <h4>Q4: What are the best practices for managing service dependencies and avoiding circular dependencies?</h4>
+          <div class="answer">
+            <p><strong>Answer:</strong></p>
+            <ul>
+              <li><strong>Dependency Injection:</strong> Use Angular's DI to manage dependencies declaratively</li>
+              <li><strong>Forward References:</strong> Use forwardRef() for circular dependencies (though avoid if possible)</li>
+              <li><strong>Service Hierarchy:</strong> Design services in layers (data → business logic → presentation)</li>
+              <li><strong>Event Bus Pattern:</strong> Use Subject-based event bus to decouple services</li>
+              <li><strong>Facade Services:</strong> Create facade services to abstract complex service interactions</li>
+              <li><strong>Lazy Injection:</strong> Use Injector.get() for lazy or conditional service resolution</li>
+              <li><strong>Interface Segregation:</strong> Split large services into smaller, focused services</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="question-block">
+          <h4>Q5: How would you optimize service performance in a large-scale application?</h4>
+          <div class="answer">
+            <p><strong>Answer:</strong></p>
+            <ul>
+              <li><strong>Memoization:</strong> Cache expensive computations using memoization techniques</li>
+              <li><strong>Request Batching:</strong> Batch multiple API calls into single requests where possible</li>
+              <li><strong>shareReplay:</strong> Use shareReplay() to prevent duplicate HTTP requests</li>
+              <li><strong>Virtual Scrolling:</strong> Implement pagination or virtual scrolling for large datasets</li>
+              <li><strong>Web Workers:</strong> Offload heavy computations to Web Workers</li>
+              <li><strong>IndexedDB:</strong> Use IndexedDB for large client-side data storage</li>
+              <li><strong>GraphQL:</strong> Consider GraphQL for efficient data fetching with minimal over-fetching</li>
+              <li><strong>Preloading:</strong> Preload critical data during app initialization</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+  </mat-tab>
 </mat-tab-group>

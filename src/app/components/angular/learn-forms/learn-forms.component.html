@@ -110,4 +110,95 @@
       </div>
     </div>
   </mat-tab>
+  <mat-tab label="Interview Q&A">
+    <ng-template matTabContent>
+      <div class="interview-section">
+        <h3>Expert/Senior/Architect Level Interview Questions</h3>
+        
+        <div class="question-block">
+          <h4>Q1: How would you architect a complex dynamic form system with conditional fields and cross-field validation?</h4>
+          <div class="answer">
+            <p><strong>Answer:</strong></p>
+            <ul>
+              <li><strong>Form Configuration:</strong> Define forms using JSON schema with field metadata and dependencies</li>
+              <li><strong>Dynamic FormGroups:</strong> Build forms programmatically using FormBuilder based on configuration</li>
+              <li><strong>Conditional Logic:</strong> Use valueChanges observables to show/hide fields based on other field values</li>
+              <li><strong>Cross-field Validators:</strong> Implement custom validators at FormGroup level for field interdependencies</li>
+              <li><strong>Custom Form Controls:</strong> Extend ControlValueAccessor for complex input components</li>
+              <li><strong>Form State Management:</strong> Integrate with state management (NgRx) for complex multi-step forms</li>
+              <li><strong>Persistence:</strong> Auto-save draft form data to localStorage or backend</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="question-block">
+          <h4>Q2: Explain the performance optimization strategies for large forms with hundreds of controls.</h4>
+          <div class="answer">
+            <p><strong>Answer:</strong></p>
+            <ul>
+              <li><strong>OnPush Strategy:</strong> Use OnPush change detection with reactive forms for minimal re-renders</li>
+              <li><strong>updateOn: 'blur':</strong> Defer validation until blur instead of every keystroke</li>
+              <li><strong>Async Validators:</strong> Debounce async validators and cancel previous requests</li>
+              <li><strong>Form Arrays:</strong> Use virtual scrolling for large FormArray instances</li>
+              <li><strong>Lazy Validation:</strong> Validate sections only when visited or on submit</li>
+              <li><strong>Disable Controls:</strong> Disable unused controls to skip validation cycles</li>
+              <li><strong>Signals Integration:</strong> Use toSignal() for selective form value subscriptions</li>
+              <li><strong>Web Workers:</strong> Offload complex validation logic to Web Workers</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="question-block">
+          <h4>Q3: How do you implement advanced form validation patterns including async and composite validators?</h4>
+          <div class="answer">
+            <p><strong>Answer:</strong></p>
+            <ul>
+              <li><strong>Async Validators:</strong> Return observables for server-side validation (uniqueness checks)</li>
+              <li><strong>Debouncing:</strong> Use debounceTime to avoid excessive API calls during typing</li>
+              <li><strong>Composite Validators:</strong> Combine multiple validators using Validators.compose()</li>
+              <li><strong>Conditional Validation:</strong> Apply validators dynamically using setValidators() based on form state</li>
+              <li><strong>Custom Error Messages:</strong> Create directive or component for reusable error display</li>
+              <li><strong>Validator Factory:</strong> Build validators from configuration with parameters</li>
+              <li><strong>Multi-field Validation:</strong> Access sibling controls in validator for cross-field checks</li>
+              <li><strong>Validation Priority:</strong> Run cheap validators before expensive async ones</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="question-block">
+          <h4>Q4: What strategies would you use for managing form state in a multi-step wizard?</h4>
+          <div class="answer">
+            <p><strong>Answer:</strong></p>
+            <ul>
+              <li><strong>Parent FormGroup:</strong> Create master FormGroup containing sub-FormGroups for each step</li>
+              <li><strong>Step Validation:</strong> Validate current step before allowing navigation</li>
+              <li><strong>State Persistence:</strong> Save form state to localStorage or backend after each step</li>
+              <li><strong>Navigation Guards:</strong> Use canDeactivate guard to prevent data loss</li>
+              <li><strong>Progress Tracking:</strong> Maintain visited steps and validation status</li>
+              <li><strong>Resume Capability:</strong> Allow users to return and continue partially completed forms</li>
+              <li><strong>Review Step:</strong> Display summary of all steps with ability to edit</li>
+              <li><strong>Optimistic Updates:</strong> Show immediate feedback while persisting in background</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="question-block">
+          <h4>Q5: How do you handle form testing, both unit and integration tests?</h4>
+          <div class="answer">
+            <p><strong>Answer:</strong></p>
+            <ul>
+              <li><strong>Unit Tests:</strong> Test validators independently with mock FormControl instances</li>
+              <li><strong>Component Tests:</strong> Use TestBed to test form component with ReactiveFormsModule</li>
+              <li><strong>setValue vs patchValue:</strong> Test both methods for form population</li>
+              <li><strong>Validation Testing:</strong> Verify error states for each validation rule</li>
+              <li><strong>Async Validators:</strong> Use fakeAsync and tick() to test time-dependent validation</li>
+              <li><strong>Form Submission:</strong> Test submit behavior, including disabled state and loading</li>
+              <li><strong>Component Harness:</strong> Use Angular CDK test harnesses for stable, API-based testing</li>
+              <li><strong>E2E Tests:</strong> Test complete form flows with Cypress or Playwright</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+  </mat-tab>
 </mat-tab-group>

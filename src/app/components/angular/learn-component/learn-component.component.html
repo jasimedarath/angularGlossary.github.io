@@ -7,6 +7,75 @@
       <pre><code #codeElement class="language-typescript">{{ code }}</code></pre>
     </ng-template>
   </mat-tab>
+  <mat-tab label="Standalone Components">
+    <ng-template matTabContent>
+      <div>
+        <h3><b>What are Standalone Components?</b></h3>
+        <p>Standalone components are a feature introduced in Angular 14+ that allows components to be self-sufficient without requiring NgModules. They can directly import other components, directives, and pipes they need.</p>
+        
+        <h3><b>Key Benefits</b></h3>
+        <ul>
+          <li><strong>Simplified Architecture:</strong> No need to declare components in NgModules, reducing boilerplate code</li>
+          <li><strong>Better Tree-Shaking:</strong> Unused dependencies are more easily removed during build optimization</li>
+          <li><strong>Improved Developer Experience:</strong> Clearer dependency graph and easier to understand component dependencies</li>
+          <li><strong>Lazy Loading:</strong> Simpler lazy loading without NgModules using loadComponent()</li>
+          <li><strong>Reduced Bundle Size:</strong> Only import what you need, leading to smaller bundle sizes</li>
+          <li><strong>Future-Proof:</strong> Angular is moving towards a standalone-first approach</li>
+          <li><strong>Easier Testing:</strong> Components are more isolated and easier to test without module configuration</li>
+          <li><strong>Better Code Reusability:</strong> Standalone components can be easily shared across projects</li>
+        </ul>
+
+        <h3><b>Migration from NgModule to Standalone</b></h3>
+        <p>Angular provides automatic migration schematics:</p>
+        <pre><code #codeElement class="language-bash">{{ standaloneMigration }}</code></pre>
+
+        <h3><b>Standalone Component Features</b></h3>
+        <ul>
+          <li><strong>Direct Imports:</strong> Import components, directives, and pipes directly in the imports array</li>
+          <li><strong>CommonModule:</strong> Import CommonModule for common directives like *ngIf, *ngFor</li>
+          <li><strong>Router Integration:</strong> Use standalone components directly in route configurations</li>
+          <li><strong>Providers:</strong> Declare providers at component level or use providedIn in services</li>
+          <li><strong>Bootstrapping:</strong> Bootstrap standalone components using bootstrapApplication()</li>
+        </ul>
+
+        <h3><b>Best Practices</b></h3>
+        <ul>
+          <li>Use standalone: true for all new components in Angular 14+</li>
+          <li>Import only what you need to keep bundle size minimal</li>
+          <li>Use importProvidersFrom() for legacy module providers if needed</li>
+          <li>Organize related standalone components in feature directories</li>
+          <li>Leverage automatic dependency detection in IDEs for better DX</li>
+          <li>Consider using standalone APIs for routing and HttpClient</li>
+        </ul>
+
+        <h3><b>Standalone vs NgModule Comparison</b></h3>
+        <pre><code #codeElement class="language-typescript">{{ standaloneComparison }}</code></pre>
+
+        <h3><b>Bootstrapping Standalone Applications</b></h3>
+        <pre><code #codeElement class="language-typescript">{{ standaloneBootstrap }}</code></pre>
+
+        <h3><b>Lazy Loading Standalone Components</b></h3>
+        <pre><code #codeElement class="language-typescript">{{ standaloneLazyLoading }}</code></pre>
+
+        <h3><b>Performance Implications</b></h3>
+        <ul>
+          <li><strong>Smaller Initial Bundles:</strong> Only essential dependencies are loaded</li>
+          <li><strong>Better Code Splitting:</strong> Each standalone component can be a separate chunk</li>
+          <li><strong>Faster Build Times:</strong> Less module graph analysis required</li>
+          <li><strong>Optimized Tree-Shaking:</strong> Unused imports are more easily eliminated</li>
+          <li><strong>Reduced Memory Footprint:</strong> No module metadata overhead</li>
+        </ul>
+
+        <h3><b>Common Patterns</b></h3>
+        <ul>
+          <li><strong>Shared Component Libraries:</strong> Create reusable standalone components without NgModules</li>
+          <li><strong>Micro-Frontend Architecture:</strong> Each micro-app can be a standalone component</li>
+          <li><strong>Progressive Migration:</strong> Gradually migrate existing apps module-by-module</li>
+          <li><strong>Hybrid Approach:</strong> Mix standalone and module-based components during transition</li>
+        </ul>
+      </div>
+    </ng-template>
+  </mat-tab>
   <mat-tab label="Extras">
     <ng-template matTabContent>
       <pre><code #codeElement class="language-typescript">{{ codeExtras }}</code></pre>
@@ -107,6 +176,208 @@
             Allows you to define the template inline instead of using a separate
             HTML file.
           </li>
+        </ul>
+      </div>
+    </ng-template>
+  </mat-tab>
+  <mat-tab label="Component Lifecycle">
+    <ng-template matTabContent>
+      <div>
+        <h3><b>Angular Component Lifecycle Hooks</b></h3>
+        <p>Angular components have a well-defined lifecycle managed by the framework. Lifecycle hooks allow you to tap into key moments in the component's existence.</p>
+
+        <h3><b>Lifecycle Hook Execution Order</b></h3>
+        <ol>
+          <li><strong>constructor():</strong> Called when the component is instantiated. Dependency injection happens here.</li>
+          <li><strong>ngOnChanges():</strong> Called when input properties change. Receives SimpleChanges object.</li>
+          <li><strong>ngOnInit():</strong> Called once after first ngOnChanges(). Perfect for initialization logic.</li>
+          <li><strong>ngDoCheck():</strong> Called during every change detection run. Use sparingly for custom change detection.</li>
+          <li><strong>ngAfterContentInit():</strong> Called once after content (ng-content) is projected.</li>
+          <li><strong>ngAfterContentChecked():</strong> Called after every check of projected content.</li>
+          <li><strong>ngAfterViewInit():</strong> Called once after component's view is initialized.</li>
+          <li><strong>ngAfterViewChecked():</strong> Called after every check of component's view.</li>
+          <li><strong>ngOnDestroy():</strong> Called just before component is destroyed. Clean up subscriptions here.</li>
+        </ol>
+
+        <h3><b>Complete Lifecycle Example</b></h3>
+        <pre><code #codeElement class="language-typescript">{{ componentLifecycle }}</code></pre>
+
+        <h3><b>Best Practices</b></h3>
+        <ul>
+          <li><strong>Constructor:</strong> Keep it lightweight. Only use for dependency injection.</li>
+          <li><strong>ngOnInit:</strong> Use for initialization logic, HTTP calls, and setting up subscriptions.</li>
+          <li><strong>ngOnDestroy:</strong> Always unsubscribe from observables and clean up event listeners.</li>
+          <li><strong>ngDoCheck:</strong> Avoid heavy operations. Called very frequently during change detection.</li>
+          <li><strong>ngAfterViewInit:</strong> Access ViewChild/ViewChildren here, not in ngOnInit.</li>
+          <li><strong>ngOnChanges:</strong> Only works with &#64;Input() properties. Use for reacting to input changes.</li>
+        </ul>
+
+        <h3><b>Common Use Cases</b></h3>
+        <ul>
+          <li><strong>Data Fetching:</strong> Use ngOnInit for initial data loading</li>
+          <li><strong>Form Initialization:</strong> Set up reactive forms in ngOnInit</li>
+          <li><strong>DOM Manipulation:</strong> Wait for ngAfterViewInit to access DOM elements</li>
+          <li><strong>Event Listeners:</strong> Add in ngOnInit, remove in ngOnDestroy</li>
+          <li><strong>Timers/Intervals:</strong> Start in ngOnInit, clear in ngOnDestroy</li>
+          <li><strong>Observable Subscriptions:</strong> Subscribe in ngOnInit, unsubscribe in ngOnDestroy</li>
+        </ul>
+      </div>
+    </ng-template>
+  </mat-tab>
+  <mat-tab label="Dynamic Components">
+    <ng-template matTabContent>
+      <div>
+        <h3><b>Creating Dynamic Components</b></h3>
+        <p>Dynamic components are created programmatically at runtime rather than being statically defined in templates. This is useful for modals, dashboards, plugin systems, and dynamic forms.</p>
+
+        <h3><b>ViewContainerRef API</b></h3>
+        <ul>
+          <li><strong>createComponent():</strong> Creates and inserts a component dynamically</li>
+          <li><strong>clear():</strong> Removes all views from the container</li>
+          <li><strong>remove(index):</strong> Removes a specific view by index</li>
+          <li><strong>insert():</strong> Inserts a view at a specific position</li>
+          <li><strong>move():</strong> Moves a view to a different position</li>
+        </ul>
+
+        <h3><b>Dynamic Component Example</b></h3>
+        <pre><code #codeElement class="language-typescript">{{ dynamicComponents }}</code></pre>
+
+        <h3><b>Use Cases for Dynamic Components</b></h3>
+        <ul>
+          <li><strong>Modal Dialogs:</strong> Create modal windows programmatically</li>
+          <li><strong>Dashboard Widgets:</strong> Allow users to add/remove widgets dynamically</li>
+          <li><strong>Plugin Architecture:</strong> Load plugins as dynamic components</li>
+          <li><strong>Dynamic Forms:</strong> Generate form fields based on configuration</li>
+          <li><strong>Wizard Steps:</strong> Conditionally load wizard steps</li>
+          <li><strong>Tab Content:</strong> Lazy load tab content when activated</li>
+          <li><strong>Notification System:</strong> Display notifications as dynamic components</li>
+        </ul>
+
+        <h3><b>Angular CDK Portal</b></h3>
+        <p>The Angular CDK provides a Portal system for more advanced dynamic component scenarios:</p>
+        <ul>
+          <li><strong>ComponentPortal:</strong> Wrap components to be projected dynamically</li>
+          <li><strong>TemplatePortal:</strong> Wrap templates for dynamic projection</li>
+          <li><strong>DomPortal:</strong> Project DOM elements</li>
+          <li><strong>PortalOutlet:</strong> Destination for portal content</li>
+        </ul>
+
+        <h3><b>Performance Considerations</b></h3>
+        <ul>
+          <li>Always destroy dynamic components when no longer needed</li>
+          <li>Use OnPush change detection for dynamic components when possible</li>
+          <li>Consider lazy loading for large dynamic components</li>
+          <li>Pool frequently created/destroyed components</li>
+          <li>Clean up subscriptions and event listeners</li>
+        </ul>
+      </div>
+    </ng-template>
+  </mat-tab>
+  <mat-tab label="Content Projection">
+    <ng-template matTabContent>
+      <div>
+        <h3><b>Content Projection (ng-content)</b></h3>
+        <p>Content projection allows you to insert content from a parent component into a child component's template. This is Angular's implementation of the slots pattern.</p>
+
+        <h3><b>Types of Content Projection</b></h3>
+        <ul>
+          <li><strong>Single-slot:</strong> Simple &lt;ng-content&gt;&lt;/ng-content&gt;</li>
+          <li><strong>Multi-slot:</strong> Multiple &lt;ng-content select="selector"&gt;&lt;/ng-content&gt;</li>
+          <li><strong>Conditional:</strong> Project content based on conditions</li>
+        </ul>
+
+        <h3><b>Multi-slot Projection Example</b></h3>
+        <pre><code #codeElement class="language-typescript">{{ contentProjection }}</code></pre>
+
+        <h3><b>Content Projection Selectors</b></h3>
+        <ul>
+          <li><strong>CSS Selectors:</strong> select=".class-name" or select="[attribute]"</li>
+          <li><strong>Element Selectors:</strong> select="element-name"</li>
+          <li><strong>No Selector:</strong> Projects all content not matched by other slots</li>
+        </ul>
+
+        <h3><b>Accessing Projected Content</b></h3>
+        <ul>
+          <li><strong>&#64;ContentChild:</strong> Query single projected element</li>
+          <li><strong>&#64;ContentChildren:</strong> Query multiple projected elements</li>
+          <li><strong>AfterContentInit:</strong> Lifecycle hook when content is initialized</li>
+          <li><strong>AfterContentChecked:</strong> Lifecycle hook after content is checked</li>
+        </ul>
+
+        <h3><b>Benefits of Content Projection</b></h3>
+        <ul>
+          <li><strong>Reusability:</strong> Create flexible, reusable components</li>
+          <li><strong>Composition:</strong> Build complex UIs from simple components</li>
+          <li><strong>Separation of Concerns:</strong> Parent controls content, child controls layout</li>
+          <li><strong>Flexibility:</strong> Allow consumers to customize component content</li>
+        </ul>
+
+        <h3><b>Common Patterns</b></h3>
+        <ul>
+          <li><strong>Card Component:</strong> Header, body, footer slots</li>
+          <li><strong>Tab Component:</strong> Tab labels and content projection</li>
+          <li><strong>Dialog Component:</strong> Title, content, actions slots</li>
+          <li><strong>Layout Components:</strong> Sidebar, main content, footer slots</li>
+        </ul>
+
+        <h3><b>ngProjectAs Directive</b></h3>
+        <p>Use ngProjectAs to project content with a different selector:</p>
+        <pre><code>&lt;div ngProjectAs="[card-header]"&gt;
+  &lt;h2&gt;This will be projected as card-header&lt;/h2&gt;
+&lt;/div&gt;</code></pre>
+      </div>
+    </ng-template>
+  </mat-tab>
+  <mat-tab label="Component Inheritance">
+    <ng-template matTabContent>
+      <div>
+        <h3><b>Component Inheritance</b></h3>
+        <p>Angular supports component inheritance, allowing you to create base components with shared functionality that can be extended by child components.</p>
+
+        <h3><b>Component Inheritance Example</b></h3>
+        <pre><code #codeElement class="language-typescript">{{ componentInheritance }}</code></pre>
+
+        <h3><b>What Can Be Inherited</b></h3>
+        <ul>
+          <li><strong>Properties:</strong> All class properties including private and protected</li>
+          <li><strong>Methods:</strong> All class methods can be inherited and overridden</li>
+          <li><strong>Lifecycle Hooks:</strong> Base class hooks are called before child hooks</li>
+          <li><strong>Dependency Injection:</strong> Constructor dependencies can be inherited</li>
+        </ul>
+
+        <h3><b>What Cannot Be Inherited</b></h3>
+        <ul>
+          <li><strong>&#64;Component Decorator:</strong> Each component needs its own decorator</li>
+          <li><strong>Template/Styles:</strong> Must be defined in each component</li>
+          <li><strong>Inputs/Outputs:</strong> Must be redeclared in child components</li>
+          <li><strong>ViewChild/ContentChild:</strong> Queries must be redeclared</li>
+        </ul>
+
+        <h3><b>Best Practices</b></h3>
+        <ul>
+          <li>Use abstract classes for base components that shouldn't be instantiated</li>
+          <li>Keep base components focused on shared behavior</li>
+          <li>Use composition over inheritance when possible</li>
+          <li>Call super methods when overriding lifecycle hooks</li>
+          <li>Document inherited behavior clearly</li>
+          <li>Avoid deep inheritance hierarchies (max 2-3 levels)</li>
+        </ul>
+
+        <h3><b>Common Use Cases</b></h3>
+        <ul>
+          <li><strong>CRUD Components:</strong> Base component with common CRUD operations</li>
+          <li><strong>Form Components:</strong> Shared form validation and submission logic</li>
+          <li><strong>List Components:</strong> Common pagination and filtering logic</li>
+          <li><strong>Error Handling:</strong> Centralized error handling methods</li>
+          <li><strong>Authentication:</strong> Base component checking user permissions</li>
+        </ul>
+
+        <h3><b>Alternatives to Inheritance</b></h3>
+        <ul>
+          <li><strong>Composition:</strong> Use services to share logic</li>
+          <li><strong>Mixins:</strong> TypeScript mixins for multiple inheritance patterns</li>
+          <li><strong>Directives:</strong> Share behavior via directives instead of inheritance</li>
+          <li><strong>Higher-Order Components:</strong> Wrap components with additional functionality</li>
         </ul>
       </div>
     </ng-template>
@@ -220,6 +491,88 @@
             Using [(ngModel)] to bind input fields to component properties.
           </li>
         </ul>
+      </div>
+    </ng-template>
+  </mat-tab>
+  <mat-tab label="Interview Q&A">
+    <ng-template matTabContent>
+      <div class="interview-section">
+        <h3>Expert/Senior/Architect Level Interview Questions</h3>
+        
+        <div class="question-block">
+          <h4>Q1: Explain the Component lifecycle and how would you optimize component rendering in a large-scale application?</h4>
+          <div class="answer">
+            <p><strong>Answer:</strong> Angular components go through several lifecycle stages. For performance optimization:</p>
+            <ul>
+              <li><strong>OnPush Change Detection:</strong> Use ChangeDetectionStrategy.OnPush to run change detection only when inputs change or events occur</li>
+              <li><strong>Detach Change Detector:</strong> Manually detach and reattach change detector for components with expensive computations</li>
+              <li><strong>TrackBy Functions:</strong> Use trackBy with *ngFor to prevent unnecessary re-renders of list items</li>
+              <li><strong>Pure Pipes:</strong> Leverage pure pipes for expensive transformations</li>
+              <li><strong>Lazy Loading:</strong> Split components into lazy-loaded modules to reduce initial bundle size</li>
+              <li><strong>Virtual Scrolling:</strong> Use CDK virtual scrolling for long lists</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="question-block">
+          <h4>Q2: How would you design a component architecture for a micro-frontend application?</h4>
+          <div class="answer">
+            <p><strong>Answer:</strong> For micro-frontend architecture with components:</p>
+            <ul>
+              <li><strong>Web Components:</strong> Use Angular Elements to create framework-agnostic web components</li>
+              <li><strong>Shared Design System:</strong> Create a component library with strict versioning</li>
+              <li><strong>Communication Layer:</strong> Implement custom events or message bus for cross-app communication</li>
+              <li><strong>Isolation:</strong> Ensure style encapsulation using ViewEncapsulation.ShadowDom</li>
+              <li><strong>Dependency Management:</strong> Use Module Federation or careful dependency injection scoping</li>
+              <li><strong>State Management:</strong> Implement shared state strategies that work across boundaries</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="question-block">
+          <h4>Q3: Explain component view encapsulation strategies and their performance implications.</h4>
+          <div class="answer">
+            <p><strong>Answer:</strong></p>
+            <ul>
+              <li><strong>Emulated (Default):</strong> Angular adds unique attributes to styles. Good balance of isolation and performance</li>
+              <li><strong>None:</strong> Styles are global. Fastest but risks style collisions in large apps</li>
+              <li><strong>ShadowDom:</strong> Uses native Shadow DOM. Best isolation but limited browser support and potential performance overhead</li>
+              <li><strong>Best Practice:</strong> Use Emulated for most components, None for global utilities, ShadowDom for true isolation needs</li>
+              <li><strong>Performance Tip:</strong> Minimize deep style nesting and use BEM methodology even with encapsulation</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="question-block">
+          <h4>Q4: How do you handle component state management at scale without introducing coupling?</h4>
+          <div class="answer">
+            <p><strong>Answer:</strong></p>
+            <ul>
+              <li><strong>Signals (Angular 16+):</strong> Use signals for fine-grained reactivity with minimal overhead</li>
+              <li><strong>Smart/Dumb Pattern:</strong> Container components manage state, presentational components receive data via inputs</li>
+              <li><strong>State Services:</strong> Create dedicated state services with RxJS BehaviorSubjects</li>
+              <li><strong>Facade Pattern:</strong> Abstract state management behind a facade to decouple components from NgRx/Akita</li>
+              <li><strong>ComponentStore:</strong> Use &#64;ngrx/component-store for local component state that's more complex than signals</li>
+              <li><strong>Immutability:</strong> Always use immutable state updates to leverage OnPush effectively</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="question-block">
+          <h4>Q5: What are the advanced techniques for component testing in enterprise applications?</h4>
+          <div class="answer">
+            <p><strong>Answer:</strong></p>
+            <ul>
+              <li><strong>Shallow vs Deep Testing:</strong> Use NO_ERRORS_SCHEMA for shallow tests to isolate component logic</li>
+              <li><strong>Marble Testing:</strong> Test async operations and Observables using marble diagrams</li>
+              <li><strong>Component Harnesses:</strong> Use Angular CDK component harnesses for stable, API-based testing</li>
+              <li><strong>Mock Services:</strong> Create comprehensive mock services with jasmine.createSpyObj or custom implementations</li>
+              <li><strong>Fixture Detection:</strong> Control change detection manually with fixture.detectChanges() for predictable tests</li>
+              <li><strong>Integration Tests:</strong> Test component interactions using TestBed with real dependencies in critical paths</li>
+              <li><strong>E2E Strategy:</strong> Complement unit tests with Cypress or Playwright for user flow validation</li>
+            </ul>
+          </div>
+        </div>
       </div>
     </ng-template>
   </mat-tab>

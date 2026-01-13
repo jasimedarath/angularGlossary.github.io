@@ -53,4 +53,88 @@
       </div>
     </ng-template>
   </mat-tab>
+  <mat-tab label="Interview Q&A">
+    <ng-template matTabContent>
+      <div class="interview-section">
+        <h3>Expert/Senior/Architect Level Interview Questions</h3>
+        
+        <div class="question-block">
+          <h4>Q1: How would you design a directive composition API for building reusable, composable behavior in a large-scale application?</h4>
+          <div class="answer">
+            <p><strong>Answer:</strong></p>
+            <ul>
+              <li><strong>Directive Composition (Angular 15+):</strong> Use hostDirectives to compose multiple directives without wrapper elements</li>
+              <li><strong>Base Directives:</strong> Create abstract base directive classes for common patterns</li>
+              <li><strong>Mixin Pattern:</strong> Use TypeScript mixins for flexible directive behavior composition</li>
+              <li><strong>Directive Factory:</strong> Build directives dynamically based on configuration</li>
+              <li><strong>Host Bindings:</strong> Leverage &#64;HostBinding and &#64;HostListener for clean DOM interaction</li>
+              <li><strong>Dependency Injection:</strong> Inject parent directives or services for coordinated behavior</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="question-block">
+          <h4>Q2: Explain the differences between structural and attribute directives at the compiler level.</h4>
+          <div class="answer">
+            <p><strong>Answer:</strong></p>
+            <ul>
+              <li><strong>Structural Directives:</strong> Transform DOM structure using &lt;ng-template&gt;. Compiler converts *ngIf to &lt;ng-template [ngIf]&gt;</li>
+              <li><strong>Attribute Directives:</strong> Modify behavior/appearance of existing elements without structural changes</li>
+              <li><strong>ViewContainerRef:</strong> Structural directives inject ViewContainerRef to manipulate templates</li>
+              <li><strong>TemplateRef:</strong> Represents the &lt;ng-template&gt; content for structural directives</li>
+              <li><strong>Microsyntax:</strong> *syntax provides shorthand: *ngFor="let item of items" expands to full template syntax</li>
+              <li><strong>Performance:</strong> Structural directives can affect render performance more than attribute directives</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="question-block">
+          <h4>Q3: How do you implement advanced directive communication patterns?</h4>
+          <div class="answer">
+            <p><strong>Answer:</strong></p>
+            <ul>
+              <li><strong>Parent-Child Injection:</strong> Child directives inject parent using &#64;Optional and &#64;Host decorators</li>
+              <li><strong>ContentChildren:</strong> Parent directive queries child directives using &#64;ContentChildren</li>
+              <li><strong>ViewChildren:</strong> Access directives in the component's view with &#64;ViewChildren</li>
+              <li><strong>Event Emitters:</strong> Use &#64;Output with EventEmitter for directive-to-parent communication</li>
+              <li><strong>Service-based:</strong> Share state between directives via injected services</li>
+              <li><strong>Custom Events:</strong> Dispatch native custom events for cross-directive communication</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="question-block">
+          <h4>Q4: What are the best practices for directive performance optimization?</h4>
+          <div class="answer">
+            <p><strong>Answer:</strong></p>
+            <ul>
+              <li><strong>Detached Change Detection:</strong> Use ChangeDetectorRef to control when directive triggers updates</li>
+              <li><strong>OnPush Compatible:</strong> Design directives to work with OnPush change detection strategy</li>
+              <li><strong>Minimal DOM Manipulation:</strong> Batch DOM operations and use Renderer2 for platform-agnostic access</li>
+              <li><strong>Lazy Initialization:</strong> Defer heavy operations until actually needed</li>
+              <li><strong>Memory Cleanup:</strong> Properly unsubscribe from observables and remove event listeners in ngOnDestroy</li>
+              <li><strong>Pure Functions:</strong> Use pure functions in directive logic to enable memoization</li>
+              <li><strong>Zone Optimization:</strong> Run computationally expensive code outside Angular zone</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="question-block">
+          <h4>Q5: How would you create a directive-based permission system for enterprise applications?</h4>
+          <div class="answer">
+            <p><strong>Answer:</strong></p>
+            <ul>
+              <li><strong>Permission Directive:</strong> Create *appHasPermission structural directive to show/hide elements</li>
+              <li><strong>Disable Directive:</strong> Create attribute directive to disable elements based on permissions</li>
+              <li><strong>Permission Service:</strong> Centralized service managing user roles and feature flags</li>
+              <li><strong>Dynamic Loading:</strong> Lazy load components based on permissions using directive</li>
+              <li><strong>Template Context:</strong> Provide permission data to template via directive context</li>
+              <li><strong>Multi-condition:</strong> Support complex permission logic (AND, OR, NOT operations)</li>
+              <li><strong>Caching:</strong> Cache permission checks to avoid redundant evaluations</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+  </mat-tab>
 </mat-tab-group>

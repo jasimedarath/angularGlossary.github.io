@@ -193,8 +193,8 @@ name = model&lt;string&gt;('');</code></pre>
 // 2. Allow local edits
 // 3. Reset back to original
 
-editableValue = linkedSignal(() => this.originalValue());
-hasChanges = computed(() => 
+editableValue = linkedSignal(() =&gt; this.originalValue());
+hasChanges = computed(() =&gt; 
   this.editableValue() !== this.originalValue()
 );</code></pre>
         </div>
@@ -288,6 +288,111 @@ hasChanges = computed(() =>
             <li>Works towards zoneless Angular applications</li>
             <li>Fine-grained updates mean less work for Angular</li>
           </ul>
+        </div>
+      </div>
+    </ng-template>
+  </mat-tab>
+  <mat-tab label="Interview Q&A">
+    <ng-template matTabContent>
+      <div class="interview-section">
+        <h3>Expert/Senior/Architect Level Interview Questions</h3>
+        
+        <div class="question-block">
+          <h4>Q1: How do Signals compare to RxJS in terms of architecture and when should you use each?</h4>
+          <div class="answer">
+            <p><strong>Answer:</strong></p>
+            <ul>
+              <li><strong>Signals:</strong> Synchronous, pull-based, fine-grained reactivity. Best for component state and derived values</li>
+              <li><strong>RxJS:</strong> Asynchronous, push-based, stream-oriented. Best for async operations, events, HTTP requests</li>
+              <li><strong>Performance:</strong> Signals have minimal overhead and enable zoneless apps; RxJS has higher memory footprint</li>
+              <li><strong>Composition:</strong> Use toSignal() and toObservable() at boundaries for interoperability</li>
+              <li><strong>Architecture:</strong> Signals for UI state, RxJS for business logic and data layer</li>
+              <li><strong>Migration:</strong> Gradually migrate from RxJS to signals for synchronous state</li>
+              <li><strong>Debugging:</strong> Signals have simpler dependency graphs; RxJS requires marble diagrams</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="question-block">
+          <h4>Q2: Explain the internal mechanics of how Signals achieve fine-grained reactivity.</h4>
+          <div class="answer">
+            <p><strong>Answer:</strong></p>
+            <ul>
+              <li><strong>Dependency Tracking:</strong> Signals track which computed/effects read them during execution</li>
+              <li><strong>Notification Graph:</strong> Creates a directed acyclic graph (DAG) of dependencies</li>
+              <li><strong>Change Detection:</strong> Only notifies dependent consumers when signal value actually changes</li>
+              <li><strong>Lazy Evaluation:</strong> Computed signals don't recalculate until read and dependencies changed</li>
+              <li><strong>Glitch-free:</strong> Ensures computed signals update atomically, avoiding intermediate states</li>
+              <li><strong>Memory Efficiency:</strong> No subscription objects needed, automatic cleanup</li>
+              <li><strong>Compiler Integration:</strong> Angular compiler can optimize signal usage at build time</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="question-block">
+          <h4>Q3: How would you architect a complex state management solution using only Signals?</h4>
+          <div class="answer">
+            <p><strong>Answer:</strong></p>
+            <ul>
+              <li><strong>Signal Store Pattern:</strong> Create injectable store services with private writable signals, expose readonly</li>
+              <li><strong>Selectors:</strong> Use computed signals as memoized selectors for derived state</li>
+              <li><strong>Actions:</strong> Methods that update signals with immutable updates</li>
+              <li><strong>Entity Management:</strong> Use Map/Set with signals for normalized entity state</li>
+              <li><strong>Async Loading:</strong> Combine with toSignal() for loading states from HTTP</li>
+              <li><strong>Undo/Redo:</strong> Maintain history of signal states for time-travel debugging</li>
+              <li><strong>Devtools:</strong> Integrate with Angular DevTools for signal inspection</li>
+            </ul>
+            <pre><code>export class UserStore &#123;
+  private _users = signal&lt;User[]&gt;([]);
+  users = this._users.asReadonly();
+  
+  activeUser = signal&lt;string | null&gt;(null);
+  selectedUser = computed(() =&gt; 
+    this._users().find(u =&gt; u.id === this.activeUser())
+  );
+  
+  addUser(user: User) &#123;
+    this._users.update(users =&gt; [...users, user]);
+  &#125;
+&#125;</code></pre>
+          </div>
+        </div>
+
+        <div class="question-block">
+          <h4>Q4: What are the challenges and solutions for using Signals in SSR and hydration?</h4>
+          <div class="answer">
+            <p><strong>Answer:</strong></p>
+            <ul>
+              <li><strong>Hydration Mismatch:</strong> Ensure signal values match between server and client</li>
+              <li><strong>Effect Execution:</strong> Effects run differently in SSR - handle with runInInjectionContext</li>
+              <li><strong>Transfer State:</strong> Use TransferState to pass signal values from server to client</li>
+              <li><strong>Cleanup:</strong> Properly destroy effects in SSR to prevent memory leaks</li>
+              <li><strong>Conditional Effects:</strong> Check isPlatformBrowser() before effects with browser-only APIs</li>
+              <li><strong>Initial Values:</strong> Design signals with SSR-safe initial values</li>
+              <li><strong>Progressive Enhancement:</strong> Use signals to enhance server-rendered content</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="question-block">
+          <h4>Q5: How do you handle computed signal optimization and prevent unnecessary recalculations?</h4>
+          <div class="answer">
+            <p><strong>Answer:</strong></p>
+            <ul>
+              <li><strong>Memoization:</strong> Computed signals automatically memoize results based on dependencies</li>
+              <li><strong>Equality Checks:</strong> Use equal option for custom equality comparison</li>
+              <li><strong>Granular Signals:</strong> Break complex state into smaller signals for precise updates</li>
+              <li><strong>Structural Sharing:</strong> Maintain object references when possible in updates</li>
+              <li><strong>Avoid Deep Computations:</strong> Keep computed functions cheap; expensive operations should be async</li>
+              <li><strong>Profiling:</strong> Use Angular DevTools to identify hot computed signals</li>
+              <li><strong>Batching:</strong> Group signal updates to minimize computed recalculations</li>
+            </ul>
+            <pre><code>// Optimize with custom equality
+const expensiveComputed = computed(
+  () =&gt; complexCalculation(data()),
+  &#123; equal: (a, b) =&gt; a.id === b.id &#125;
+);</code></pre>
+          </div>
         </div>
       </div>
     </ng-template>
