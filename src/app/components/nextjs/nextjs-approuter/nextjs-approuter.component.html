@@ -162,5 +162,96 @@
       </div>
     </ng-template>
   </mat-tab>
+  <mat-tab label="Interview Q&A">
+    <ng-template matTabContent>
+      <div class="tab-content">
+        <div class="interview-section nextjs-container">
+          <h3>Expert/Senior/Architect Level Interview Questions</h3>
+          
+          <div class="question-block">
+            <h4>Q1: Explain the architecture of the App Router and how it leverages React Server Components.</h4>
+            <div class="answer">
+              <p><strong>Answer:</strong></p>
+              <ul>
+                <li><strong>Server Components:</strong> Default components that run on server, reduce client JS, direct database access</li>
+                <li><strong>Client Components:</strong> Use 'use client' directive for interactivity, hooks, browser APIs</li>
+                <li><strong>Component Boundary:</strong> Server components can import client components but not vice versa</li>
+                <li><strong>Serialization:</strong> Props passed from server to client must be serializable</li>
+                <li><strong>Streaming:</strong> Progressive rendering with Suspense boundaries for better UX</li>
+                <li><strong>Automatic Code Splitting:</strong> Each route segment is a split point</li>
+                <li><strong>Parallel Data Fetching:</strong> Fetch data in multiple components simultaneously</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="question-block">
+            <h4>Q2: How would you design a complex layout hierarchy with shared and nested layouts?</h4>
+            <div class="answer">
+              <p><strong>Answer:</strong></p>
+              <ul>
+                <li><strong>Root Layout:</strong> Single required layout at app/layout.tsx with html and body tags</li>
+                <li><strong>Nested Layouts:</strong> Create layouts at any route level for segment-specific UI</li>
+                <li><strong>Route Groups:</strong> Use (group) syntax to organize routes without affecting URL</li>
+                <li><strong>Multiple Root Layouts:</strong> Use route groups to have different root layouts for different sections</li>
+                <li><strong>Layout Composition:</strong> Layouts compose from root down, preserving state</li>
+                <li><strong>Data Fetching:</strong> Fetch layout-level data once, share with nested routes</li>
+                <li><strong>Templates vs Layouts:</strong> Use templates when you need fresh instances on navigation</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="question-block">
+            <h4>Q3: What are the advanced routing patterns (parallel routes, intercepting routes) and their use cases?</h4>
+            <div class="answer">
+              <p><strong>Answer:</strong></p>
+              <ul>
+                <li><strong>Parallel Routes:</strong> Render multiple pages in same layout using &#64;slot syntax</li>
+                <li><strong>Use Case - Dashboards:</strong> Display analytics, notifications, and main content independently</li>
+                <li><strong>Conditional Rendering:</strong> Use default.tsx for fallback when slot doesn't match</li>
+                <li><strong>Intercepting Routes:</strong> (.), (..), (...) prefixes to intercept and show modals</li>
+                <li><strong>Use Case - Galleries:</strong> Show image in modal on soft navigation, full page on hard navigation</li>
+                <li><strong>URL Preservation:</strong> Modal shown at /photo/123 but can share URL</li>
+                <li><strong>Complex Patterns:</strong> Combine parallel + intercepting for advanced UX patterns</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="question-block">
+            <h4>Q4: How do you handle error boundaries and loading states effectively in App Router?</h4>
+            <div class="answer">
+              <p><strong>Answer:</strong></p>
+              <ul>
+                <li><strong>error.tsx:</strong> Automatic error boundary for route segment, must be Client Component</li>
+                <li><strong>Granular Errors:</strong> Place error boundaries at different levels for isolated error handling</li>
+                <li><strong>Reset Function:</strong> Use reset() callback to retry failed operations</li>
+                <li><strong>global-error.tsx:</strong> Catch errors in root layout, includes html and body tags</li>
+                <li><strong>not-found.tsx:</strong> Custom 404 pages per route segment</li>
+                <li><strong>loading.tsx:</strong> Instant loading UI with automatic Suspense wrapping</li>
+                <li><strong>Streaming:</strong> Use Suspense manually for more granular loading states</li>
+                <li><strong>Error Reporting:</strong> Integrate with Sentry or similar in error boundaries</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="question-block">
+            <h4>Q5: What are the performance optimization strategies specific to App Router?</h4>
+            <div class="answer">
+              <p><strong>Answer:</strong></p>
+              <ul>
+                <li><strong>Server Components:</strong> Keep most components as server components to reduce client JS</li>
+                <li><strong>Streaming:</strong> Stream content progressively with Suspense for faster TTFB</li>
+                <li><strong>Prefetching:</strong> App Router automatically prefetches visible links</li>
+                <li><strong>Route Segments:</strong> Each segment caches independently, improving cache hit rate</li>
+                <li><strong>Parallel Data Fetching:</strong> Fetch data in parallel in multiple components</li>
+                <li><strong>Static Generation:</strong> Use generateStaticParams for dynamic routes</li>
+                <li><strong>Partial Prerendering:</strong> Next.js 14+ feature for mixing static and dynamic content</li>
+                <li><strong>React Cache:</strong> Use React cache() function for request-level memoization</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+  </mat-tab>
   </mat-tab-group>
 </div>

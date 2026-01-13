@@ -182,5 +182,98 @@
       </div>
     </ng-template>
   </mat-tab>
+  <mat-tab label="Interview Q&A">
+    <ng-template matTabContent>
+      <div class="tab-content">
+        <div class="interview-section nextjs-container">
+          <h3>Expert/Senior/Architect Level Interview Questions</h3>
+          
+          <div class="question-block">
+            <h4>Q1: How would you architect a Next.js application for a high-traffic e-commerce platform?</h4>
+            <div class="answer">
+              <p><strong>Answer:</strong></p>
+              <ul>
+                <li><strong>Rendering Strategy:</strong> SSG for product pages, ISR for inventory updates, SSR for personalized content</li>
+                <li><strong>CDN Setup:</strong> Deploy on Vercel Edge Network or CloudFront for global distribution</li>
+                <li><strong>Caching Layers:</strong> Implement multi-level caching (CDN, Redis, React Cache)</li>
+                <li><strong>Code Splitting:</strong> Use dynamic imports and route-based splitting for optimal bundle sizes</li>
+                <li><strong>Image Optimization:</strong> Leverage Next.js Image component with proper sizing and formats</li>
+                <li><strong>API Routes:</strong> Backend-for-frontend pattern with API routes for data aggregation</li>
+                <li><strong>Database:</strong> Connection pooling, read replicas, and proper indexing strategies</li>
+                <li><strong>Monitoring:</strong> Implement APM tools, Web Vitals tracking, and error monitoring</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="question-block">
+            <h4>Q2: Explain the differences between Pages Router and App Router and migration strategies.</h4>
+            <div class="answer">
+              <p><strong>Answer:</strong></p>
+              <ul>
+                <li><strong>Pages Router (Legacy):</strong> File-based routing in pages/, uses getServerSideProps/getStaticProps</li>
+                <li><strong>App Router (Modern):</strong> React Server Components, nested layouts, streaming, server actions</li>
+                <li><strong>Migration Strategy:</strong> Incremental adoption - both routers can coexist during migration</li>
+                <li><strong>Key Changes:</strong> Async components, fetch in components, layout system, new metadata API</li>
+                <li><strong>Benefits:</strong> Better performance, improved DX, React 18 features, reduced client JS</li>
+                <li><strong>Trade-offs:</strong> Learning curve, some ecosystem libraries need updates</li>
+                <li><strong>Timeline:</strong> Migrate non-critical pages first, test thoroughly, update dependencies</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="question-block">
+            <h4>Q3: How do you optimize Next.js build times and bundle sizes in large applications?</h4>
+            <div class="answer">
+              <p><strong>Answer:</strong></p>
+              <ul>
+                <li><strong>Module Analysis:</strong> Use &#64;next/bundle-analyzer to identify large dependencies</li>
+                <li><strong>Dynamic Imports:</strong> Lazy load heavy components and libraries</li>
+                <li><strong>Tree Shaking:</strong> Import only what you need from libraries</li>
+                <li><strong>SWC Compiler:</strong> Next.js 12+ uses Rust-based SWC for faster builds</li>
+                <li><strong>Parallel Builds:</strong> Increase worker threads in next.config.js</li>
+                <li><strong>External Dependencies:</strong> Mark large dependencies as external when appropriate</li>
+                <li><strong>Image Optimization:</strong> Use proper image formats (WebP, AVIF) and lazy loading</li>
+                <li><strong>Code Splitting:</strong> Leverage automatic code splitting and shared chunks</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="question-block">
+            <h4>Q4: What are the security best practices for Next.js applications?</h4>
+            <div class="answer">
+              <p><strong>Answer:</strong></p>
+              <ul>
+                <li><strong>Environment Variables:</strong> Use NEXT_PUBLIC_ prefix carefully, keep secrets server-side</li>
+                <li><strong>API Routes:</strong> Implement authentication, rate limiting, input validation</li>
+                <li><strong>CSRF Protection:</strong> Use tokens for mutations, validate origin headers</li>
+                <li><strong>Content Security Policy:</strong> Configure CSP headers in next.config.js</li>
+                <li><strong>HTTPS Only:</strong> Force HTTPS in production, use HSTS headers</li>
+                <li><strong>Dependency Scanning:</strong> Regular npm audit, use Snyk or Dependabot</li>
+                <li><strong>XSS Prevention:</strong> Sanitize user input, use dangerouslySetInnerHTML carefully</li>
+                <li><strong>Authentication:</strong> Implement with NextAuth.js or similar secure patterns</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="question-block">
+            <h4>Q5: How would you implement internationalization (i18n) at scale in Next.js?</h4>
+            <div class="answer">
+              <p><strong>Answer:</strong></p>
+              <ul>
+                <li><strong>Built-in i18n:</strong> Use Next.js internationalized routing with locale detection</li>
+                <li><strong>Translation Library:</strong> Integrate next-i18next or next-intl for content management</li>
+                <li><strong>URL Strategy:</strong> Choose between sub-path (/en/about), domain (en.site.com), or accept-language</li>
+                <li><strong>Static Generation:</strong> Generate static pages for each locale at build time</li>
+                <li><strong>Dynamic Content:</strong> Use ISR for frequently updated translated content</li>
+                <li><strong>RTL Support:</strong> Implement proper RTL CSS and directional layouts</li>
+                <li><strong>Translation Management:</strong> Use Crowdin, Lokalise, or similar for translation workflows</li>
+                <li><strong>SEO:</strong> Proper hreflang tags, locale-specific sitemaps, meta tags per language</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+  </mat-tab>
   </mat-tab-group>
 </div>
