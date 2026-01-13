@@ -94,12 +94,21 @@ main {
   position:relative;
 }
 
+.sub-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+}
+
 .angular-logo {
-  max-width: 10.2rem;
+  max-width: 100%;
+  width: auto;
 }
 
 .react-logo {
-  max-width: 10.2rem;
+  max-width: 100%;
+  width: auto;
   display: flex;
   align-items: center;
   gap: 10px;
@@ -128,7 +137,8 @@ main {
 }
 
 .nextjs-logo {
-  max-width: 10.2rem;
+  max-width: 100%;
+  width: auto;
   display: flex;
   align-items: center;
   gap: 10px;
@@ -146,9 +156,116 @@ main {
   }
 }
 
+.nodejs-logo {
+  max-width: 100%;
+  width: auto;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  .nodejs-icon {
+    width: 120px;
+    height: 50px;
+  }
+
+  .framework-title {
+    color: #339933;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 0;
+  }
+}
+
+.expressjs-logo {
+  max-width: 100%;
+  width: auto;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  .expressjs-icon {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+  }
+
+  .framework-title {
+    color: #000000;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 0;
+  }
+}
+
+.mongodb-logo {
+  max-width: 100%;
+  width: auto;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  .mongodb-icon {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+  }
+
+  .framework-title {
+    color: #47A248;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 0;
+  }
+}
+
+.typescript-logo {
+  max-width: 100%;
+  width: auto;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  .typescript-icon {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+  }
+
+  .framework-title {
+    color: #3178c6;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 0;
+  }
+}
+
+.javascript-logo {
+  max-width: 100%;
+  width: auto;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  .javascript-icon {
+    width: 50px;
+    height: 50px;
+  }
+
+  .framework-title {
+    color: #F7DF1E;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 0;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+  }
+}
+
 .content-left {
   max-width: 100%;
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .content-right {
@@ -157,7 +274,7 @@ main {
 
 .content {
   display: flex;
-  justify-content: space-around;
+  justify-content: flex-start;
   width: 100%;
   margin-bottom: 3rem;
 }

@@ -43,6 +43,31 @@ export class AppComponent implements OnInit {
     return this.router.url.startsWith('/nextjs');
   }
 
+  // Check if current route is Node.js
+  isNodeJsRoute(): boolean {
+    return this.router.url.startsWith('/nodejs');
+  }
+
+  // Check if current route is Express.js
+  isExpressJsRoute(): boolean {
+    return this.router.url.startsWith('/expressjs');
+  }
+
+  // Check if current route is MongoDB
+  isMongoDbRoute(): boolean {
+    return this.router.url.startsWith('/mongodb');
+  }
+
+  // Check if current route is TypeScript
+  isTypeScriptRoute(): boolean {
+    return this.router.url.startsWith('/typescript');
+  }
+
+  // Check if current route is JavaScript
+  isJavaScriptRoute(): boolean {
+    return this.router.url.startsWith('/javascript');
+  }
+
   // Get page title based on route
   getPageTitle(): string {
     if (this.isAngularRoute()) {
@@ -156,6 +181,36 @@ export class AppComponent implements OnInit {
     { title: 'Deployment', link: '/nextjs/deployment', category: 'Advanced', framework: 'nextjs' },
   ];
 
+  nodejsModules = [
+    { title: 'Getting Started', link: '/nodejs/gettingstarted', category: 'Getting Started', framework: 'nodejs' },
+    { title: 'Modules', link: '/nodejs/modules', category: 'Core', framework: 'nodejs' },
+  ];
+
+  expressjsModules = [
+    { title: 'Getting Started', link: '/expressjs/gettingstarted', category: 'Getting Started', framework: 'expressjs' },
+    { title: 'Routing', link: '/expressjs/routing', category: 'Core', framework: 'expressjs' },
+    { title: 'Middleware', link: '/expressjs/middleware', category: 'Core', framework: 'expressjs' },
+    { title: 'REST API', link: '/expressjs/restapi', category: 'Advanced', framework: 'expressjs' },
+  ];
+
+  mongodbModules = [
+    { title: 'Getting Started', link: '/mongodb/gettingstarted', category: 'Getting Started', framework: 'mongodb' },
+    { title: 'CRUD Operations', link: '/mongodb/crud', category: 'Core', framework: 'mongodb' },
+    { title: 'Mongoose ODM', link: '/mongodb/mongoose', category: 'Advanced', framework: 'mongodb' },
+  ];
+
+  typescriptModules = [
+    { title: 'Getting Started', link: '/typescript/gettingstarted', category: 'Getting Started', framework: 'typescript' },
+    { title: 'Types', link: '/typescript/types', category: 'Core', framework: 'typescript' },
+    { title: 'Advanced', link: '/typescript/advanced', category: 'Advanced', framework: 'typescript' },
+  ];
+
+  javascriptModules = [
+    { title: 'Basics', link: '/javascript/basics', category: 'Getting Started', framework: 'javascript' },
+    { title: 'ES6+', link: '/javascript/es6', category: 'Core', framework: 'javascript' },
+    { title: 'Async', link: '/javascript/async', category: 'Advanced', framework: 'javascript' },
+  ];
+
   displayHeader = () => this.hideHeader = !this.hideHeader;
 
   // Get current modules based on route
@@ -163,6 +218,11 @@ export class AppComponent implements OnInit {
     if (this.isAngularRoute()) return this.angularModules;
     if (this.isReactRoute()) return this.reactModules;
     if (this.isNextJsRoute()) return this.nextjsModules;
+    if (this.isNodeJsRoute()) return this.nodejsModules;
+    if (this.isExpressJsRoute()) return this.expressjsModules;
+    if (this.isMongoDbRoute()) return this.mongodbModules;
+    if (this.isTypeScriptRoute()) return this.typescriptModules;
+    if (this.isJavaScriptRoute()) return this.javascriptModules;
     return this.angularModules; // Default fallback
   }
 

@@ -57,6 +57,26 @@ import { NextjsOptimizationComponent } from './components/nextjs/nextjs-optimiza
 import { NextjsDeploymentComponent } from './components/nextjs/nextjs-deployment/nextjs-deployment.component';
 import { NextjsAuthenticationComponent } from './components/nextjs/nextjs-authentication/nextjs-authentication.component';
 import { NextjsDatabaseComponent } from './components/nextjs/nextjs-database/nextjs-database.component';
+// Node.js components
+import { NodejsGettingstartedComponent } from './components/nodejs/nodejs-gettingstarted/nodejs-gettingstarted.component';
+import { NodejsModulesComponent } from './components/nodejs/nodejs-modules/nodejs-modules.component';
+// Express.js components
+import { ExpressjsGettingstartedComponent } from './components/expressjs/expressjs-gettingstarted/expressjs-gettingstarted.component';
+import { ExpressjsRoutingComponent } from './components/expressjs/expressjs-routing/expressjs-routing.component';
+import { ExpressjsMiddlewareComponent } from './components/expressjs/expressjs-middleware/expressjs-middleware.component';
+import { ExpressjsRestapiComponent } from './components/expressjs/expressjs-restapi/expressjs-restapi.component';
+// MongoDB components
+import { MongodbGettingstartedComponent } from './components/mongodb/mongodb-gettingstarted/mongodb-gettingstarted.component';
+import { MongodbCrudComponent } from './components/mongodb/mongodb-crud/mongodb-crud.component';
+import { MongodbMongooseComponent } from './components/mongodb/mongodb-mongoose/mongodb-mongoose.component';
+// TypeScript components
+import { TypescriptGettingstartedComponent } from './components/typescript/typescript-gettingstarted/typescript-gettingstarted.component';
+import { TypescriptTypesComponent } from './components/typescript/typescript-types/typescript-types.component';
+import { TypescriptAdvancedComponent } from './components/typescript/typescript-advanced/typescript-advanced.component';
+// JavaScript components
+import { JavascriptBasicsComponent } from './components/javascript/javascript-basics/javascript-basics.component';
+import { JavascriptEs6Component } from './components/javascript/javascript-es6/javascript-es6.component';
+import { JavascriptAsyncComponent } from './components/javascript/javascript-async/javascript-async.component';
 
 export const routes: Routes = [
     { path: '', component: HomeComponent },
@@ -122,5 +142,35 @@ export const routes: Routes = [
     { path: 'nextjs/deployment', component: NextjsDeploymentComponent },
     { path: 'nextjs/authentication', component: NextjsAuthenticationComponent },
     { path: 'nextjs/database', component: NextjsDatabaseComponent },
-    { path: 'nextjs', redirectTo: 'nextjs/gettingstarted', pathMatch: 'full' }
+    { path: 'nextjs', redirectTo: 'nextjs/gettingstarted', pathMatch: 'full' },
+    
+    // Node.js routes
+    { path: 'nodejs/gettingstarted', component: NodejsGettingstartedComponent },
+    { path: 'nodejs/modules', component: NodejsModulesComponent },
+    { path: 'nodejs', redirectTo: 'nodejs/gettingstarted', pathMatch: 'full' },
+    
+    // Express.js routes
+    { path: 'expressjs/gettingstarted', component: ExpressjsGettingstartedComponent },
+    { path: 'expressjs/routing', component: ExpressjsRoutingComponent },
+    { path: 'expressjs/middleware', component: ExpressjsMiddlewareComponent },
+    { path: 'expressjs/restapi', component: ExpressjsRestapiComponent },
+    { path: 'expressjs', redirectTo: 'expressjs/gettingstarted', pathMatch: 'full' },
+    
+    // MongoDB routes
+    { path: 'mongodb/gettingstarted', component: MongodbGettingstartedComponent },
+    { path: 'mongodb/crud', component: MongodbCrudComponent },
+    { path: 'mongodb/mongoose', component: MongodbMongooseComponent },
+    { path: 'mongodb', redirectTo: 'mongodb/gettingstarted', pathMatch: 'full' },
+    
+    // TypeScript routes
+    { path: 'typescript/gettingstarted', component: TypescriptGettingstartedComponent },
+    { path: 'typescript/types', component: TypescriptTypesComponent },
+    { path: 'typescript/advanced', component: TypescriptAdvancedComponent },
+    { path: 'typescript', redirectTo: 'typescript/gettingstarted', pathMatch: 'full' },
+    
+    // JavaScript routes
+    { path: 'javascript/basics', component: JavascriptBasicsComponent },
+    { path: 'javascript/es6', component: JavascriptEs6Component },
+    { path: 'javascript/async', component: JavascriptAsyncComponent },
+    { path: 'javascript', redirectTo: 'javascript/basics', pathMatch: 'full' }
 ];
